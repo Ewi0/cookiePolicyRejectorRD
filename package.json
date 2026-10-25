@@ -1,6 +1,6 @@
 {
   "name": "cookie-policy-rejector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "type": "module",
   "description": "Refuses (or approves) every cookie banner before you see it. Chrome, Edge, Brave, Arc, Firefox, Safari on macOS and iOS, Firefox for Android.",

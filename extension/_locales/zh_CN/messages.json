@@ -2,6 +2,9 @@
   "lang": {
     "message": "zh-CN"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "在你看到之前拒绝每一个 Cookie 横幅。也可以全部同意。无论哪种方式，你都不会再看到它们。"
   },

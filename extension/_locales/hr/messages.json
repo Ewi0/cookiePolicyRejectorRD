@@ -2,6 +2,9 @@
   "lang": {
     "message": "hr"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Odbija svaki banner za kolačiće prije nego što ga vidite. Ili ih sve prihvaća. U svakom slučaju, više nijedan nećete vidjeti."
   },

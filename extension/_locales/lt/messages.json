@@ -2,6 +2,9 @@
   "lang": {
     "message": "lt"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Atmeta kiekvieną pranešimą apie slapukus, kol jo nepamatėte. Arba priima visus. Bet kuriuo atveju nė vieno daugiau nematysite."
   },

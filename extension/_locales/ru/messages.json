@@ -2,6 +2,9 @@
   "lang": {
     "message": "ru"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Отклоняет каждый баннер cookie ещё до того, как вы его увидите. Или принимает все. Так или иначе, вы больше их не увидите."
   },

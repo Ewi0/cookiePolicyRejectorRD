@@ -2,6 +2,9 @@
   "lang": {
     "message": "et"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Keeldub igast küpsiste bännerist enne, kui sa seda näed. Või nõustub kõigiga. Igal juhul ei näe sa enam ühtegi."
   },

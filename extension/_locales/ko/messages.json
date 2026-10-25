@@ -2,6 +2,9 @@
   "lang": {
     "message": "ko"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "쿠키 배너가 보이기 전에 모두 거부합니다. 또는 모두 수락합니다. 어느 쪽이든 다시는 배너를 볼 일이 없습니다."
   },

@@ -2,6 +2,9 @@
   "lang": {
     "message": "pt-BR"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Recusa todo banner de cookies antes que você o veja. Ou aceita todos. De qualquer forma, você nunca mais verá nenhum."
   },

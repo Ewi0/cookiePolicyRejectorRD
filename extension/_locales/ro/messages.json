@@ -2,6 +2,9 @@
   "lang": {
     "message": "ro"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Refuză orice banner de cookie-uri înainte să-l vezi. Sau le acceptă pe toate. Oricum ar fi, nu mai vezi niciunul."
   },

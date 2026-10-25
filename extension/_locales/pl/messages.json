@@ -2,6 +2,9 @@
   "lang": {
     "message": "pl"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Odrzuca każdy baner cookie, zanim go zobaczysz. Albo akceptuje wszystkie. Tak czy inaczej, nie zobaczysz już żadnego."
   },

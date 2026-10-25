@@ -13,7 +13,7 @@ const DYNAMIC = ['Reject', 'Accept', 'Paused', 'NoAccess', 'Reload'].flatMap((s)
   .concat(['statusArmed', 'statusPaused', 'statusIdle', 'statusNoAccess', 'statusReload'])
   .concat(['verbReject', 'verbAccept', 'verbHide', 'verbOther', 'tallyOther', 'lang']);
 const PLURALS = ['tallyZero', 'tallyOne', 'tallyTwo', 'tallyFew', 'tallyMany'];
-const OPTIONAL = new Set(['extName', ...PLURALS]); // a brand name, and plural forms a language may not need
+const OPTIONAL = new Set(PLURALS); // plural forms a language may not need
 
 function usedKeys() {
   const popupJs = readFileSync(new URL('../../extension/popup/popup.js', import.meta.url), 'utf8');
@@ -60,6 +60,15 @@ test('the counter has one {n} in every plural form', () => {
     for (const key of ['tallyOther', ...PLURALS].filter((k) => messages[k])) {
       assert.equal(messages[key].message.split('{n}').length, 2, `${code}.${key}`);
     }
+  }
+});
+
+test('every locale has the manifest name and description (the Chrome Web Store rejects the upload otherwise)', () => {
+  const manifest = readFileSync(new URL('../../extension/manifest.json', import.meta.url), 'utf8');
+  const keys = [...new Set([...manifest.matchAll(/__MSG_(\w+)__/g)].map((m) => m[1]))];
+  assert.ok(keys.includes('extName') && keys.includes('extDescription'), `manifest uses ${keys}`);
+  for (const [code, messages] of Object.entries(LOCALES)) {
+    for (const key of keys) assert.ok(messages[key]?.message, `${code} is missing ${key}`);
   }
 });
 

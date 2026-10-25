@@ -2,6 +2,9 @@
   "lang": {
     "message": "cs"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Odmítne každý cookie banner dřív, než ho uvidíte. Nebo je všechny přijme. Tak či tak už žádný neuvidíte."
   },

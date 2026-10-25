@@ -2,6 +2,9 @@
   "lang": {
     "message": "bg"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Отказва всеки банер за бисквитки, преди да го видите. Или приема всички. Така или иначе, повече няма да видите нито един."
   },

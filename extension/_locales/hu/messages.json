@@ -2,6 +2,9 @@
   "lang": {
     "message": "hu"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Minden sütibannert elutasít, mielőtt meglátnád. Vagy mindet elfogadja. Így vagy úgy, többé egyet sem látsz."
   },

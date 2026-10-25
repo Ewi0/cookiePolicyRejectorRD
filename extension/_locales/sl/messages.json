@@ -2,6 +2,9 @@
   "lang": {
     "message": "sl"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Zavrne vsako pasico za piškotke, preden jo vidite. Ali pa jih vse sprejme. Tako ali drugače ne boste nobene več videli."
   },

@@ -2,6 +2,9 @@
   "lang": {
     "message": "tr"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Her çerez bildirimini siz görmeden reddeder. Ya da hepsini kabul eder. Her iki durumda da bir daha hiçbirini görmezsiniz."
   },

@@ -2,6 +2,9 @@
   "lang": {
     "message": "fi"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Hylkää jokaisen evästebannerin ennen kuin näet sen. Tai hyväksyy kaikki. Kummin päin tahansa et näe niitä enää."
   },

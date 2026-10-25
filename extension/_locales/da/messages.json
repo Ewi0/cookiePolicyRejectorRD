@@ -2,6 +2,9 @@
   "lang": {
     "message": "da"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Afviser hvert cookiebanner, før du ser det. Eller accepterer dem alle. Uanset hvad ser du aldrig et igen."
   },

@@ -2,6 +2,9 @@
   "lang": {
     "message": "lv"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Noraida katru sīkdatņu paziņojumu, pirms jūs to redzat. Vai pieņem visus. Jebkurā gadījumā jūs vairs neredzēsiet nevienu."
   },

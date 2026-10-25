@@ -2,6 +2,9 @@
   "lang": {
     "message": "ja"
   },
+  "extName": {
+    "message": "Cookie Policy Rejector"
+  },
   "extDescription": {
     "message": "Cookie バナーを表示される前にすべて拒否します。すべて同意することもできます。どちらにしても、もうバナーを目にすることはありません。"
   },
