@@ -100,7 +100,7 @@ test/unit/                  fast tests without a browser: vocabulary, rules, tra
 test/fixtures/              banner look-alikes: OneTrust, Cookiebot, Didomi-style walls, shadow DOM,
                             Sourcepoint iframe, ReactDesk, pay-or-consent, login-modal decoy, a 60,000-node docs page …
 scripts/                    build, icons, prehide, store images, static server, Chrome + Firefox e2e, live smoke test
-store/assets.html           the store images, composed around the real popup
+store/                      the store images (images/), composed around the real popup (assets.html)
 assets/                     app icon and screenshots
 docs/PUBLISHING.md          how to list it in every store
 .github/                    CI on every push, a GitHub release for every version tag, the Sponsor button
@@ -136,7 +136,7 @@ This visits a dozen real sites in refuse mode with a throwaway profile and write
 Other commands:
 
 - `npm run build`: writes `dist/chrome`, `dist/firefox` and the store zips.
-- `npm run store-assets`: renders the store screenshots, promo tiles and icon into `dist/store/`, and refreshes the README images.
+- `npm run store-assets`: renders the store screenshots, promo tiles and icon into `store/images/`, and refreshes the README images.
 - `npm run icons`: regenerates all PNG icons, including the Xcode app icons.
 - `npm run serve`: serves the repo at <http://127.0.0.1:4173/> for the mockups and fixtures.
 

@@ -47,7 +47,7 @@ Start with Firefox Add-ons and the Chrome Web Store. Between them they cover eve
 
 **Category:** Privacy & Security. **Language:** English.
 
-**Images:** run `npm run store-assets`. It renders them from the real popup into `dist/store/`:
+**Images:** they are in [`store/images/`](../store/images/), rendered from the real popup by `npm run store-assets`:
 
 | File | Field | Required |
 | --- | --- | --- |

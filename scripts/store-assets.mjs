@@ -1,13 +1,13 @@
 // Renders the Chrome Web Store images from store/assets.html, around the real popup: screenshots
 // (1280×800), the small promo tile (440×280), the marquee (1400×560), plus the 128 px store icon.
 // Also refreshes the README images in assets/screenshots/ (the popup, and the full mockups board).
-//   node scripts/store-assets.mjs          → dist/store/        CHROME_PATH to override
+//   node scripts/store-assets.mjs          → store/images/      CHROME_PATH to override
 import { copyFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { launch, sleep } from './chrome.mjs';
 import { serve } from './serve.mjs';
 
-const OUT = fileURLToPath(new URL('../dist/store/', import.meta.url));
+const OUT = fileURLToPath(new URL('../store/images/', import.meta.url));
 const SHOTS = new URL('../assets/screenshots/', import.meta.url);
 const PORT = 4176;
 const ASSETS = [
@@ -29,10 +29,10 @@ async function main() {
       await sleep(1500); // the popups load their translations
       writeFileSync(`${OUT}${name}.png`, await page.screenshot());
       await page.close();
-      console.log(`dist/store/${name}.png`);
+      console.log(`store/images/${name}.png`);
     }
     copyFileSync(new URL('../extension/icons/x-128.png', import.meta.url), `${OUT}icon-128.png`);
-    console.log('dist/store/icon-128.png');
+    console.log('store/images/icon-128.png');
 
     const popup = await browser.open(`http://127.0.0.1:${PORT}/extension/popup/popup.html?host=lemonde.fr&cmp=Didomi&total=2481`, { width: 360, height: 560 });
     await sleep(800);
