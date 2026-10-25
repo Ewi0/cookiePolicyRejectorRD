@@ -65,7 +65,7 @@ Start with Firefox Add-ons and the Chrome Web Store. Between them they cover eve
 | Single purpose | Answers cookie consent banners on websites (refuse or accept, as the user chooses) and hides them before they appear. |
 | `storage` | Saves the user's choice of refuse or approve, the sites where they paused the extension, and a count of banners handled. Stored on the device only; nothing is transmitted. |
 | `scripting` | Right after installation, injects the extension's own bundled content script into tabs that were already open, so cookie banners there are handled without a reload. No remote code: only files inside the package. |
-| Host permission (`<all_urls>`) | Cookie banners appear on any website. The content script must run on every page while it loads to find the banner and press its reject or accept button before it is shown. Page content is checked on the device only and is never stored or transmitted. |
+| Host permission (`<all_urls>`) | Cookie banners appear on any website, as the page loads. The content script has to run on every page from the start (document_start) to find the banner and press its reject or accept button before it is drawn. activeTab cannot do this: it only grants access after the user clicks the extension icon on each page, when the banner is already showing. A list of specific sites cannot cover the millions of sites that show cookie banners. Page content is checked on the device only and is never stored or transmitted. |
 | Remote code | No, I am not using remote code. |
 | Data usage | Tick none of the data types, then tick the three certifications. |
 | Privacy policy URL | `https://github.com/Ewi0/cookiePolicyRejectorRD/blob/main/PRIVACY.md` |
@@ -89,6 +89,7 @@ Public, all regions.
 
 | Code | Means | In this project |
 | --- | --- | --- |
+| Upload notice: broad host permissions, "may require an in-depth review" | Not a rejection. Every extension that must run on all sites gets it, and the review just takes longer. | Keep `<all_urls>`: activeTab or a site list would break the extension. The host permission justification above explains why. |
 | Purple Potassium | Permissions not needed | Each permission above is used; quote its justification. |
 | Blue Argon | Remote code | None: everything runs from the package, and the CSP allows only `'self'`. |
 | Yellow Magnesium | Doesn't work as described | Banners depend on region: point the reviewer to the test instructions. |
