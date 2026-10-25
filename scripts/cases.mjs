@@ -1,5 +1,7 @@
 // Fixture expectations shared by the Chrome (e2e.mjs) and Firefox (firefox-e2e.mjs) runners.
 // clicked: controls the page saw pressed, in order. visible: banner still on screen.
+import { readFileSync } from 'node:fs';
+
 export const CASES = [
   { page: 'onetrust.html', reject: ['reject'], accept: ['accept'] },
   { page: 'onetrust.html?second-layer', reject: ['settings', 'reject'], accept: ['accept'] },
@@ -18,6 +20,28 @@ export const CASES = [
 
 // Every answered banner must reach the lifetime tally (both modes, plus the paused run).
 export const TALLY = { reject: 10, accept: 12, hide: 2 };
+
+const RULES = readFileSync(new URL('../extension/content/rules.js', import.meta.url), 'utf8');
+
+/** Evaluated in any page: how many selectors rules.js uses, and which ones this browser cannot parse.
+ *  A selector that does not parse fails silently at runtime, so its rule would never fire. */
+export const SELECTOR_PROBE = `(() => {
+  const g = {};
+  new Function('globalThis', ${JSON.stringify(RULES)})(g);
+  const all = [];
+  for (const r of g.CPR.rules) {
+    all.push(r.detect, r.root, ...(r.hide || []));
+    for (const plan of [...(r.reject || []), ...(r.accept || [])]) {
+      for (const step of typeof plan === 'string' ? [{ click: plan }] : plan) all.push(step.click, step.in, step.uncheck);
+    }
+  }
+  const sels = [...new Set(all.filter(Boolean))];
+  const bad = sels.filter((s) => { try { document.querySelector(s); return false; } catch { return true; } });
+  return JSON.stringify({ total: sels.length, bad });
+})()`;
+
+export const selectorReport = ({ total, bad }) =>
+  `${bad.length ? 'FAIL' : 'pass'}  rules  ${total} selectors parse${bad.length ? `; invalid: ${bad.join(' | ')}` : ''}`;
 
 /** Evaluated in the fixture page: what was pressed, is the banner on screen, is scrolling locked. */
 export const PROBE = `(() => {

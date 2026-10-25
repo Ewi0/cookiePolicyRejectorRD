@@ -195,16 +195,7 @@
     const found = [];
     for (const el of deepAll(CLICKABLE, box)) {
       if (el.disabled || el.getAttribute('aria-disabled') === 'true' || !isShown(el)) continue;
-      const raw = labelOf(el);
-      if (!raw || raw.length > 80) continue;
-      const label = P.norm(raw);
-      let kind = null;
-      if (P.close.test(raw.toLowerCase()) || (label && P.close.test(label))) kind = 'close';
-      else if (!label || label.length > 60 || P.never.test(label)) continue;
-      else if (P.reject.test(label)) kind = 'reject';
-      else if (P.save.test(label)) kind = 'save';
-      else if (P.accept.test(label)) kind = P.weak.test(label) ? 'weak' : 'accept';
-      else if (P.settings.test(label)) kind = 'settings';
+      const kind = P.kindOf(labelOf(el));
       if (!kind || (el.localName === 'a' && !safeAnchor(el))) continue;
       found.push({ el, kind });
     }

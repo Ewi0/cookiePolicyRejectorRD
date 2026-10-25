@@ -120,7 +120,7 @@ var CPR = globalThis.CPR || (globalThis.CPR = {});
 
   const close = /^(?:close|dismiss|close banner|close dialog|x|×|✕|✖|✗|schließen|fermer|cerrar|chiudi|fechar|sluiten|zamknij|stäng|luk|lukk|sulje|zavřít|bezárás|închide|κλείσιμο|kapat|закрыть)$/iu;
 
-  const topic = /cookie|consent|consens|gdpr|rgpd|dsgvo|ccpa|einwilligung|toestemming|samtycke|samtykke|suostumus|souhlas|kakor|eväste|süti|ciasteczk|informasjonskapsl|piškot|sīkdatn|slapuk|küpsis|çerez|kolačić|biscoit|куки|колачић|бисквитк|クッキー|쿠키|ملفات تعريف الارتباط|עוגיות/iu;
+  const topic = /cookie|consent|consens|gdpr|rgpd|dsgvo|ccpa|einwilligung|toestemming|samtycke|samtykke|suostumus|souhlas|kakor|eväste|süti|ciastecz|informasjonskapsl|piškot|sīkdat|slapuk|küpsis|μπισκότ|çerez|kolačić|biscoit|куки|колачић|бисквитк|クッキー|쿠키|ملفات تعريف الارتباط|עוגיות/iu;
 
   // Links that, when the *user* clicks them, mean "show me the consent UI".
   const privacyLink = /cookie|consent|privacy|datenschutz|confidentialité|privacidad|privacy settings/iu;
@@ -132,5 +132,19 @@ var CPR = globalThis.CPR || (globalThis.CPR = {});
     .replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '')
     .trim();
 
-  CPR.patterns = { reject, save, accept, weak, settings, never, close, topic, privacyLink, norm };
+  /** What pressing a control with this label would mean: 'reject', 'save', 'accept', 'weak',
+   *  'settings', 'close', or null (not a consent control, or on the never-press list). */
+  const kindOf = (raw) => {
+    if (!raw || raw.length > 80) return null;
+    const label = norm(raw);
+    if (close.test(raw.toLowerCase()) || (label && close.test(label))) return 'close';
+    if (!label || label.length > 60 || never.test(label)) return null;
+    if (reject.test(label)) return 'reject';
+    if (save.test(label)) return 'save';
+    if (accept.test(label)) return weak.test(label) ? 'weak' : 'accept';
+    if (settings.test(label)) return 'settings';
+    return null;
+  };
+
+  CPR.patterns = { reject, save, accept, weak, settings, never, close, topic, privacyLink, norm, kindOf };
 })();

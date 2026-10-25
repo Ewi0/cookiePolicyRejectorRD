@@ -8,7 +8,7 @@ import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:f
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CASES, PROBE, check } from './cases.mjs';
+import { CASES, PROBE, SELECTOR_PROBE, check, selectorReport } from './cases.mjs';
 import { serve } from './serve.mjs';
 
 const FIREFOX = process.env.FIREFOX_PATH || {
@@ -116,6 +116,11 @@ async function main() {
     const DEFAULT_MODE = "mode: 'reject'";
     await install(EXT);
     console.log(`firefox: ${installed} installed as a temporary add-on\n`);
+    const blank = await open('about:blank');
+    const selectors = JSON.parse(await blank.evaluate(SELECTOR_PROBE));
+    await blank.close();
+    if (selectors.bad.length) failed++;
+    console.log(selectorReport(selectors));
     for (const c of CASES) await run(c, 'reject', c.reject);
     await install(variant(profile, 'accept', DEFAULT_MODE, "mode: 'accept'"));
     for (const c of CASES) await run(c, 'accept', c.accept);

@@ -22,16 +22,16 @@ jobs:
           node-version: 22
 
       - name: Syntax
-        run: for f in extension/*.js extension/*/*.js scripts/*.mjs test/fixtures/*.js; do node --check "$f"; done
+        run: for f in extension/*.js extension/*/*.js scripts/*.mjs test/fixtures/*.js test/unit/*.mjs; do node --check "$f"; done
 
-      - name: prehide.css matches rules.js
-        run: npm run prehide && git diff --exit-code -- extension/content/prehide.css
+      - name: Unit tests
+        run: npm run test:unit
 
       - name: Build store packages
         run: npm run build
 
       - name: Chrome end-to-end
-        run: npm test
+        run: npm run test:chrome
 
       - name: Firefox end-to-end
         run: node scripts/firefox-e2e.mjs

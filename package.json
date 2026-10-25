@@ -11,7 +11,9 @@
     "icons": "node scripts/make-icons.mjs",
     "prehide": "node scripts/gen-prehide.mjs",
     "serve": "node scripts/serve.mjs 4173",
-    "test": "node scripts/e2e.mjs",
+    "test": "npm run test:unit && npm run test:chrome",
+    "test:unit": "node --test test/unit/*.test.mjs",
+    "test:chrome": "node scripts/e2e.mjs",
     "test:firefox": "node scripts/build.mjs && node scripts/firefox-e2e.mjs",
     "test:live": "node scripts/live.mjs"
   },

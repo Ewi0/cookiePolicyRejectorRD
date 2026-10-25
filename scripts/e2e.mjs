@@ -4,7 +4,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CASES, PROBE, TALLY, check } from './cases.mjs';
+import { CASES, PROBE, SELECTOR_PROBE, TALLY, check, selectorReport } from './cases.mjs';
 import { launch, sleep } from './chrome.mjs';
 import { serve } from './serve.mjs';
 
@@ -19,6 +19,12 @@ async function main() {
   let failed = 0;
   try {
     console.log(`chrome: extension loaded (${browser.id})\n`);
+    const blank = await browser.open('about:blank');
+    const selectors = JSON.parse(await blank.eval(SELECTOR_PROBE));
+    await blank.close();
+    if (selectors.bad.length) failed++;
+    console.log(selectorReport(selectors));
+
     const popup = await browser.open(`chrome-extension://${browser.id}/popup/popup.html`);
     await sleep(500);
     const setStore = (obj) => popup.eval(`chrome.storage.local.set(${JSON.stringify(obj)})`);
