@@ -14,7 +14,7 @@ jobs:
     name: Tag matches the version
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - run: |
           for f in extension/manifest.json package.json; do
             v=$(node -p "JSON.parse(require('fs').readFileSync('$f', 'utf8')).version")
@@ -35,8 +35,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/download-artifact@v7
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
         with:
           name: packages
           path: dist
