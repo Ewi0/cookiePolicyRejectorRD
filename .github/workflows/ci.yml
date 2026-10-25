@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test in Chrome and Firefox
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Syntax
+        run: for f in extension/*.js extension/*/*.js scripts/*.mjs test/fixtures/*.js; do node --check "$f"; done
+
+      - name: prehide.css matches rules.js
+        run: npm run prehide && git diff --exit-code -- extension/content/prehide.css
+
+      - name: Build store packages
+        run: npm run build
+
+      - name: Chrome end-to-end
+        run: npm test
+
+      - name: Firefox end-to-end
+        run: node scripts/firefox-e2e.mjs
+
+      - name: Keep store packages
+        uses: actions/upload-artifact@v6
+        with:
+          name: packages
+          path: dist/*.zip
+          if-no-files-found: error
+
+      - name: Keep test output
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: test-output
+          path: test/output/
+          if-no-files-found: ignore

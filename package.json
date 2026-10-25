@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "description": "Refuses (or approves) every cookie banner before you see it. Chrome, Edge, Brave, Arc, Firefox, Safari on macOS and iOS, Firefox for Android.",
+  "license": "MIT",
+  "repository": "github:Ewi0/cookiePolicyRejectorRD",
   "scripts": {
     "build": "node scripts/build.mjs",
     "icons": "node scripts/make-icons.mjs",

@@ -5,7 +5,10 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const CHROME = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const CHROME = process.env.CHROME_PATH || {
+  darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+  win32: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+}[process.platform] || 'google-chrome';
 export const EXT = fileURLToPath(new URL('../extension', import.meta.url));
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -44,7 +47,9 @@ export async function launch() {
   const proc = spawn(CHROME, [
     '--headless', '--remote-debugging-pipe', '--enable-unsafe-extension-debugging',
     `--user-data-dir=${profile}`, '--no-first-run', '--no-default-browser-check',
-    '--disable-search-engine-choice-screen', '--window-size=1280,900', 'about:blank',
+    '--disable-search-engine-choice-screen', '--window-size=1280,900',
+    ...(process.getuid?.() === 0 ? ['--no-sandbox'] : []), // Chrome will not start as root otherwise (containers)
+    'about:blank',
   ], { stdio: ['ignore', 'ignore', 'ignore', 'pipe', 'pipe'] });
   const cdp = new Pipe(proc);
   const errors = [];
@@ -78,7 +83,8 @@ export async function launch() {
     const exited = new Promise((r) => proc.once('exit', r));
     proc.kill();
     await Promise.race([exited, sleep(5000)]);
-    rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+    // Helper processes can outlive the browser on Linux; a leftover temp profile is harmless.
+    try { rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }); } catch { /* left in tmp */ }
   }
 
   return { id, cdp, open, close, errors, logs };

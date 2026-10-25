@@ -11,7 +11,10 @@ import { fileURLToPath } from 'node:url';
 import { CASES, PROBE, check } from './cases.mjs';
 import { serve } from './serve.mjs';
 
-const FIREFOX = process.env.FIREFOX_PATH || '/Applications/Firefox.app/Contents/MacOS/firefox';
+const FIREFOX = process.env.FIREFOX_PATH || {
+  darwin: '/Applications/Firefox.app/Contents/MacOS/firefox',
+  win32: 'C:\\Program Files\\Mozilla Firefox\\firefox.exe',
+}[process.platform] || 'firefox';
 const EXT = fileURLToPath(new URL('../dist/firefox', import.meta.url));
 const ADDON_ID = JSON.parse(readFileSync(join(EXT, 'manifest.json'), 'utf8')).browser_specific_settings.gecko.id;
 const UUID = '6f1b4f6e-0c1e-4b8e-9a8c-2f6b8a1d4c11';
@@ -124,7 +127,8 @@ async function main() {
     proc.kill();
     await Promise.race([exited, sleep(5000)]);
     server.close();
-    rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+    // Helper processes can outlive the browser on Linux; a leftover temp profile is harmless.
+    try { rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }); } catch { /* left in tmp */ }
   }
   console.log(failed ? `\n${failed} problem(s)` : '\nall green');
   process.exit(failed ? 1 : 0);

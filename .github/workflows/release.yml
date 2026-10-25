@@ -1,0 +1,64 @@
+name: Release
+
+# Push a tag that matches the version in extension/manifest.json and package.json:
+#   git tag v1.0.1 && git push origin v1.0.1
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  version:
+    name: Tag matches the version
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - run: |
+          for f in extension/manifest.json package.json; do
+            v=$(node -p "JSON.parse(require('fs').readFileSync('$f', 'utf8')).version")
+            if [ "v$v" != "$GITHUB_REF_NAME" ]; then
+              echo "::error file=$f::version $v does not match tag $GITHUB_REF_NAME"
+              exit 1
+            fi
+          done
+
+  test:
+    needs: version
+    uses: ./.github/workflows/ci.yml
+
+  release:
+    name: GitHub release
+    needs: test
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v7
+        with:
+          name: packages
+          path: dist
+
+      - name: Checksums
+        working-directory: dist
+        run: sha256sum *.zip > SHA256SUMS.txt
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/SHA256SUMS.txt \
+            --title "Cookie Policy Rejector $GITHUB_REF_NAME" \
+            --verify-tag --generate-notes --notes-file - <<'EOF'
+          **Install it from your browser's store:** see [Get it](${{ github.server_url }}/${{ github.repository }}#get-it) for every device.
+
+          Files in this release, for store uploads and manual installs:
+
+          - `cookie-policy-rejector-chrome-*.zip`: Chrome, Edge, Brave, Opera, Vivaldi, Arc. To install by hand, unzip it, open `chrome://extensions`, turn on Developer mode and click **Load unpacked**.
+          - `cookie-policy-rejector-firefox-*.zip`: Firefox on desktop and Android, for upload to addons.mozilla.org. Firefox only keeps signed add-ons, so install it from Firefox Add-ons.
+          - `SHA256SUMS.txt`: checksums to verify the downloads.
+
+          Safari for iPhone, iPad and Mac is built from the Xcode project in `safari/`.
+          EOF
