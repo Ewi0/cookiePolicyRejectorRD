@@ -35,6 +35,7 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v6
       - uses: actions/download-artifact@v7
         with:
           name: packages
@@ -49,7 +50,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/SHA256SUMS.txt \
+          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/SHA256SUMS.txt store/images/*.png \
             --title "Cookie Policy Rejector $GITHUB_REF_NAME" \
             --verify-tag --generate-notes --notes-file - <<'EOF'
           **Install it from your browser's store:** see [Get it](${{ github.server_url }}/${{ github.repository }}#get-it) for every device.
@@ -59,6 +60,7 @@ jobs:
           - `cookie-policy-rejector-chrome-*.zip`: Chrome, Edge, Brave, Opera, Vivaldi, Arc. To install by hand, unzip it, open `chrome://extensions`, turn on Developer mode and click **Load unpacked**.
           - `cookie-policy-rejector-firefox-*.zip`: Firefox on desktop and Android, for upload to addons.mozilla.org. Firefox only keeps signed add-ons, so install it from Firefox Add-ons.
           - `SHA256SUMS.txt`: checksums to verify the downloads.
+          - `icon-128.png`, `screenshot-*.png`, `promo-*.png`: the images for the Chrome Web Store listing.
 
           Safari for iPhone, iPad and Mac is built from the Xcode project in `safari/`.
           EOF
