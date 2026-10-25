@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Info-only notice fixture</title><script src="harness.js"></script></head>
+<body>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // No way to refuse: refusing hides it without pressing anything; approving presses "Got it!".
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="notice-bar" data-test="banner" style="position:fixed;left:0;right:0;bottom:0;padding:16px 32px;background:#222;color:#fff;font:15px system-ui;z-index:80">
+      This website uses cookies to ensure you get the best experience on our website.
+      <button data-choice="got-it">Got it!</button>
+    </div>`);
+  on('[data-choice="got-it"]', () => { record('got-it'); document.querySelector('.notice-bar').remove(); });
+</script>
+</body>
+</html>

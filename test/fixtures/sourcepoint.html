@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sourcepoint (iframe) fixture</title>
+<script src="harness.js"></script>
+<style>.sp-message-open { overflow: hidden; }</style>
+</head>
+<body>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // The banner lives in an iframe; the page only hosts the container and locks scrolling.
+  later(300, () => {
+    document.documentElement.classList.add('sp-message-open');
+    document.body.insertAdjacentHTML('beforeend', `
+      <div id="sp_message_container_1234" data-test="banner" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);z-index:9999">
+        <iframe id="sp_message_iframe_1234" src="sp-frame.html" title="SP Consent Message" style="width:600px;height:320px;border:0;background:#fff"></iframe>
+      </div>`);
+  });
+  addEventListener('message', (e) => {
+    if (!e.data?.sp) return;
+    record(e.data.sp);
+    document.getElementById('sp_message_container_1234')?.remove();
+    document.documentElement.classList.remove('sp-message-open');
+  });
+</script>
+</body>
+</html>

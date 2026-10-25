@@ -1,0 +1,189 @@
+/* Cookie Policy Rejector — popup. Matte black, one white mark, nothing rounded. */
+:root {
+  --bg: #0b0b0b;
+  --fg: #ffffff;
+  --mute: #8c8c8c;
+  --line: #2b2b2b;
+  --dim: #2f2f2f;
+  --press: #1a1a1a;
+  --s: 192px; /* mark size */
+  --t: 0.13; /* bar thickness as a share of the mark */
+  --ease: cubic-bezier(0.7, 0, 0.2, 1);
+  --sans: "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html, body { background: var(--bg); color: var(--fg); }
+
+body {
+  width: 360px;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
+  padding: 16px 20px 18px;
+  overflow: hidden;
+}
+
+/* Matte: a faint grain so the black reads as a surface, not a void. */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font: 600 10px/1 var(--mono);
+  letter-spacing: 0.14em;
+  color: var(--mute);
+}
+
+.hero {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 0 30px;
+  text-align: center;
+}
+
+/* The mark: two bars. X when refusing, a check when approving. */
+.mark { position: relative; width: var(--s); height: var(--s); }
+
+.bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(var(--s) * var(--t));
+  width: calc(var(--s) * var(--l));
+  background: var(--fg);
+  transform: translate(calc(var(--s) * var(--x) - 50%), calc(var(--s) * var(--y) - 50%)) rotate(var(--r));
+  transition: transform 0.42s var(--ease), width 0.42s var(--ease), background-color 0.3s;
+}
+.a { --l: 1.0182; --x: 0.5; --y: 0.5; --r: 45deg; }
+.b { --l: 1.0182; --x: 0.5; --y: 0.5; --r: -45deg; }
+[data-mode="accept"] .a { --l: 0.461; --x: 0.283; --y: 0.643; }
+[data-mode="accept"] .b { --l: 0.7721; --x: 0.627; --y: 0.533; }
+[data-paused] .bar, [data-idle] .bar { background: var(--dim); }
+
+h1 {
+  margin-top: 30px;
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.sub {
+  margin-top: 12px;
+  font: 500 10px/1.5 var(--mono);
+  letter-spacing: 0.1em;
+  color: var(--mute);
+  text-wrap: balance;
+}
+
+.controls { position: relative; }
+
+.switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid var(--fg);
+}
+
+button {
+  font: 700 11px/1 var(--mono);
+  letter-spacing: 0.16em;
+  color: var(--fg);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+
+.switch button { height: 42px; transition: background-color 0.15s, color 0.15s; }
+.switch button + button { border-left: 2px solid var(--fg); }
+.switch button:hover { background: var(--press); }
+.switch button[aria-checked="true"] { background: var(--fg); color: var(--bg); cursor: default; }
+
+.site {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font: 600 11px/1.2 var(--mono);
+  letter-spacing: 0.08em;
+}
+.host { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.count { font-weight: 800; }
+
+.detail {
+  margin-top: 6px;
+  min-height: 14px;
+  font: 500 10px/1.4 var(--mono);
+  letter-spacing: 0.08em;
+  color: var(--mute);
+}
+
+.pause {
+  width: 100%;
+  height: 36px;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  font-size: 10.5px;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+.pause:hover { border-color: var(--fg); }
+.pause[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.pause:disabled { opacity: 0.35; cursor: default; border-color: var(--line); }
+
+.tally {
+  position: relative;
+  margin-top: 14px;
+  font: 500 10px/1 var(--mono);
+  letter-spacing: 0.12em;
+  color: var(--mute);
+}
+.tally b { color: var(--fg); font-weight: 700; }
+
+/* Phones: Safari on iOS, Firefox on Android. The popup fills the sheet. */
+.touch body { width: auto; }
+.touch .panel {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: max(18px, env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) max(22px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left));
+}
+.touch { --s: min(60vw, 280px); }
+.touch h1 { font-size: clamp(22px, 6.6vw, 32px); margin-top: 36px; }
+.touch .sub { font-size: 11px; }
+.touch .switch button { height: 54px; font-size: 12px; }
+.touch .site { font-size: 12px; }
+.touch .detail { font-size: 11px; }
+.touch .pause { height: 48px; font-size: 11.5px; }
+
+.no-anim .bar { transition: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bar, .switch button, .pause { transition: none; }
+}

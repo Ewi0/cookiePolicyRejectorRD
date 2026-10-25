@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Pay-or-consent wall fixture</title><script src="harness.js"></script></head>
+<body style="overflow:hidden">
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // "Reject" leads to a paywall: refusing must hide the wall, never press the subscribe exit.
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="wall" data-test="banner" style="position:fixed;inset:0;display:grid;place-items:center;background:rgba(10,20,60,.85);z-index:99">
+      <div style="width:520px;padding:28px;background:#fff;font:15px system-ui">
+        <h2>Choose how to read</h2>
+        <p>We and our 141 partners use cookies to personalise ads. Accept all, or reject and subscribe to read ad-free.</p>
+        <button data-choice="accept">Accept all</button>
+        <button data-choice="subscribe">Reject all and subscribe</button>
+        <a href="/login" data-choice="login">Sign in</a>
+      </div>
+    </div>`);
+  for (const b of document.querySelectorAll('[data-choice]')) {
+    on(`[data-choice="${b.dataset.choice}"]`, () => {
+      record(b.dataset.choice);
+      document.querySelector('.wall').remove();
+      document.body.style.overflow = '';
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Login modal fixture (must be left alone)</title><script src="harness.js"></script></head>
+<body>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // Mentions cookies and has a "Continue" button, but it is a sign-in form: never touch it.
+  later(300, () => {
+    document.body.insertAdjacentHTML('beforeend', `
+      <div role="dialog" aria-modal="true" data-test="banner" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:420px;padding:28px;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.25);font:15px system-ui;z-index:70">
+        <h2>Sign in to keep reading</h2>
+        <form>
+          <input type="email" placeholder="you@example.com" style="width:100%;padding:10px">
+          <p>By continuing, you agree to our Terms and acknowledge our Cookie Policy.</p>
+          <button type="submit" data-choice="continue">Continue</button>
+          <a href="/signup" data-choice="signup">Create account</a>
+        </form>
+      </div>`);
+    for (const b of document.querySelectorAll('[data-choice]')) on(`[data-choice="${b.dataset.choice}"]`, () => record(b.dataset.choice));
+  });
+</script>
+</body>
+</html>

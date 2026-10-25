@@ -1,0 +1,9 @@
+.DS_Store
+__MACOSX/
+._*
+node_modules/
+dist/
+test/output/
+xcuserdata/
+*.xcuserstate
+DerivedData/

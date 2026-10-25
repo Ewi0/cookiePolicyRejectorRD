@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ReactDesk fixture</title>
+<script src="harness.js"></script>
+<style>
+  body { margin: 0; font: 16px/1.5 Inter, system-ui, sans-serif; background: #eef1f8; color: #1e293b; }
+  .app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+  .side { background: #fff; border-right: 1px solid #e2e8f0; padding: 24px; }
+  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin: 24px; }
+  /* Utility-class banner: nothing in its markup says "cookie". */
+  .fixed { position: fixed; } .bottom-6 { bottom: 24px; } .left-6 { left: 24px; } .right-6 { right: 24px; }
+  .panel { max-width: 560px; background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 28px 32px; box-shadow: 0 20px 50px rgba(30,41,59,.12); }
+  .text-slate { color: #475569; font-size: 19px; margin: 0 0 22px; }
+  .row { display: flex; gap: 16px; align-items: center; }
+  .btn { border-radius: 12px; padding: 14px 24px; font: 700 18px Inter, system-ui; cursor: pointer; }
+  .btn-primary { background: #3461e0; color: #fff; border: 0; }
+  .btn-ghost { background: #fff; color: #0f172a; border: 2px solid #e2e8f0; }
+  .link { color: #3461e0; font-weight: 600; text-decoration: none; font-size: 18px; }
+  .chat { width: 64px; height: 64px; border-radius: 50%; border: 0; background: #3461e0; color: #fff; font-size: 26px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  const root = document.getElementById('root');
+  root.innerHTML = `
+    <div class="app">
+      <aside class="side"><b>ReactDesk</b><p>Inbox</p><p>Tickets</p><p>Reports</p></aside>
+      <section><div class="card"><h2>Open tickets</h2><p>23 waiting, 4 overdue.</p></div><div class="card"><h2>Today</h2><p>Response time 14 min.</p></div></section>
+    </div>
+    <button class="fixed bottom-6 right-6 chat" aria-label="Open chat">💬</button>`;
+  on('.chat', () => record('chat'));
+  // Rendered by the app shortly after hydration.
+  later(800, () => {
+    root.insertAdjacentHTML('beforeend', `
+      <div class="fixed bottom-6 left-6 panel" data-test="banner">
+        <p class="text-slate">We use essential cookies to make ReactDesk work, and optional analytics cookies to improve it.</p>
+        <div class="row">
+          <button class="btn btn-primary" data-choice="accept-all">Accept all</button>
+          <button class="btn btn-ghost" data-choice="essential-only">Essential only</button>
+          <a class="link" href="/policy">Cookie policy</a>
+        </div>
+      </div>`);
+    const banner = root.querySelector('[data-test="banner"]');
+    for (const b of banner.querySelectorAll('[data-choice]')) on(`[data-choice="${b.dataset.choice}"]`, () => { record(b.dataset.choice); banner.remove(); }, banner);
+    on('.link', () => record('policy'), banner);
+  });
+</script>
+</body>
+</html>

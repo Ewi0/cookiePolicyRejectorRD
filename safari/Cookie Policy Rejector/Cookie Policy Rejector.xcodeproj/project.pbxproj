@@ -1,0 +1,943 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94EB6547308ACA0100BDB70F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB6546308ACA0100BDB70F /* AppDelegate.swift */; };
+		94EB6549308ACA0100BDB70F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB6548308ACA0100BDB70F /* SceneDelegate.swift */; };
+		94EB654C308ACA0100BDB70F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EB654A308ACA0100BDB70F /* LaunchScreen.storyboard */; };
+		94EB654F308ACA0100BDB70F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EB654D308ACA0100BDB70F /* Main.storyboard */; };
+		94EB6558308ACA0100BDB70F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB6557308ACA0100BDB70F /* AppDelegate.swift */; };
+		94EB655B308ACA0100BDB70F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6559308ACA0100BDB70F /* Main.storyboard */; };
+		94EB6562308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 94EB6561308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94EB656C308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 94EB656B308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94EB6571308ACA0100BDB70F /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6536308ACA0100BDB70F /* Main.html */; };
+		94EB6572308ACA0100BDB70F /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6536308ACA0100BDB70F /* Main.html */; };
+		94EB6573308ACA0100BDB70F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6538308ACA0100BDB70F /* Icon.png */; };
+		94EB6574308ACA0100BDB70F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6538308ACA0100BDB70F /* Icon.png */; };
+		94EB6575308ACA0100BDB70F /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6539308ACA0100BDB70F /* Style.css */; };
+		94EB6576308ACA0100BDB70F /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6539308ACA0100BDB70F /* Style.css */; };
+		94EB6577308ACA0100BDB70F /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 94EB653A308ACA0100BDB70F /* Script.js */; };
+		94EB6578308ACA0100BDB70F /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 94EB653A308ACA0100BDB70F /* Script.js */; };
+		94EB6579308ACA0100BDB70F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB653B308ACA0100BDB70F /* ViewController.swift */; };
+		94EB657A308ACA0100BDB70F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB653B308ACA0100BDB70F /* ViewController.swift */; };
+		94EB657B308ACA0100BDB70F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94EB653C308ACA0100BDB70F /* Assets.xcassets */; };
+		94EB657C308ACA0100BDB70F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94EB653C308ACA0100BDB70F /* Assets.xcassets */; };
+		94EB657D308ACA0100BDB70F /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB653E308ACA0100BDB70F /* SafariWebExtensionHandler.swift */; };
+		94EB657E308ACA0100BDB70F /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EB653E308ACA0100BDB70F /* SafariWebExtensionHandler.swift */; };
+		94EB6595308ACA0200BDB70F /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6590308ACA0200BDB70F /* popup */; };
+		94EB6596308ACA0200BDB70F /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6591308ACA0200BDB70F /* background.js */; };
+		94EB6597308ACA0200BDB70F /* content in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6592308ACA0200BDB70F /* content */; };
+		94EB6598308ACA0200BDB70F /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6593308ACA0200BDB70F /* icons */; };
+		94EB6599308ACA0200BDB70F /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6594308ACA0200BDB70F /* manifest.json */; };
+		94EB659A308ACA0200BDB70F /* popup in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6590308ACA0200BDB70F /* popup */; };
+		94EB659B308ACA0200BDB70F /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6591308ACA0200BDB70F /* background.js */; };
+		94EB659C308ACA0200BDB70F /* content in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6592308ACA0200BDB70F /* content */; };
+		94EB659D308ACA0200BDB70F /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6593308ACA0200BDB70F /* icons */; };
+		94EB659E308ACA0200BDB70F /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6594308ACA0200BDB70F /* manifest.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94EB6563308ACA0100BDB70F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94EB6530308ACA0000BDB70F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94EB6560308ACA0100BDB70F;
+			remoteInfo = "Cookie Policy Rejector Extension (iOS)";
+		};
+		94EB656D308ACA0100BDB70F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94EB6530308ACA0000BDB70F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94EB656A308ACA0100BDB70F;
+			remoteInfo = "Cookie Policy Rejector Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94EB6584308ACA0100BDB70F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				94EB6562308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+		94EB658B308ACA0100BDB70F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				94EB656C308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		94EB6537308ACA0100BDB70F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		94EB6538308ACA0100BDB70F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		94EB6539308ACA0100BDB70F /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		94EB653A308ACA0100BDB70F /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		94EB653B308ACA0100BDB70F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		94EB653C308ACA0100BDB70F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94EB653E308ACA0100BDB70F /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		94EB6543308ACA0100BDB70F /* Cookie Policy Rejector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cookie Policy Rejector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94EB6546308ACA0100BDB70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		94EB6548308ACA0100BDB70F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		94EB654B308ACA0100BDB70F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		94EB654E308ACA0100BDB70F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94EB6550308ACA0100BDB70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94EB6555308ACA0100BDB70F /* Cookie Policy Rejector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cookie Policy Rejector.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94EB6557308ACA0100BDB70F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		94EB655A308ACA0100BDB70F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94EB655C308ACA0100BDB70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94EB6561308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Cookie Policy Rejector Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94EB6566308ACA0100BDB70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94EB656B308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Cookie Policy Rejector Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94EB6570308ACA0100BDB70F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94EB6590308ACA0200BDB70F /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../extension/popup; sourceTree = "<group>"; };
+		94EB6591308ACA0200BDB70F /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../../extension/background.js; sourceTree = "<group>"; };
+		94EB6592308ACA0200BDB70F /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../../extension/content; sourceTree = "<group>"; };
+		94EB6593308ACA0200BDB70F /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../extension/icons; sourceTree = "<group>"; };
+		94EB6594308ACA0200BDB70F /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../extension/manifest.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94EB6540308ACA0100BDB70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		94EB6552308ACA0100BDB70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		94EB655E308ACA0100BDB70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		94EB6568308ACA0100BDB70F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94EB652F308ACA0000BDB70F = {
+			isa = PBXGroup;
+			children = (
+				94EB6534308ACA0100BDB70F /* Shared (App) */,
+				94EB653D308ACA0100BDB70F /* Shared (Extension) */,
+				94EB6545308ACA0100BDB70F /* iOS (App) */,
+				94EB6556308ACA0100BDB70F /* macOS (App) */,
+				94EB6565308ACA0100BDB70F /* iOS (Extension) */,
+				94EB656F308ACA0100BDB70F /* macOS (Extension) */,
+				94EB6544308ACA0100BDB70F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94EB6534308ACA0100BDB70F /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				94EB653B308ACA0100BDB70F /* ViewController.swift */,
+				94EB653C308ACA0100BDB70F /* Assets.xcassets */,
+				94EB6535308ACA0100BDB70F /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		94EB6535308ACA0100BDB70F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94EB6536308ACA0100BDB70F /* Main.html */,
+				94EB6538308ACA0100BDB70F /* Icon.png */,
+				94EB6539308ACA0100BDB70F /* Style.css */,
+				94EB653A308ACA0100BDB70F /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		94EB653D308ACA0100BDB70F /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				94EB658F308ACA0200BDB70F /* Resources */,
+				94EB653E308ACA0100BDB70F /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		94EB6544308ACA0100BDB70F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94EB6543308ACA0100BDB70F /* Cookie Policy Rejector.app */,
+				94EB6555308ACA0100BDB70F /* Cookie Policy Rejector.app */,
+				94EB6561308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex */,
+				94EB656B308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94EB6545308ACA0100BDB70F /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				94EB6546308ACA0100BDB70F /* AppDelegate.swift */,
+				94EB6548308ACA0100BDB70F /* SceneDelegate.swift */,
+				94EB654A308ACA0100BDB70F /* LaunchScreen.storyboard */,
+				94EB654D308ACA0100BDB70F /* Main.storyboard */,
+				94EB6550308ACA0100BDB70F /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		94EB6556308ACA0100BDB70F /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				94EB6557308ACA0100BDB70F /* AppDelegate.swift */,
+				94EB6559308ACA0100BDB70F /* Main.storyboard */,
+				94EB655C308ACA0100BDB70F /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		94EB6565308ACA0100BDB70F /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				94EB6566308ACA0100BDB70F /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		94EB656F308ACA0100BDB70F /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				94EB6570308ACA0100BDB70F /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		94EB658F308ACA0200BDB70F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94EB6590308ACA0200BDB70F /* popup */,
+				94EB6591308ACA0200BDB70F /* background.js */,
+				94EB6592308ACA0200BDB70F /* content */,
+				94EB6593308ACA0200BDB70F /* icons */,
+				94EB6594308ACA0200BDB70F /* manifest.json */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94EB6542308ACA0100BDB70F /* Cookie Policy Rejector (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94EB6585308ACA0100BDB70F /* Build configuration list for PBXNativeTarget "Cookie Policy Rejector (iOS)" */;
+			buildPhases = (
+				94EB653F308ACA0100BDB70F /* Sources */,
+				94EB6540308ACA0100BDB70F /* Frameworks */,
+				94EB6541308ACA0100BDB70F /* Resources */,
+				94EB6584308ACA0100BDB70F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94EB6564308ACA0100BDB70F /* PBXTargetDependency */,
+			);
+			name = "Cookie Policy Rejector (iOS)";
+			productName = "Cookie Policy Rejector (iOS)";
+			productReference = 94EB6543308ACA0100BDB70F /* Cookie Policy Rejector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94EB6554308ACA0100BDB70F /* Cookie Policy Rejector (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94EB658C308ACA0100BDB70F /* Build configuration list for PBXNativeTarget "Cookie Policy Rejector (macOS)" */;
+			buildPhases = (
+				94EB6551308ACA0100BDB70F /* Sources */,
+				94EB6552308ACA0100BDB70F /* Frameworks */,
+				94EB6553308ACA0100BDB70F /* Resources */,
+				94EB658B308ACA0100BDB70F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94EB656E308ACA0100BDB70F /* PBXTargetDependency */,
+			);
+			name = "Cookie Policy Rejector (macOS)";
+			productName = "Cookie Policy Rejector (macOS)";
+			productReference = 94EB6555308ACA0100BDB70F /* Cookie Policy Rejector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94EB6560308ACA0100BDB70F /* Cookie Policy Rejector Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94EB6581308ACA0100BDB70F /* Build configuration list for PBXNativeTarget "Cookie Policy Rejector Extension (iOS)" */;
+			buildPhases = (
+				94EB655D308ACA0100BDB70F /* Sources */,
+				94EB655E308ACA0100BDB70F /* Frameworks */,
+				94EB655F308ACA0100BDB70F /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "Cookie Policy Rejector Extension (iOS)";
+			productName = "Cookie Policy Rejector Extension (iOS)";
+			productReference = 94EB6561308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		94EB656A308ACA0100BDB70F /* Cookie Policy Rejector Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94EB6588308ACA0100BDB70F /* Build configuration list for PBXNativeTarget "Cookie Policy Rejector Extension (macOS)" */;
+			buildPhases = (
+				94EB6567308ACA0100BDB70F /* Sources */,
+				94EB6568308ACA0100BDB70F /* Frameworks */,
+				94EB6569308ACA0100BDB70F /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "Cookie Policy Rejector Extension (macOS)";
+			productName = "Cookie Policy Rejector Extension (macOS)";
+			productReference = 94EB656B308ACA0100BDB70F /* Cookie Policy Rejector Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94EB6530308ACA0000BDB70F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2710;
+				LastUpgradeCheck = 2710;
+				TargetAttributes = {
+					94EB6542308ACA0100BDB70F = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					94EB6554308ACA0100BDB70F = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					94EB6560308ACA0100BDB70F = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					94EB656A308ACA0100BDB70F = {
+						CreatedOnToolsVersion = 27.1;
+					};
+				};
+			};
+			buildConfigurationList = 94EB6533308ACA0000BDB70F /* Build configuration list for PBXProject "Cookie Policy Rejector" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94EB652F308ACA0000BDB70F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 94EB6544308ACA0100BDB70F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94EB6542308ACA0100BDB70F /* Cookie Policy Rejector (iOS) */,
+				94EB6554308ACA0100BDB70F /* Cookie Policy Rejector (macOS) */,
+				94EB6560308ACA0100BDB70F /* Cookie Policy Rejector Extension (iOS) */,
+				94EB656A308ACA0100BDB70F /* Cookie Policy Rejector Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94EB6541308ACA0100BDB70F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				94EB6573308ACA0100BDB70F /* Icon.png in Resources */,
+				94EB654C308ACA0100BDB70F /* LaunchScreen.storyboard in Resources */,
+				94EB6571308ACA0100BDB70F /* Main.html in Resources */,
+				94EB6577308ACA0100BDB70F /* Script.js in Resources */,
+				94EB657B308ACA0100BDB70F /* Assets.xcassets in Resources */,
+				94EB654F308ACA0100BDB70F /* Main.storyboard in Resources */,
+				94EB6575308ACA0100BDB70F /* Style.css in Resources */,
+			);
+		};
+		94EB6553308ACA0100BDB70F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				94EB6574308ACA0100BDB70F /* Icon.png in Resources */,
+				94EB6576308ACA0100BDB70F /* Style.css in Resources */,
+				94EB655B308ACA0100BDB70F /* Main.storyboard in Resources */,
+				94EB6578308ACA0100BDB70F /* Script.js in Resources */,
+				94EB657C308ACA0100BDB70F /* Assets.xcassets in Resources */,
+				94EB6572308ACA0100BDB70F /* Main.html in Resources */,
+			);
+		};
+		94EB655F308ACA0100BDB70F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				94EB659C308ACA0200BDB70F /* content in Resources */,
+				94EB659D308ACA0200BDB70F /* icons in Resources */,
+				94EB659E308ACA0200BDB70F /* manifest.json in Resources */,
+				94EB659B308ACA0200BDB70F /* background.js in Resources */,
+				94EB659A308ACA0200BDB70F /* popup in Resources */,
+			);
+		};
+		94EB6569308ACA0100BDB70F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				94EB6597308ACA0200BDB70F /* content in Resources */,
+				94EB6598308ACA0200BDB70F /* icons in Resources */,
+				94EB6599308ACA0200BDB70F /* manifest.json in Resources */,
+				94EB6596308ACA0200BDB70F /* background.js in Resources */,
+				94EB6595308ACA0200BDB70F /* popup in Resources */,
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94EB653F308ACA0100BDB70F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				94EB6579308ACA0100BDB70F /* ViewController.swift in Sources */,
+				94EB6547308ACA0100BDB70F /* AppDelegate.swift in Sources */,
+				94EB6549308ACA0100BDB70F /* SceneDelegate.swift in Sources */,
+			);
+		};
+		94EB6551308ACA0100BDB70F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				94EB657A308ACA0100BDB70F /* ViewController.swift in Sources */,
+				94EB6558308ACA0100BDB70F /* AppDelegate.swift in Sources */,
+			);
+		};
+		94EB655D308ACA0100BDB70F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				94EB657D308ACA0100BDB70F /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+		94EB6567308ACA0100BDB70F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				94EB657E308ACA0100BDB70F /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94EB6564308ACA0100BDB70F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94EB6560308ACA0100BDB70F /* Cookie Policy Rejector Extension (iOS) */;
+			targetProxy = 94EB6563308ACA0100BDB70F /* PBXContainerItemProxy */;
+		};
+		94EB656E308ACA0100BDB70F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94EB656A308ACA0100BDB70F /* Cookie Policy Rejector Extension (macOS) */;
+			targetProxy = 94EB656D308ACA0100BDB70F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		94EB6536308ACA0100BDB70F /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94EB6537308ACA0100BDB70F /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		94EB654A308ACA0100BDB70F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94EB654B308ACA0100BDB70F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		94EB654D308ACA0100BDB70F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94EB654E308ACA0100BDB70F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		94EB6559308ACA0100BDB70F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94EB655A308ACA0100BDB70F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		94EB657F308ACA0100BDB70F /* Debug configuration for PBXProject "Cookie Policy Rejector" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		94EB6580308ACA0100BDB70F /* Release configuration for PBXProject "Cookie Policy Rejector" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		94EB6582308ACA0100BDB70F /* Debug configuration for PBXNativeTarget "Cookie Policy Rejector Extension (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cookie Policy Rejector Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cookiepolicyrejector.CookiePolicyRejector.Extension;
+				PRODUCT_NAME = "Cookie Policy Rejector Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94EB6583308ACA0100BDB70F /* Release configuration for PBXNativeTarget "Cookie Policy Rejector Extension (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cookie Policy Rejector Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cookiepolicyrejector.CookiePolicyRejector.Extension;
+				PRODUCT_NAME = "Cookie Policy Rejector Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94EB6586308ACA0100BDB70F /* Debug configuration for PBXNativeTarget "Cookie Policy Rejector (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cookie Policy Rejector";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cookiepolicyrejector.CookiePolicyRejector;
+				PRODUCT_NAME = "Cookie Policy Rejector";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94EB6587308ACA0100BDB70F /* Release configuration for PBXNativeTarget "Cookie Policy Rejector (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cookie Policy Rejector";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cookiepolicyrejector.CookiePolicyRejector;
+				PRODUCT_NAME = "Cookie Policy Rejector";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94EB6589308ACA0100BDB70F /* Debug configuration for PBXNativeTarget "Cookie Policy Rejector Extension (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cookie Policy Rejector Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cookiepolicyrejector.CookiePolicyRejector.Extension;
+				PRODUCT_NAME = "Cookie Policy Rejector Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		94EB658A308ACA0100BDB70F /* Release configuration for PBXNativeTarget "Cookie Policy Rejector Extension (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cookie Policy Rejector Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cookiepolicyrejector.CookiePolicyRejector.Extension;
+				PRODUCT_NAME = "Cookie Policy Rejector Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		94EB658D308ACA0100BDB70F /* Debug configuration for PBXNativeTarget "Cookie Policy Rejector (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cookie Policy Rejector";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cookiepolicyrejector.CookiePolicyRejector;
+				PRODUCT_NAME = "Cookie Policy Rejector";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		94EB658E308ACA0100BDB70F /* Release configuration for PBXNativeTarget "Cookie Policy Rejector (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cookie Policy Rejector";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.cookiepolicyrejector.CookiePolicyRejector;
+				PRODUCT_NAME = "Cookie Policy Rejector";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94EB6533308ACA0000BDB70F /* Build configuration list for PBXProject "Cookie Policy Rejector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94EB657F308ACA0100BDB70F /* Debug configuration for PBXProject "Cookie Policy Rejector" */,
+				94EB6580308ACA0100BDB70F /* Release configuration for PBXProject "Cookie Policy Rejector" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		94EB6581308ACA0100BDB70F /* Build configuration list for PBXNativeTarget "Cookie Policy Rejector Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94EB6582308ACA0100BDB70F /* Debug configuration for PBXNativeTarget "Cookie Policy Rejector Extension (iOS)" */,
+				94EB6583308ACA0100BDB70F /* Release configuration for PBXNativeTarget "Cookie Policy Rejector Extension (iOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		94EB6585308ACA0100BDB70F /* Build configuration list for PBXNativeTarget "Cookie Policy Rejector (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94EB6586308ACA0100BDB70F /* Debug configuration for PBXNativeTarget "Cookie Policy Rejector (iOS)" */,
+				94EB6587308ACA0100BDB70F /* Release configuration for PBXNativeTarget "Cookie Policy Rejector (iOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		94EB6588308ACA0100BDB70F /* Build configuration list for PBXNativeTarget "Cookie Policy Rejector Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94EB6589308ACA0100BDB70F /* Debug configuration for PBXNativeTarget "Cookie Policy Rejector Extension (macOS)" */,
+				94EB658A308ACA0100BDB70F /* Release configuration for PBXNativeTarget "Cookie Policy Rejector Extension (macOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		94EB658C308ACA0100BDB70F /* Build configuration list for PBXNativeTarget "Cookie Policy Rejector (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94EB658D308ACA0100BDB70F /* Debug configuration for PBXNativeTarget "Cookie Policy Rejector (macOS)" */,
+				94EB658E308ACA0100BDB70F /* Release configuration for PBXNativeTarget "Cookie Policy Rejector (macOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 94EB6530308ACA0000BDB70F /* Project object */;
+	validationLevel = 1;
+}

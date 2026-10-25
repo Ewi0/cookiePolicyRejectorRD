@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Usercentrics (shadow DOM) fixture</title><script src="harness.js"></script></head>
+<body>
+<div id="usercentrics-root" data-test="banner"></div>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  later(400, () => {
+    const shadow = document.getElementById('usercentrics-root').attachShadow({ mode: 'open' });
+    shadow.innerHTML = `
+      <div data-testid="uc-default-banner" data-test="banner-inner" style="position:fixed;left:24px;right:24px;bottom:24px;padding:24px;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.2);font:15px system-ui">
+        <p>We use cookies and similar technologies. You can accept them all or deny the optional ones.</p>
+        <button data-testid="uc-more-button">Settings</button>
+        <button data-testid="uc-deny-all-button">Deny</button>
+        <button data-testid="uc-accept-all-button">Accept All</button>
+      </div>`;
+    const close = (what) => { record(what); shadow.innerHTML = ''; };
+    on('[data-testid="uc-deny-all-button"]', () => close('deny'), shadow);
+    on('[data-testid="uc-accept-all-button"]', () => close('accept'), shadow);
+  });
+</script>
+</body>
+</html>

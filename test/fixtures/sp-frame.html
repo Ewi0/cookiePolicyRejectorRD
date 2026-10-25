@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>SP message</title></head>
+<body style="font:15px system-ui;padding:24px">
+  <div class="message-container">
+    <h2>We value your privacy</h2>
+    <p>We and our partners store and access information on your device, such as cookies, to deliver personalised ads.</p>
+    <button class="message-component message-button sp_choice_type_12">Options</button>
+    <button class="message-component message-button sp_choice_type_13">Reject all</button>
+    <button class="message-component message-button sp_choice_type_11">Accept</button>
+  </div>
+  <script>
+    const tell = (sp) => parent.postMessage({ sp }, '*');
+    document.querySelector('.sp_choice_type_13').addEventListener('click', () => tell('reject'));
+    document.querySelector('.sp_choice_type_11').addEventListener('click', () => tell('accept'));
+    document.querySelector('.sp_choice_type_12').addEventListener('click', () => tell('options'));
+  </script>
+</body>
+</html>

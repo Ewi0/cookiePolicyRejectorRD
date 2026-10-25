@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><title>German modal fixture</title><script src="harness.js"></script></head>
+<body style="overflow:hidden">
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // Hand-rolled consent wall: dimming backdrop + dialog, scroll locked until answered.
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="backdrop" style="position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:50"></div>
+    <div role="dialog" aria-modal="true" data-test="banner" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;padding:28px;background:#fff;font:15px system-ui;z-index:51">
+      <h2>Wir respektieren Ihre Privatsphäre</h2>
+      <p>Wir verwenden Cookies und ähnliche Technologien, um Inhalte zu personalisieren und Zugriffe zu analysieren. Mit Ihrer Einwilligung auch für Werbung.</p>
+      <button data-choice="alle-akzeptieren">Alle akzeptieren</button>
+      <button data-choice="einstellungen">Einstellungen</button>
+      <button data-choice="nur-notwendige">Nur notwendige Cookies</button>
+    </div>`);
+  for (const b of document.querySelectorAll('[data-choice]')) {
+    on(`[data-choice="${b.dataset.choice}"]`, () => {
+      record(b.dataset.choice);
+      if (b.dataset.choice === 'einstellungen') return;
+      document.querySelector('[role="dialog"]').remove();
+      document.querySelector('.backdrop').remove();
+      document.body.style.overflow = '';
+    });
+  }
+</script>
+</body>
+</html>

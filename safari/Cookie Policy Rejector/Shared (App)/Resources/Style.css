@@ -1,0 +1,130 @@
+/* Companion app (iOS + macOS): same matte black, same mark as the extension popup. */
+* {
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --bg: #0b0b0b;
+    --fg: #ffffff;
+    --mute: #8c8c8c;
+    --line: #2b2b2b;
+    --s: min(58vw, 46vh, 300px);
+    --t: 0.13;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+    color-scheme: dark;
+}
+
+html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: max(20px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    font: 600 11px/1 var(--mono);
+    letter-spacing: 0.14em;
+    color: var(--mute);
+}
+
+.hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 0;
+}
+
+.mark { position: relative; width: var(--s); height: var(--s); }
+.bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: calc(var(--s) * var(--t));
+    width: calc(var(--s) * 1.0182);
+    background: var(--fg);
+    transform: translate(calc(var(--s) * 0.5 - 50%), calc(var(--s) * 0.5 - 50%)) rotate(var(--r));
+}
+.a { --r: 45deg; }
+.b { --r: -45deg; }
+body.state-off .bar { background: #2f2f2f; }
+
+h1 {
+    margin-top: 36px;
+    font-size: clamp(22px, 7vw, 40px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+.sub {
+    margin-top: 14px;
+    max-width: 34ch;
+    font: 500 11px/1.6 var(--mono);
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    text-wrap: balance;
+}
+
+.steps {
+    list-style: none;
+    padding: 0;
+    border-top: 2px solid var(--fg);
+}
+.steps li {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font: 600 12px/1.3 var(--mono);
+    letter-spacing: 0.08em;
+}
+.steps b { font-weight: 800; }
+
+button {
+    height: 52px;
+    border: 2px solid var(--fg);
+    border-radius: 0;
+    background: var(--fg);
+    color: var(--bg);
+    font: 700 12px/1 var(--mono);
+    letter-spacing: 0.16em;
+    cursor: pointer;
+}
+button:hover { background: var(--bg); color: var(--fg); }
+
+.foot {
+    margin-top: 16px;
+    font: 500 10px/1.4 var(--mono);
+    letter-spacing: 0.1em;
+    color: var(--mute);
+}
+
+/* Platform and state switches, driven by show() from ViewController.swift. */
+body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) { display: none; }
+body.platform-ios .platform-mac { display: none; }
+body.platform-mac .platform-ios { display: none; }
+body:not(.state-on, .state-off) :is(.state-on, .state-off) { display: none; }
+body.state-on :is(.state-off, .state-unknown) { display: none; }
+body.state-off :is(.state-on, .state-unknown) { display: none; }

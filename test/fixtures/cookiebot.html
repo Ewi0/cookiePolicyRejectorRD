@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Cookiebot fixture</title><script src="harness.js"></script></head>
+<body style="overflow:hidden">
+<div id="CybotCookiebotDialogBodyUnderlay" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998"></div>
+<div id="CybotCookiebotDialog" data-test="banner" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;padding:28px;background:#fff;font:15px system-ui;z-index:9999">
+  <h2>This website uses cookies</h2>
+  <p>We use cookies to personalise content and ads, to provide social media features and to analyse our traffic.</p>
+  <button id="CybotCookiebotDialogBodyButtonDecline">Deny</button>
+  <button id="CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection">Allow selection</button>
+  <button id="CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll">Allow all</button>
+</div>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  const close = (what) => {
+    record(what);
+    document.getElementById('CybotCookiebotDialog').remove();
+    document.getElementById('CybotCookiebotDialogBodyUnderlay').remove();
+    document.body.style.overflow = '';
+  };
+  on('#CybotCookiebotDialogBodyButtonDecline', () => close('decline'));
+  on('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection', () => close('selection'));
+  on('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll', () => close('allow-all'));
+</script>
+</body>
+</html>

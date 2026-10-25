@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Cookie Policy Rejector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body data-mode="reject">
+  <main class="panel">
+    <header class="top">
+      <span>COOKIE POLICY REJECTOR</span>
+      <span id="status">● ARMED</span>
+    </header>
+
+    <section class="hero">
+      <div class="mark" aria-hidden="true"><i class="bar a"></i><i class="bar b"></i></div>
+      <h1 id="headline" aria-live="polite">REFUSED EVERYTHING.</h1>
+      <p id="sub" class="sub">EVERY BANNER ANSWERED NO. BEFORE YOU SEE IT.</p>
+    </section>
+
+    <section class="controls">
+      <div class="switch" role="radiogroup" aria-label="Answer every cookie banner with">
+        <button type="button" role="radio" data-mode="reject" aria-checked="true">REFUSE</button>
+        <button type="button" role="radio" data-mode="accept" aria-checked="false">APPROVE</button>
+      </div>
+      <div class="site">
+        <span id="host" class="host">—</span>
+        <span id="count" class="count">00</span>
+      </div>
+      <p id="detail" class="detail">NO BANNER ON THIS PAGE.</p>
+      <button type="button" id="pause" class="pause">PAUSE ON THIS SITE</button>
+    </section>
+
+    <footer class="tally"><b id="total">0</b> <span id="noun">BANNERS</span> NEVER SEEN</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

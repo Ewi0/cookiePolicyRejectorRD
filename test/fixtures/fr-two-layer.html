@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>French two-layer fixture</title><script src="harness.js"></script></head>
+<body>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // First layer has no refuse button: refusing means "Paramétrer" first.
+  // Default: the settings panel unfolds inside the banner. ?layer=modal: it opens as a separate dialog.
+  const asModal = location.search.includes('layer=modal');
+  const settings = `
+    <div class="layer2" style="${asModal ? 'position:fixed;inset:12%;z-index:61;background:#fff;padding:28px' : 'display:none;margin-top:16px'}">
+      <h3>Vos préférences en matière de cookies</h3>
+      <label><input type="checkbox" checked> Mesure d'audience</label><br>
+      <label><input type="checkbox" checked> Publicité personnalisée</label><br>
+      <button data-choice="tout-refuser">Tout refuser</button>
+      <button data-choice="enregistrer">Enregistrer mes choix</button>
+    </div>`;
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="bandeau" data-test="banner" style="position:fixed;left:0;right:0;bottom:0;padding:24px 32px;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,.15);font:15px system-ui;z-index:60">
+      <p>Nous utilisons des cookies pour mesurer l'audience et vous proposer des publicités adaptées.</p>
+      <button data-choice="parametrer">Paramétrer</button>
+      <button data-choice="tout-accepter">Tout accepter</button>
+      ${asModal ? '' : settings}
+    </div>`);
+  const banner = document.querySelector('.bandeau');
+  const closeAll = (what) => { record(what); banner.remove(); document.querySelector('.layer2')?.remove(); };
+  const wireLayer2 = () => {
+    on('[data-choice="tout-refuser"]', () => closeAll('tout-refuser'));
+    on('[data-choice="enregistrer"]', () => closeAll([...document.querySelectorAll('.layer2 input')].some((i) => i.checked) ? 'enregistrer-custom' : 'enregistrer-refus'));
+  };
+  on('[data-choice="tout-accepter"]', () => closeAll('tout-accepter'));
+  on('[data-choice="parametrer"]', () => {
+    record('parametrer');
+    if (asModal) {
+      banner.style.display = 'none';
+      later(200, () => { document.body.insertAdjacentHTML('beforeend', settings); wireLayer2(); });
+    } else {
+      document.querySelector('.layer2').style.display = 'block';
+    }
+  });
+  if (!asModal) wireLayer2();
+</script>
+</body>
+</html>

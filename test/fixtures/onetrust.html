@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>OneTrust fixture</title><script src="harness.js"></script></head>
+<body>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // Like the real SDK: injected a moment after load. ?second-layer hides "Reject All" on the banner.
+  later(300, () => {
+    const firstLayerReject = !location.search.includes('second-layer');
+    document.body.insertAdjacentHTML('beforeend', `
+      <div id="onetrust-consent-sdk">
+        <div id="onetrust-banner-sdk" data-test="banner" style="position:fixed;left:0;right:0;bottom:0;padding:24px 32px;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,.15);font:15px system-ui;z-index:9999">
+          <p>We and our partners use cookies to personalise content and ads and to analyse our traffic.</p>
+          <button id="onetrust-pc-btn-handler">Cookie Settings</button>
+          ${firstLayerReject ? '<button id="onetrust-reject-all-handler">Reject All</button>' : ''}
+          <button id="onetrust-accept-btn-handler">Accept All Cookies</button>
+        </div>
+        <div id="onetrust-pc-sdk" style="display:none;position:fixed;inset:10%;background:#fff;padding:24px;z-index:10000;font:15px system-ui">
+          <h2>Privacy Preference Center</h2>
+          <label><input type="checkbox" class="category-switch-handler" checked> Performance cookies</label>
+          <label><input type="checkbox" class="category-switch-handler" checked> Targeting cookies</label>
+          <button class="ot-pc-refuse-all-handler">Reject All</button>
+          <button class="save-preference-btn-handler">Confirm My Choices</button>
+        </div>
+      </div>`);
+    const banner = document.getElementById('onetrust-banner-sdk');
+    const pc = document.getElementById('onetrust-pc-sdk');
+    const close = (what) => { record(what); banner.style.display = 'none'; pc.style.display = 'none'; };
+    if (firstLayerReject) on('#onetrust-reject-all-handler', () => close('reject'));
+    on('#onetrust-accept-btn-handler', () => close('accept'));
+    on('#onetrust-pc-btn-handler', () => { record('settings'); pc.style.display = 'block'; });
+    on('.ot-pc-refuse-all-handler', () => close('reject'));
+    on('.save-preference-btn-handler', () => close([...pc.querySelectorAll('input')].some((i) => i.checked) ? 'custom' : 'reject'));
+  });
+</script>
+</body>
+</html>

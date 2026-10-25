@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Late Spanish banner fixture</title><script src="harness.js"></script></head>
+<body>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // Shows up 2.5 s after load, long after the first scans.
+  later(2500, () => {
+    document.body.insertAdjacentHTML('beforeend', `
+      <section class="aviso" data-test="banner" style="position:fixed;right:24px;bottom:24px;width:420px;padding:24px;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.2);font:15px system-ui;z-index:90">
+        <p>Utilizamos cookies propias y de terceros para analizar el tráfico y mostrarle publicidad.</p>
+        <button data-choice="configurar">Configurar</button>
+        <button data-choice="rechazar">Rechazar todas</button>
+        <button data-choice="aceptar">Aceptar todas</button>
+      </section>`);
+    for (const b of document.querySelectorAll('.aviso [data-choice]')) {
+      on(`.aviso [data-choice="${b.dataset.choice}"]`, () => { record(b.dataset.choice); document.querySelector('.aviso').remove(); });
+    }
+  });
+</script>
+</body>
+</html>
