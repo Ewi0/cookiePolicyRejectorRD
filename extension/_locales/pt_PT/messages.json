@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "pt-PT"
+  },
+  "extDescription": {
+    "message": "Recusa todos os banners de cookies antes de os ver. Ou aceita-os todos. Seja como for, nunca mais verá nenhum."
+  },
+  "statusArmed": {
+    "message": "● ATIVO"
+  },
+  "statusPaused": {
+    "message": "○ EM PAUSA"
+  },
+  "statusIdle": {
+    "message": "— INATIVO"
+  },
+  "statusNoAccess": {
+    "message": "○ SEM ACESSO"
+  },
+  "headlineReject": {
+    "message": "TUDO RECUSADO."
+  },
+  "headlineAccept": {
+    "message": "TUDO ACEITE."
+  },
+  "headlinePaused": {
+    "message": "EM PAUSA."
+  },
+  "headlineNoAccess": {
+    "message": "SEM ACESSO."
+  },
+  "subReject": {
+    "message": "CADA BANNER RESPONDIDO COM NÃO. ANTES DE O VER."
+  },
+  "subAccept": {
+    "message": "CADA BANNER RESPONDIDO COM SIM. ANTES DE O VER."
+  },
+  "subPaused": {
+    "message": "ESTE SITE RECUPERA OS SEUS BANNERS."
+  },
+  "subNoAccess": {
+    "message": "O NAVEGADOR NÃO O DEIXA FUNCIONAR NESTE SITE."
+  },
+  "modeLabel": {
+    "message": "Responder a cada banner de cookies com"
+  },
+  "modeReject": {
+    "message": "RECUSAR"
+  },
+  "modeAccept": {
+    "message": "ACEITAR"
+  },
+  "systemPage": {
+    "message": "PÁGINA DO SISTEMA"
+  },
+  "detailNone": {
+    "message": "NENHUM BANNER NESTA PÁGINA."
+  },
+  "detailPaused": {
+    "message": "OS BANNERS APARECEM NORMALMENTE AQUI."
+  },
+  "detailOffLimits": {
+    "message": "AS PÁGINAS DO NAVEGADOR ESTÃO FORA DE ALCANCE."
+  },
+  "detailNoAccessManual": {
+    "message": "PERMITA-O NAS DEFINIÇÕES DE EXTENSÕES DO NAVEGADOR."
+  },
+  "verbReject": {
+    "message": "RECUSADO"
+  },
+  "verbAccept": {
+    "message": "ACEITE"
+  },
+  "verbHide": {
+    "message": "OCULTO"
+  },
+  "verbOther": {
+    "message": "TRATADO"
+  },
+  "pauseSite": {
+    "message": "PAUSAR NESTE SITE"
+  },
+  "resumeSite": {
+    "message": "RETOMAR NESTE SITE"
+  },
+  "allowAccess": {
+    "message": "PERMITIR EM TODOS OS SITES"
+  },
+  "statusReload": {
+    "message": "○ NÃO ESTÁ ATIVO"
+  },
+  "headlineReload": {
+    "message": "RECARREGUE."
+  },
+  "subReload": {
+    "message": "ESTA PÁGINA CARREGOU ANTES DE ELE PODER FUNCIONAR."
+  },
+  "reloadPage": {
+    "message": "RECARREGAR A PÁGINA"
+  },
+  "tallyOne": {
+    "message": "{n} BANNER NUNCA VISTO"
+  },
+  "tallyOther": {
+    "message": "{n} BANNERS NUNCA VISTOS"
+  },
+  "report": {
+    "message": "REPORTAR"
+  },
+  "reportLabel": {
+    "message": "Reportar um problema neste site (abre o GitHub)"
+  },
+  "donate": {
+    "message": "DOAR"
+  },
+  "donateLabel": {
+    "message": "Doar para que continue gratuito (abre o GitHub)"
+  }
+}

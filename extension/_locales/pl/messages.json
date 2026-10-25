@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "pl"
+  },
+  "extDescription": {
+    "message": "Odrzuca każdy baner cookie, zanim go zobaczysz. Albo akceptuje wszystkie. Tak czy inaczej, nie zobaczysz już żadnego."
+  },
+  "statusArmed": {
+    "message": "● AKTYWNE"
+  },
+  "statusPaused": {
+    "message": "○ WSTRZYMANE"
+  },
+  "statusIdle": {
+    "message": "— BEZCZYNNE"
+  },
+  "statusNoAccess": {
+    "message": "○ BRAK DOSTĘPU"
+  },
+  "headlineReject": {
+    "message": "WSZYSTKO ODRZUCONE."
+  },
+  "headlineAccept": {
+    "message": "WSZYSTKO PRZYJĘTE."
+  },
+  "headlinePaused": {
+    "message": "WSTRZYMANE."
+  },
+  "headlineNoAccess": {
+    "message": "BRAK DOSTĘPU."
+  },
+  "subReject": {
+    "message": "KAŻDY BANER DOSTAŁ ODPOWIEDŹ NIE. ZANIM GO ZOBACZYSZ."
+  },
+  "subAccept": {
+    "message": "KAŻDY BANER DOSTAŁ ODPOWIEDŹ TAK. ZANIM GO ZOBACZYSZ."
+  },
+  "subPaused": {
+    "message": "TA STRONA ODZYSKUJE SWOJE BANERY."
+  },
+  "subNoAccess": {
+    "message": "PRZEGLĄDARKA NIE POZWALA MU DZIAŁAĆ NA TEJ STRONIE."
+  },
+  "modeLabel": {
+    "message": "Odpowiedź na każdy baner cookie"
+  },
+  "modeReject": {
+    "message": "ODRZUĆ"
+  },
+  "modeAccept": {
+    "message": "AKCEPTUJ"
+  },
+  "systemPage": {
+    "message": "STRONA SYSTEMOWA"
+  },
+  "detailNone": {
+    "message": "BRAK BANERA NA TEJ STRONIE."
+  },
+  "detailPaused": {
+    "message": "BANERY WYŚWIETLAJĄ SIĘ TU NORMALNIE."
+  },
+  "detailOffLimits": {
+    "message": "STRONY PRZEGLĄDARKI SĄ POZA ZASIĘGIEM."
+  },
+  "detailNoAccessManual": {
+    "message": "ZEZWÓL NA NIE W USTAWIENIACH ROZSZERZEŃ PRZEGLĄDARKI."
+  },
+  "verbReject": {
+    "message": "ODRZUCONO"
+  },
+  "verbAccept": {
+    "message": "ZAAKCEPTOWANO"
+  },
+  "verbHide": {
+    "message": "UKRYTO"
+  },
+  "verbOther": {
+    "message": "OBSŁUŻONO"
+  },
+  "pauseSite": {
+    "message": "WSTRZYMAJ NA TEJ STRONIE"
+  },
+  "resumeSite": {
+    "message": "WZNÓW NA TEJ STRONIE"
+  },
+  "allowAccess": {
+    "message": "ZEZWÓL NA WSZYSTKICH STRONACH"
+  },
+  "statusReload": {
+    "message": "○ NIEURUCHOMIONE"
+  },
+  "headlineReload": {
+    "message": "ODŚWIEŻ."
+  },
+  "subReload": {
+    "message": "TA STRONA ZAŁADOWAŁA SIĘ, ZANIM MOGŁO ZADZIAŁAĆ."
+  },
+  "reloadPage": {
+    "message": "ODŚWIEŻ STRONĘ"
+  },
+  "tallyOther": {
+    "message": "NIEWIDZIANE BANERY: {n}"
+  },
+  "report": {
+    "message": "ZGŁOŚ"
+  },
+  "reportLabel": {
+    "message": "Zgłoś problem z tą stroną (otwiera GitHub)"
+  },
+  "donate": {
+    "message": "WESPRZYJ"
+  },
+  "donateLabel": {
+    "message": "Wesprzyj darowizną, by zostało darmowe (otwiera GitHub)"
+  }
+}

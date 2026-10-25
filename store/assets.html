@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cookie Policy Rejector — store images</title>
+<!-- Rendered by scripts/store-assets.mjs at the exact size of each Chrome Web Store image (?asset=…).
+     Every popup is the real UI (extension/popup in demo mode), not a drawing of it. -->
+<style>
+  :root {
+    --black: #0b0b0b; --white: #fff; --paper: #e9e7e1; --ink: #0b0b0b; --mute: #8c8c8c; --line: #2b2b2b;
+    --sans: "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, "JetBrains Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; }
+  body { font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+  .asset { display: none; position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+  .asset.on { display: flex; }
+  .dark { background: var(--black); color: var(--white); }
+  .light { background: var(--paper); color: var(--ink); }
+
+  .label { font: 600 15px/1 var(--mono); letter-spacing: 0.16em; color: var(--mute); }
+  .light .label { color: #5b5b5b; }
+  h1 { font-size: 80px; font-weight: 800; line-height: 0.95; letter-spacing: -0.01em; margin-top: 28px; }
+  .sub { margin-top: 26px; font: 500 17px/1.6 var(--mono); letter-spacing: 0.1em; color: #bdbdbd; }
+  .light .sub { color: #4a4a4a; }
+  ul { list-style: none; margin-top: 44px; display: grid; gap: 18px; }
+  li { font-size: 23px; line-height: 1.3; display: flex; gap: 16px; }
+  li::before { content: "×"; font-weight: 800; }
+  .light li::before { content: "✓"; }
+
+  /* Screenshots: copy on the left, the real popup on the right. */
+  .copy { position: absolute; left: 96px; top: 50%; transform: translateY(-50%); width: 580px; }
+  .popup { position: absolute; right: 96px; top: 50%; width: 360px; height: 560px; border: 0;
+    transform: translateY(-50%) scale(1.25); transform-origin: 100% 50%; box-shadow: 0 0 0 1px var(--line); }
+  .light .popup { box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28); }
+
+  /* Languages: four popups in a row. */
+  .langs .copy { left: 0; right: 0; top: 70px; transform: none; width: auto; text-align: center; }
+  .langs h1 { font-size: 64px; margin-top: 18px; }
+  .row { position: absolute; left: 0; right: 0; bottom: 64px; display: flex; justify-content: center; gap: 28px; }
+  .row figure { width: 270px; height: 420px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+  .row iframe { width: 360px; height: 560px; border: 0; transform: scale(0.75); transform-origin: 0 0; }
+  .row figcaption { display: none; }
+
+  /* The mark, same geometry as the popup: two bars. */
+  .mark { position: relative; width: var(--s); height: var(--s); flex: none; }
+  .mark i { position: absolute; left: 50%; top: 50%; width: calc(var(--s) * 1.0182); height: calc(var(--s) * 0.13);
+    background: var(--white); transform: translate(-50%, -50%) rotate(45deg); }
+  .mark i + i { transform: translate(-50%, -50%) rotate(-45deg); }
+
+  /* Promo tiles: the mark and as few words as possible. */
+  .tile { align-items: center; gap: 28px; padding: 0 40px; --s: 118px; }
+  .tile h2 { font-size: 27px; font-weight: 800; line-height: 1; margin-top: 12px; }
+  .tile .label { font-size: 11px; }
+  .marquee { align-items: center; gap: 96px; padding: 0 120px; --s: 330px; }
+  .marquee h2 { font-size: 96px; font-weight: 800; line-height: 0.95; margin-top: 26px; }
+  .marquee .sub { font-size: 20px; }
+</style>
+</head>
+<body>
+
+<section class="asset dark" id="screenshot-1-refuse">
+  <div class="copy">
+    <p class="label">COOKIE POLICY REJECTOR</p>
+    <h1>REFUSED<br>EVERYTHING.</h1>
+    <p class="sub">EVERY COOKIE BANNER ANSWERED NO.<br>BEFORE YOU SEE IT.</p>
+    <ul>
+      <li>Presses “Reject all”, or switches everything off in the settings</li>
+      <li>No way to refuse? Hidden, and nothing is accepted</li>
+      <li>Understands about 25 languages</li>
+    </ul>
+  </div>
+  <iframe class="popup" title="Popup, refuse mode" src="../extension/popup/popup.html?host=lemonde.fr&cmp=Didomi&total=2481"></iframe>
+</section>
+
+<section class="asset light" id="screenshot-2-approve">
+  <div class="copy">
+    <p class="label">ONE SWITCH</p>
+    <h1>OR APPROVE<br>EVERYTHING.</h1>
+    <p class="sub">SAME SILENCE. YOUR CHOICE.</p>
+    <ul>
+      <li>Accepts all in one go, if you just want them gone</li>
+      <li>Pause it on any site with one tap</li>
+      <li>A running count of banners you never saw</li>
+    </ul>
+  </div>
+  <iframe class="popup" title="Popup, approve mode" src="../extension/popup/popup.html?mode=accept&host=bbc.co.uk&cmp=Generic&total=2481"></iframe>
+</section>
+
+<section class="asset dark" id="screenshot-3-private">
+  <div class="copy">
+    <p class="label">PRIVATE BY DESIGN</p>
+    <h1>NOTHING<br>LEAVES.</h1>
+    <p class="sub">NO NETWORK REQUESTS. NO ANALYTICS.<br>NO ACCOUNT. NO ADS.</p>
+    <ul>
+      <li>Pages are checked on your device and forgotten</li>
+      <li>Settings stay in your browser</li>
+      <li>Open source, MIT licensed</li>
+    </ul>
+  </div>
+  <iframe class="popup" title="Popup, paused on a site" src="../extension/popup/popup.html?paused&host=mybank.example&total=2481"></iframe>
+</section>
+
+<section class="asset dark langs" id="screenshot-4-languages">
+  <div class="copy">
+    <p class="label">31 LANGUAGES</p>
+    <h1>SPEAKS YOURS.</h1>
+  </div>
+  <div class="row">
+    <figure><iframe title="German" src="../extension/popup/popup.html?lang=de&host=spiegel.de&cmp=Sourcepoint&action=hide&total=1204"></iframe></figure>
+    <figure><iframe title="French" src="../extension/popup/popup.html?lang=fr&host=lemonde.fr&cmp=Didomi&total=318"></iframe></figure>
+    <figure><iframe title="Polish" src="../extension/popup/popup.html?lang=pl&host=onet.pl&cmp=Generic&total=2481"></iframe></figure>
+    <figure><iframe title="Japanese" src="../extension/popup/popup.html?lang=ja&host=yahoo.co.jp&cmp=Generic&total=77"></iframe></figure>
+  </div>
+</section>
+
+<section class="asset dark tile" id="promo-small-440x280">
+  <div class="mark" aria-hidden="true"><i></i><i></i></div>
+  <div>
+    <p class="label">COOKIE POLICY<br>REJECTOR</p>
+    <h2>REFUSED<br>EVERYTHING.</h2>
+  </div>
+</section>
+
+<section class="asset dark marquee" id="promo-marquee-1400x560">
+  <div class="mark" aria-hidden="true"><i></i><i></i></div>
+  <div>
+    <p class="label">COOKIE POLICY REJECTOR</p>
+    <h2>REFUSED<br>EVERYTHING.</h2>
+    <p class="sub">EVERY COOKIE BANNER, BEFORE YOU SEE IT.</p>
+  </div>
+</section>
+
+<script>
+  const id = new URLSearchParams(location.search).get('asset') || 'screenshot-1-refuse';
+  document.getElementById(id)?.classList.add('on');
+</script>
+</body>
+</html>

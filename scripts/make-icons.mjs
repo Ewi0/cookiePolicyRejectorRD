@@ -104,9 +104,12 @@ function render(size, kind, { pad, t, tile }) {
 const out = new URL('../extension/icons/', import.meta.url);
 mkdirSync(out, { recursive: true });
 // Small sizes get a fatter stroke and less padding so the mark survives 16 px.
-const style = (size) => (size <= 16 ? { pad: 0.16, t: 0.19 } : size <= 48 ? { pad: 0.2, t: 0.16 } : { pad: 0.22, t: 0.14 });
-for (const size of [16, 32, 48, 128]) writeFileSync(new URL(`x-${size}.png`, out), render(size, 'x', style(size)));
+const style = (size) => (size <= 16 ? { pad: 0.16, t: 0.19 } : { pad: 0.2, t: 0.16 });
+for (const size of [16, 32, 48]) writeFileSync(new URL(`x-${size}.png`, out), render(size, 'x', style(size)));
 for (const size of [16, 32]) writeFileSync(new URL(`ok-${size}.png`, out), render(size, 'check', style(size)));
+// Store listing and install dialog: 96 px of artwork inside 16 px of transparent padding, per the
+// Chrome Web Store image guidelines. Square corners, like everything else here.
+writeFileSync(new URL('x-128.png', out), render(128, 'x', { pad: 0.2, t: 0.14, tile: { margin: 16 / 128, radius: 0 } }));
 
 const art = new URL('../assets/', import.meta.url);
 mkdirSync(art, { recursive: true });

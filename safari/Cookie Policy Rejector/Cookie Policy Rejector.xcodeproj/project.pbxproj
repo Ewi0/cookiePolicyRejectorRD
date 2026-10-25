@@ -39,6 +39,8 @@
 		94EB659C308ACA0200BDB70F /* content in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6592308ACA0200BDB70F /* content */; };
 		94EB659D308ACA0200BDB70F /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6593308ACA0200BDB70F /* icons */; };
 		94EB659E308ACA0200BDB70F /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 94EB6594308ACA0200BDB70F /* manifest.json */; };
+		94EB65A1308ACA0200BDB70F /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 94EB65A0308ACA0200BDB70F /* _locales */; };
+		94EB65A2308ACA0200BDB70F /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 94EB65A0308ACA0200BDB70F /* _locales */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,7 @@
 		94EB6592308ACA0200BDB70F /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../../extension/content; sourceTree = "<group>"; };
 		94EB6593308ACA0200BDB70F /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../extension/icons; sourceTree = "<group>"; };
 		94EB6594308ACA0200BDB70F /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../extension/manifest.json; sourceTree = "<group>"; };
+		94EB65A0308ACA0200BDB70F /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = ../../../extension/_locales; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +230,7 @@
 		94EB658F308ACA0200BDB70F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94EB65A0308ACA0200BDB70F /* _locales */,
 				94EB6590308ACA0200BDB70F /* popup */,
 				94EB6591308ACA0200BDB70F /* background.js */,
 				94EB6592308ACA0200BDB70F /* content */,
@@ -386,6 +390,7 @@
 				94EB659E308ACA0200BDB70F /* manifest.json in Resources */,
 				94EB659B308ACA0200BDB70F /* background.js in Resources */,
 				94EB659A308ACA0200BDB70F /* popup in Resources */,
+				94EB65A2308ACA0200BDB70F /* _locales in Resources */,
 			);
 		};
 		94EB6569308ACA0100BDB70F /* Resources */ = {
@@ -396,6 +401,7 @@
 				94EB6599308ACA0200BDB70F /* manifest.json in Resources */,
 				94EB6596308ACA0200BDB70F /* background.js in Resources */,
 				94EB6595308ACA0200BDB70F /* popup in Resources */,
+				94EB65A1308ACA0200BDB70F /* _locales in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */

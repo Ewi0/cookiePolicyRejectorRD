@@ -1,0 +1,162 @@
+{
+  "lang": {
+    "message": "en",
+    "description": "BCP 47 tag of this translation. Sets the popup language, number format and plural rules."
+  },
+  "extName": {
+    "message": "Cookie Policy Rejector",
+    "description": "Extension name. A brand name: do not translate."
+  },
+  "extDescription": {
+    "message": "Refuses every cookie banner before you see it. Or approves them all. Either way, you never see one again.",
+    "description": "Store and browser description. At most 132 characters."
+  },
+  "statusArmed": {
+    "message": "● ARMED",
+    "description": "Top-right status: the extension is answering banners on this site."
+  },
+  "statusPaused": {
+    "message": "○ PAUSED",
+    "description": "Top-right status: the user paused it on this site."
+  },
+  "statusIdle": {
+    "message": "— IDLE",
+    "description": "Top-right status: a browser page where extensions cannot run."
+  },
+  "statusNoAccess": {
+    "message": "○ NO ACCESS",
+    "description": "Top-right status: the browser has not given the extension access to this site."
+  },
+  "headlineReject": {
+    "message": "REFUSED EVERYTHING.",
+    "description": "Big headline in refuse mode. Keep it short."
+  },
+  "headlineAccept": {
+    "message": "APPROVED EVERYTHING.",
+    "description": "Big headline in approve mode. Keep it short."
+  },
+  "headlinePaused": {
+    "message": "PAUSED.",
+    "description": "Big headline when paused on this site."
+  },
+  "headlineNoAccess": {
+    "message": "NO ACCESS.",
+    "description": "Big headline when the browser has not given access to this site."
+  },
+  "subReject": {
+    "message": "EVERY BANNER ANSWERED NO. BEFORE YOU SEE IT.",
+    "description": "Line under the headline in refuse mode."
+  },
+  "subAccept": {
+    "message": "EVERY BANNER ANSWERED YES. BEFORE YOU SEE IT.",
+    "description": "Line under the headline in approve mode."
+  },
+  "subPaused": {
+    "message": "THIS SITE GETS ITS BANNERS BACK.",
+    "description": "Line under the headline when paused on this site."
+  },
+  "subNoAccess": {
+    "message": "THE BROWSER HASN'T LET IT RUN ON THIS SITE.",
+    "description": "Line under the headline without site access."
+  },
+  "modeLabel": {
+    "message": "Answer every cookie banner with",
+    "description": "Screen reader label of the REFUSE / APPROVE switch. Sentence case."
+  },
+  "modeReject": {
+    "message": "REFUSE",
+    "description": "Mode switch button."
+  },
+  "modeAccept": {
+    "message": "APPROVE",
+    "description": "Mode switch button."
+  },
+  "systemPage": {
+    "message": "SYSTEM PAGE",
+    "description": "Shown instead of a site name on browser pages."
+  },
+  "detailNone": {
+    "message": "NO BANNER ON THIS PAGE.",
+    "description": "Status line: nothing to answer on this page."
+  },
+  "detailPaused": {
+    "message": "BANNERS SHOW NORMALLY HERE.",
+    "description": "Status line: paused, or no access, on this site."
+  },
+  "detailOffLimits": {
+    "message": "BROWSER PAGES ARE OFF LIMITS.",
+    "description": "Status line on browser pages, where extensions cannot run."
+  },
+  "detailNoAccessManual": {
+    "message": "ALLOW IT IN THE BROWSER'S EXTENSION SETTINGS.",
+    "description": "Status line without site access, when the popup cannot ask for it."
+  },
+  "verbReject": {
+    "message": "REFUSED",
+    "description": "After a consent platform name: \"ONETRUST — REFUSED\"."
+  },
+  "verbAccept": {
+    "message": "APPROVED",
+    "description": "After a consent platform name: \"ONETRUST — APPROVED\"."
+  },
+  "verbHide": {
+    "message": "HIDDEN",
+    "description": "After a consent platform name: hidden without answering (no way to refuse)."
+  },
+  "verbOther": {
+    "message": "HANDLED",
+    "description": "After a consent platform name, for anything else."
+  },
+  "pauseSite": {
+    "message": "PAUSE ON THIS SITE",
+    "description": "Button."
+  },
+  "resumeSite": {
+    "message": "RESUME ON THIS SITE",
+    "description": "Button."
+  },
+  "allowAccess": {
+    "message": "ALLOW ON EVERY SITE",
+    "description": "Button that asks the browser for access to all sites."
+  },
+  "statusReload": {
+    "message": "○ NOT RUNNING",
+    "description": "Top-right status: the page loaded before the extension could run in it."
+  },
+  "headlineReload": {
+    "message": "RELOAD.",
+    "description": "Big headline when the page has to be reloaded once."
+  },
+  "subReload": {
+    "message": "THIS PAGE LOADED BEFORE IT COULD RUN.",
+    "description": "Line under the headline: the page was open before the extension started."
+  },
+  "reloadPage": {
+    "message": "RELOAD THIS PAGE",
+    "description": "Button that reloads the current tab."
+  },
+  "tallyOne": {
+    "message": "{n} BANNER NEVER SEEN",
+    "description": "Lifetime counter, plural category \"one\". {n} is the number. Add tallyZero, tallyTwo, tallyFew or tallyMany where your language needs them."
+  },
+  "tallyOther": {
+    "message": "{n} BANNERS NEVER SEEN",
+    "description": "Lifetime counter, every other number. {n} is the number."
+  },
+  "report": {
+    "message": "REPORT",
+    "description": "Link: report a problem with this site."
+  },
+  "reportLabel": {
+    "message": "Report a problem on this site (opens GitHub)",
+    "description": "Screen reader label and tooltip of REPORT. Must contain the visible word."
+  },
+  "donate": {
+    "message": "DONATE",
+    "description": "Link: donate to the project."
+  },
+  "donateLabel": {
+    "message": "Donate to keep it free (opens GitHub)",
+    "description": "Screen reader label and tooltip of DONATE. Must contain the visible word."
+  }
+}

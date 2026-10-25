@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Devsite-style fixture</title>
+<script src="harness.js"></script>
+<style>
+  devsite-snackbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 100; display: none; align-items: center; gap: 24px;
+    padding: 16px 32px; background: #e8f0fe; font: 16px system-ui; }
+  devsite-snackbar[open] { display: flex; }
+</style>
+</head>
+<body>
+<script>
+  // A long documentation page (big table of contents, highlighted code): about 60,000 nodes
+  // before the cookie bar, which sits last in <body>, pre-rendered and only revealed later.
+  const toc = Array.from({ length: 1500 }, (_, i) => `<li><a href="#s${i}"><span>Раздел ${i}</span></a></li>`).join('');
+  const code = Array.from({ length: 6000 }, (_, i) => `<span class="k">const</span> <span class="v">x${i}</span> = <span class="n">${i}</span>;\n`).join('');
+  document.body.insertAdjacentHTML('afterbegin', `<nav><ul>${toc}</ul></nav>${article()}<pre>${code}</pre>`);
+  later(1200, () => document.querySelector('devsite-snackbar').setAttribute('open', ''));
+</script>
+<devsite-snackbar data-test="banner">
+  <div class="devsite-snackbar-message">developer.example.dev использует файлы cookie от Google. Это необходимо для поддержания и улучшения его работы и для анализа трафика. <a href="https://policies.example/technologies/cookies">Подробнее</a></div>
+  <button class="devsite-snackbar-action" data-choice="ok">OK</button>
+</devsite-snackbar>
+<script>
+  on('[data-choice="ok"]', () => { record('ok'); document.querySelector('devsite-snackbar').removeAttribute('open'); });
+</script>
+</body>
+</html>

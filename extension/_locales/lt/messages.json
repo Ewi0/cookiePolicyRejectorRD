@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "lt"
+  },
+  "extDescription": {
+    "message": "Atmeta kiekvieną pranešimą apie slapukus, kol jo nepamatėte. Arba priima visus. Bet kuriuo atveju nė vieno daugiau nematysite."
+  },
+  "statusArmed": {
+    "message": "● ĮJUNGTA"
+  },
+  "statusPaused": {
+    "message": "○ PRISTABDYTA"
+  },
+  "statusIdle": {
+    "message": "— NEAKTYVU"
+  },
+  "statusNoAccess": {
+    "message": "○ NĖRA PRIEIGOS"
+  },
+  "headlineReject": {
+    "message": "VISKAS ATMESTA."
+  },
+  "headlineAccept": {
+    "message": "VISKAS PRIIMTA."
+  },
+  "headlinePaused": {
+    "message": "PRISTABDYTA."
+  },
+  "headlineNoAccess": {
+    "message": "NĖRA PRIEIGOS."
+  },
+  "subReject": {
+    "message": "KIEKVIENAM PRANEŠIMUI ATSAKYTA NE. DAR PRIEŠ JUMS JĮ PAMATANT."
+  },
+  "subAccept": {
+    "message": "KIEKVIENAM PRANEŠIMUI ATSAKYTA TAIP. DAR PRIEŠ JUMS JĮ PAMATANT."
+  },
+  "subPaused": {
+    "message": "ŠIOJE SVETAINĖJE PRANEŠIMAI VĖL RODOMI."
+  },
+  "subNoAccess": {
+    "message": "NARŠYKLĖ NELEIDŽIA JAM VEIKTI ŠIOJE SVETAINĖJE."
+  },
+  "modeLabel": {
+    "message": "Atsakymas į kiekvieną pranešimą apie slapukus"
+  },
+  "modeReject": {
+    "message": "ATMESTI"
+  },
+  "modeAccept": {
+    "message": "PRIIMTI"
+  },
+  "systemPage": {
+    "message": "SISTEMOS PUSLAPIS"
+  },
+  "detailNone": {
+    "message": "ŠIAME PUSLAPYJE PRANEŠIMO NĖRA."
+  },
+  "detailPaused": {
+    "message": "ČIA PRANEŠIMAI RODOMI ĮPRASTAI."
+  },
+  "detailOffLimits": {
+    "message": "NARŠYKLĖS PUSLAPIAI NEPASIEKIAMI."
+  },
+  "detailNoAccessManual": {
+    "message": "LEISKITE JĮ NARŠYKLĖS PLĖTINIŲ NUSTATYMUOSE."
+  },
+  "verbReject": {
+    "message": "ATMESTA"
+  },
+  "verbAccept": {
+    "message": "PRIIMTA"
+  },
+  "verbHide": {
+    "message": "PASLĖPTA"
+  },
+  "verbOther": {
+    "message": "APDOROTA"
+  },
+  "pauseSite": {
+    "message": "PRISTABDYTI ŠIOJE SVETAINĖJE"
+  },
+  "resumeSite": {
+    "message": "TĘSTI ŠIOJE SVETAINĖJE"
+  },
+  "allowAccess": {
+    "message": "LEISTI VISOSE SVETAINĖSE"
+  },
+  "statusReload": {
+    "message": "○ NEVEIKIA"
+  },
+  "headlineReload": {
+    "message": "ĮKELKITE IŠ NAUJO."
+  },
+  "subReload": {
+    "message": "PUSLAPIS ĮSIKĖLĖ ANKSČIAU, NEI JIS GALĖJO PRADĖTI VEIKTI."
+  },
+  "reloadPage": {
+    "message": "ĮKELTI PUSLAPĮ IŠ NAUJO"
+  },
+  "tallyOther": {
+    "message": "NEMATYTI PRANEŠIMAI: {n}"
+  },
+  "report": {
+    "message": "PRANEŠTI"
+  },
+  "reportLabel": {
+    "message": "Pranešti apie problemą šioje svetainėje (atidaro GitHub)"
+  },
+  "donate": {
+    "message": "PAAUKOTI"
+  },
+  "donateLabel": {
+    "message": "Paaukoti, kad liktų nemokamas (atidaro GitHub)"
+  }
+}

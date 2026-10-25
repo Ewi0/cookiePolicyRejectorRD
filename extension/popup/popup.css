@@ -10,7 +10,7 @@
   --t: 0.13; /* bar thickness as a share of the mark */
   --ease: cubic-bezier(0.7, 0, 0.2, 1);
   --sans: "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
-  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "JetBrains Mono", monospace;
   color-scheme: dark;
 }
 
@@ -60,7 +60,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 26px 0 30px;
+  padding: 16px 0 20px; /* the hero is centred in what is left, so this is a minimum, not the look */
   text-align: center;
 }
 
@@ -81,19 +81,20 @@ body {
 .b { --l: 1.0182; --x: 0.5; --y: 0.5; --r: -45deg; }
 [data-mode="accept"] .a { --l: 0.461; --x: 0.283; --y: 0.643; }
 [data-mode="accept"] .b { --l: 0.7721; --x: 0.627; --y: 0.533; }
-[data-paused] .bar, [data-idle] .bar { background: var(--dim); }
+[data-paused] .bar, [data-idle] .bar, [data-needs] .bar { background: var(--dim); }
 
+/* One line in English; longer languages wrap to two balanced lines instead of being cut off. */
 h1 {
-  margin-top: 30px;
+  margin-top: 26px;
   font-size: 23px;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: 0.01em;
-  white-space: nowrap;
+  text-wrap: balance;
 }
 
 .sub {
-  margin-top: 12px;
+  margin-top: 10px;
   font: 500 10px/1.5 var(--mono);
   letter-spacing: 0.1em;
   color: var(--mute);
@@ -138,18 +139,38 @@ button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
 .host { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .count { font-weight: 800; }
 
-.detail {
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
   margin-top: 6px;
+}
+
+.detail {
   min-height: 14px;
   font: 500 10px/1.4 var(--mono);
   letter-spacing: 0.08em;
   color: var(--mute);
 }
 
+/* Quiet text links: report a site, donate. They open GitHub in a new tab. */
+.link {
+  flex: none;
+  font: 600 10px/1.4 var(--mono);
+  letter-spacing: 0.1em;
+  color: var(--mute);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.link::after { content: " ↗"; }
+.link:hover { color: var(--fg); }
+.link:focus-visible { color: var(--fg); outline: 2px solid var(--fg); outline-offset: 3px; }
+
 .pause {
   width: 100%;
   height: 36px;
-  margin-top: 12px;
+  margin-top: 10px;
   border: 1px solid var(--line);
   font-size: 10.5px;
   transition: border-color 0.15s, background-color 0.15s, color 0.15s;
@@ -157,15 +178,25 @@ button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
 .pause:hover { border-color: var(--fg); }
 .pause[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 .pause:disabled { opacity: 0.35; cursor: default; border-color: var(--line); }
+/* Not working here yet (no site access, or a page older than the extension): the button is the fix, so it leads. */
+[data-needs] .pause:enabled { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
 .tally {
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 12px;
   margin-top: 14px;
   font: 500 10px/1 var(--mono);
   letter-spacing: 0.12em;
   color: var(--mute);
 }
 .tally b { color: var(--fg); font-weight: 700; }
+
+/* Wide letter-spacing suits capitals, not Japanese, Korean or Chinese. */
+:is(:lang(ja), :lang(ko), :lang(zh)) :is(.sub, button, .site, .detail, .link, .tally) { letter-spacing: 0.03em; }
 
 /* Phones: Safari on iOS, Firefox on Android. The popup fills the sheet. */
 .touch body { width: auto; }
@@ -181,6 +212,7 @@ button:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
 .touch .site { font-size: 12px; }
 .touch .detail { font-size: 11px; }
 .touch .pause { height: 48px; font-size: 11.5px; }
+.touch .link { font-size: 11px; padding: 12px 0; margin: -12px 0; } /* a finger-sized target, same layout */
 
 .no-anim .bar { transition: none; }
 

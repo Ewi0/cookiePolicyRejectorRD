@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "cs"
+  },
+  "extDescription": {
+    "message": "Odmítne každý cookie banner dřív, než ho uvidíte. Nebo je všechny přijme. Tak či tak už žádný neuvidíte."
+  },
+  "statusArmed": {
+    "message": "● AKTIVNÍ"
+  },
+  "statusPaused": {
+    "message": "○ POZASTAVENO"
+  },
+  "statusIdle": {
+    "message": "— NEČINNÉ"
+  },
+  "statusNoAccess": {
+    "message": "○ BEZ PŘÍSTUPU"
+  },
+  "headlineReject": {
+    "message": "VŠE ODMÍTNUTO."
+  },
+  "headlineAccept": {
+    "message": "VŠE PŘIJATO."
+  },
+  "headlinePaused": {
+    "message": "POZASTAVENO."
+  },
+  "headlineNoAccess": {
+    "message": "BEZ PŘÍSTUPU."
+  },
+  "subReject": {
+    "message": "KAŽDÝ BANNER DOSTAL NE. DŘÍV, NEŽ JSTE HO UVIDĚLI."
+  },
+  "subAccept": {
+    "message": "KAŽDÝ BANNER DOSTAL ANO. DŘÍV, NEŽ JSTE HO UVIDĚLI."
+  },
+  "subPaused": {
+    "message": "TENTO WEB DOSTANE SVÉ BANNERY ZPĚT."
+  },
+  "subNoAccess": {
+    "message": "PROHLÍŽEČ MU NA TOMTO WEBU NEDOVOLUJE BĚŽET."
+  },
+  "modeLabel": {
+    "message": "Odpověď na každý cookie banner"
+  },
+  "modeReject": {
+    "message": "ODMÍTNOUT"
+  },
+  "modeAccept": {
+    "message": "PŘIJMOUT"
+  },
+  "systemPage": {
+    "message": "SYSTÉMOVÁ STRÁNKA"
+  },
+  "detailNone": {
+    "message": "NA TÉTO STRÁNCE NENÍ ŽÁDNÝ BANNER."
+  },
+  "detailPaused": {
+    "message": "BANNERY SE TU ZOBRAZUJÍ NORMÁLNĚ."
+  },
+  "detailOffLimits": {
+    "message": "STRÁNKY PROHLÍŽEČE JSOU MIMO DOSAH."
+  },
+  "detailNoAccessManual": {
+    "message": "POVOLTE HO V NASTAVENÍ ROZŠÍŘENÍ PROHLÍŽEČE."
+  },
+  "verbReject": {
+    "message": "ODMÍTNUTO"
+  },
+  "verbAccept": {
+    "message": "PŘIJATO"
+  },
+  "verbHide": {
+    "message": "SKRYTO"
+  },
+  "verbOther": {
+    "message": "VYŘÍZENO"
+  },
+  "pauseSite": {
+    "message": "POZASTAVIT NA TOMTO WEBU"
+  },
+  "resumeSite": {
+    "message": "OBNOVIT NA TOMTO WEBU"
+  },
+  "allowAccess": {
+    "message": "POVOLIT NA VŠECH WEBECH"
+  },
+  "statusReload": {
+    "message": "○ NEBĚŽÍ"
+  },
+  "headlineReload": {
+    "message": "NAČTĚTE ZNOVU."
+  },
+  "subReload": {
+    "message": "STRÁNKA SE NAČETLA DŘÍV, NEŽ MOHLO ZAČÍT PRACOVAT."
+  },
+  "reloadPage": {
+    "message": "NAČÍST STRÁNKU ZNOVU"
+  },
+  "tallyOther": {
+    "message": "NEVIDĚNÉ BANNERY: {n}"
+  },
+  "report": {
+    "message": "NAHLÁSIT"
+  },
+  "reportLabel": {
+    "message": "Nahlásit problém s tímto webem (otevře GitHub)"
+  },
+  "donate": {
+    "message": "PŘISPĚT"
+  },
+  "donateLabel": {
+    "message": "Přispět, aby zůstal zdarma (otevře GitHub)"
+  }
+}

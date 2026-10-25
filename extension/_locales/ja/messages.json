@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "ja"
+  },
+  "extDescription": {
+    "message": "Cookie バナーを表示される前にすべて拒否します。すべて同意することもできます。どちらにしても、もうバナーを目にすることはありません。"
+  },
+  "statusArmed": {
+    "message": "● 有効"
+  },
+  "statusPaused": {
+    "message": "○ 一時停止中"
+  },
+  "statusIdle": {
+    "message": "— 待機中"
+  },
+  "statusNoAccess": {
+    "message": "○ アクセス不可"
+  },
+  "headlineReject": {
+    "message": "すべて拒否しました。"
+  },
+  "headlineAccept": {
+    "message": "すべて同意しました。"
+  },
+  "headlinePaused": {
+    "message": "一時停止中。"
+  },
+  "headlineNoAccess": {
+    "message": "アクセスできません。"
+  },
+  "subReject": {
+    "message": "すべてのバナーに「いいえ」と回答。表示される前に。"
+  },
+  "subAccept": {
+    "message": "すべてのバナーに「はい」と回答。表示される前に。"
+  },
+  "subPaused": {
+    "message": "このサイトではバナーが表示されます。"
+  },
+  "subNoAccess": {
+    "message": "このサイトでの実行がブラウザに許可されていません。"
+  },
+  "modeLabel": {
+    "message": "Cookie バナーへの回答"
+  },
+  "modeReject": {
+    "message": "拒否"
+  },
+  "modeAccept": {
+    "message": "同意"
+  },
+  "systemPage": {
+    "message": "システムページ"
+  },
+  "detailNone": {
+    "message": "このページにバナーはありません。"
+  },
+  "detailPaused": {
+    "message": "ここではバナーが通常どおり表示されます。"
+  },
+  "detailOffLimits": {
+    "message": "ブラウザのページでは動作しません。"
+  },
+  "detailNoAccessManual": {
+    "message": "ブラウザの拡張機能の設定で許可してください。"
+  },
+  "verbReject": {
+    "message": "拒否"
+  },
+  "verbAccept": {
+    "message": "同意"
+  },
+  "verbHide": {
+    "message": "非表示"
+  },
+  "verbOther": {
+    "message": "処理済み"
+  },
+  "pauseSite": {
+    "message": "このサイトで一時停止"
+  },
+  "resumeSite": {
+    "message": "このサイトで再開"
+  },
+  "allowAccess": {
+    "message": "すべてのサイトで許可"
+  },
+  "statusReload": {
+    "message": "○ 未実行"
+  },
+  "headlineReload": {
+    "message": "再読み込みしてください。"
+  },
+  "subReload": {
+    "message": "このページは拡張機能が動き出す前に読み込まれました。"
+  },
+  "reloadPage": {
+    "message": "ページを再読み込み"
+  },
+  "tallyOther": {
+    "message": "見ずに済んだバナー {n} 件"
+  },
+  "report": {
+    "message": "報告"
+  },
+  "reportLabel": {
+    "message": "このサイトの問題を報告（GitHub が開きます）"
+  },
+  "donate": {
+    "message": "寄付"
+  },
+  "donateLabel": {
+    "message": "無料で続けられるよう寄付する（GitHub が開きます）"
+  }
+}

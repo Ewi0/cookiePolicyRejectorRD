@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "hr"
+  },
+  "extDescription": {
+    "message": "Odbija svaki banner za kolačiće prije nego što ga vidite. Ili ih sve prihvaća. U svakom slučaju, više nijedan nećete vidjeti."
+  },
+  "statusArmed": {
+    "message": "● AKTIVNO"
+  },
+  "statusPaused": {
+    "message": "○ PAUZIRANO"
+  },
+  "statusIdle": {
+    "message": "— NEAKTIVNO"
+  },
+  "statusNoAccess": {
+    "message": "○ NEMA PRISTUPA"
+  },
+  "headlineReject": {
+    "message": "SVE ODBIJENO."
+  },
+  "headlineAccept": {
+    "message": "SVE PRIHVAĆENO."
+  },
+  "headlinePaused": {
+    "message": "PAUZIRANO."
+  },
+  "headlineNoAccess": {
+    "message": "NEMA PRISTUPA."
+  },
+  "subReject": {
+    "message": "SVAKI BANNER DOBIO JE NE. PRIJE NEGO ŠTO STE GA VIDJELI."
+  },
+  "subAccept": {
+    "message": "SVAKI BANNER DOBIO JE DA. PRIJE NEGO ŠTO STE GA VIDJELI."
+  },
+  "subPaused": {
+    "message": "OVA STRANICA DOBIVA SVOJE BANNERE NATRAG."
+  },
+  "subNoAccess": {
+    "message": "PREGLEDNIK MU NE DOPUŠTA RAD NA OVOJ STRANICI."
+  },
+  "modeLabel": {
+    "message": "Odgovor na svaki banner za kolačiće"
+  },
+  "modeReject": {
+    "message": "ODBIJ"
+  },
+  "modeAccept": {
+    "message": "PRIHVATI"
+  },
+  "systemPage": {
+    "message": "STRANICA SUSTAVA"
+  },
+  "detailNone": {
+    "message": "NEMA BANNERA NA OVOJ STRANICI."
+  },
+  "detailPaused": {
+    "message": "BANNERI SE OVDJE PRIKAZUJU NORMALNO."
+  },
+  "detailOffLimits": {
+    "message": "STRANICE PREGLEDNIKA NISU DOSTUPNE."
+  },
+  "detailNoAccessManual": {
+    "message": "DOPUSTITE GA U POSTAVKAMA PROŠIRENJA PREGLEDNIKA."
+  },
+  "verbReject": {
+    "message": "ODBIJENO"
+  },
+  "verbAccept": {
+    "message": "PRIHVAĆENO"
+  },
+  "verbHide": {
+    "message": "SAKRIVENO"
+  },
+  "verbOther": {
+    "message": "OBRAĐENO"
+  },
+  "pauseSite": {
+    "message": "PAUZIRAJ NA OVOJ STRANICI"
+  },
+  "resumeSite": {
+    "message": "NASTAVI NA OVOJ STRANICI"
+  },
+  "allowAccess": {
+    "message": "DOPUSTI NA SVIM STRANICAMA"
+  },
+  "statusReload": {
+    "message": "○ NE RADI"
+  },
+  "headlineReload": {
+    "message": "PONOVNO UČITAJTE."
+  },
+  "subReload": {
+    "message": "STRANICA SE UČITALA PRIJE NEGO ŠTO JE MOGLO RADITI."
+  },
+  "reloadPage": {
+    "message": "PONOVNO UČITAJ STRANICU"
+  },
+  "tallyOther": {
+    "message": "NEVIĐENI BANNERI: {n}"
+  },
+  "report": {
+    "message": "PRIJAVI"
+  },
+  "reportLabel": {
+    "message": "Prijavite problem s ovom stranicom (otvara GitHub)"
+  },
+  "donate": {
+    "message": "DONIRAJ"
+  },
+  "donateLabel": {
+    "message": "Donirajte da ostane besplatno (otvara GitHub)"
+  }
+}

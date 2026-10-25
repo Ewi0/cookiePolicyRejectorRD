@@ -21,19 +21,25 @@
     </section>
 
     <section class="controls">
-      <div class="switch" role="radiogroup" aria-label="Answer every cookie banner with">
-        <button type="button" role="radio" data-mode="reject" aria-checked="true">REFUSE</button>
-        <button type="button" role="radio" data-mode="accept" aria-checked="false">APPROVE</button>
+      <div class="switch" role="radiogroup" aria-label="Answer every cookie banner with" data-i18n-label="modeLabel">
+        <button type="button" role="radio" data-mode="reject" aria-checked="true" data-i18n="modeReject">REFUSE</button>
+        <button type="button" role="radio" data-mode="accept" aria-checked="false" data-i18n="modeAccept">APPROVE</button>
       </div>
       <div class="site">
         <span id="host" class="host">—</span>
         <span id="count" class="count">00</span>
       </div>
-      <p id="detail" class="detail">NO BANNER ON THIS PAGE.</p>
+      <div class="row">
+        <p id="detail" class="detail">NO BANNER ON THIS PAGE.</p>
+        <a id="report" class="link" href="https://github.com/Ewi0/cookiePolicyRejectorRD/issues/new?template=site.yml" target="_blank" rel="noopener" data-i18n="report" data-i18n-label="reportLabel">REPORT</a>
+      </div>
       <button type="button" id="pause" class="pause">PAUSE ON THIS SITE</button>
     </section>
 
-    <footer class="tally"><b id="total">0</b> <span id="noun">BANNERS</span> NEVER SEEN</footer>
+    <footer class="tally">
+      <span id="tally"><b>0</b> BANNERS NEVER SEEN</span>
+      <a id="donate" class="link" href="https://github.com/Ewi0/cookiePolicyRejectorRD#support-the-project" target="_blank" rel="noopener" data-i18n="donate" data-i18n-label="donateLabel">DONATE</a>
+    </footer>
   </main>
   <script src="popup.js"></script>
 </body>

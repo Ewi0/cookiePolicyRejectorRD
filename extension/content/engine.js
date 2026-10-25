@@ -35,6 +35,9 @@
   const seenRoots = new WeakSet();
   const misses = new WeakMap();
   const pending = new Map(); // root → time after which we stop waiting for its buttons
+  const hidden = new Map(); // root → time after which we stop waiting for it to be shown
+  let hiddenTimer = 0;
+  let late = false; // past the first watch: only light checks for banners that load late
   const concealed = new Map();
   const log = [];
 
@@ -238,7 +241,7 @@
   function queueKnown() {
     if (knownQueued) return;
     knownQueued = true;
-    setTimeout(scanKnown, 60);
+    setTimeout(scanKnown, late ? 500 : 60);
   }
   async function runRule(rule, el) {
     busy.add(rule);
@@ -345,8 +348,23 @@
     }
     return el;
   }
+  /** A cookie box that exists but is not shown yet, often revealed by a class or attribute change that
+   *  adds no nodes. Check it again shortly instead of waiting for the next full sweep. */
+  function watchHidden(root) {
+    if (!hidden.has(root)) hidden.set(root, Date.now() + 15000);
+    hiddenTimer ||= setTimeout(checkHidden, 400);
+  }
+  function checkHidden() {
+    hiddenTimer = 0;
+    const now = Date.now();
+    for (const [root, until] of hidden) {
+      if (!root.isConnected || now > until || seenRoots.has(root)) hidden.delete(root);
+      else if (isShown(root)) { hidden.delete(root); consider(root); }
+    }
+    if (hidden.size && !paused) hiddenTimer = setTimeout(checkHidden, 400);
+  }
   function qualifies(root, relaxed) {
-    if (!isShown(root)) return null;
+    if (!isShown(root)) { watchHidden(root); return null; }
     const text = deepText(root);
     if (misses.get(root) === text.length) return null;
     const miss = (why) => { dbg('skip', why, describe(root)); misses.set(root, text.length); return null; };
@@ -395,15 +413,25 @@
     seenRoots.add(root);
     if (!userOpened()) handleGeneric(root, b);
   }
-  function scanGeneric(scope) {
+  /** Where a full scan begins. Banners are usually appended last, so the end of <body> comes first:
+   *  on a huge page (long docs, highlighted code) the budget would otherwise run out before them. */
+  function scanOrder() {
+    const body = document.body;
+    const outside = [...html.children].filter((el) => el !== body && el !== document.head);
+    const kids = body ? [...body.children].filter((el) => !SKIP_TAGS.has(el.localName)) : [];
+    return [...outside, ...kids.slice(-8).reverse(), ...kids.slice(0, -8)];
+  }
+  function scanGeneric(scope, size = scope === document.body ? 150000 : 40000) {
     if (!scope || paused || !genericHere()) return;
     const starts = new Set();
-    const budget = { n: 40000 };
+    const budget = { n: size };
     const visit = (t) => { const p = t.parentElement || t.parentNode?.host; if (p) starts.add(p); };
     if (scope.nodeType === 3) { if (P.topic.test(scope.data)) visit(scope); }
     else {
-      if (scope.shadowRoot) walkText(scope.shadowRoot, visit, budget);
-      walkText(scope, visit, budget);
+      for (const el of scope === document.body ? scanOrder() : [scope]) {
+        if (el.shadowRoot) walkText(el.shadowRoot, visit, budget);
+        walkText(el, visit, budget);
+      }
     }
     const roots = new Set();
     for (const el of starts) { const r = findRoot(el); if (r) roots.add(r); }
@@ -448,7 +476,7 @@
   async function rejectViaSettings(root, opener) {
     press(opener);
     const found = await waitFor(() => {
-      scanGeneric(document.body); // settings layers are often revealed, not inserted
+      scanGeneric(document.body, 40000); // settings layers are often revealed, not inserted
       for (const box of [...flow.layers, root]) {
         if (!isShown(box)) continue;
         const b = classify(box);
@@ -470,7 +498,10 @@
   function onMutations(records) {
     if (!running) return;
     let added = false;
+    const body = document.body;
     for (const r of records) {
+      // Late on, apps churn deep inside the page; consent boxes still arrive near the top of the tree.
+      if (late && r.target !== body && r.target !== html && r.target.parentNode !== body) continue;
       for (const n of r.addedNodes) {
         if (n.nodeType === 1) {
           added = true;
@@ -494,6 +525,7 @@
   function start() {
     if (running || paused) return;
     running = true;
+    late = false;
     watchUntil = Date.now() + (isTop ? 30000 : 9000);
     scanAll();
     if (genericHere()) {
@@ -508,7 +540,13 @@
   }
   function endWatch() {
     if (Date.now() < watchUntil) { timers.push(setTimeout(endWatch, watchUntil - Date.now())); return; }
-    stop();
+    // Many sites load their consent tool late (on first scroll, after a delay). The top frame keeps a
+    // light watch for that; iframes stop here.
+    if (isTop && observer) {
+      late = true;
+      timers.forEach(clearTimeout);
+      timers = [];
+    } else stop();
     release();
   }
   function stop() {
@@ -517,6 +555,8 @@
     observer = null;
     timers.forEach(clearTimeout);
     timers = [];
+    clearTimeout(hiddenTimer);
+    hiddenTimer = 0;
   }
   function applyPaused(next) {
     paused = next;
@@ -546,6 +586,9 @@
     send({ type: 'cpr:page', paused });
     for (const entry of log) send({ type: 'cpr:handled', ...entry, replay: true });
   });
+
+  // The popup asks the top frame whether the engine runs here at all (site access can be withheld).
+  if (isTop) ext?.runtime?.onMessage?.addListener((m, sender, reply) => { if (m?.type === 'cpr:ping') reply(true); });
 
   ext?.storage?.onChanged?.addListener((changes, area) => {
     if (area !== 'local') return;

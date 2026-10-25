@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "es"
+  },
+  "extDescription": {
+    "message": "Rechaza cada banner de cookies antes de que lo veas. O los acepta todos. En cualquier caso, no volverás a ver ninguno."
+  },
+  "statusArmed": {
+    "message": "● ACTIVO"
+  },
+  "statusPaused": {
+    "message": "○ EN PAUSA"
+  },
+  "statusIdle": {
+    "message": "— INACTIVO"
+  },
+  "statusNoAccess": {
+    "message": "○ SIN ACCESO"
+  },
+  "headlineReject": {
+    "message": "TODO RECHAZADO."
+  },
+  "headlineAccept": {
+    "message": "TODO ACEPTADO."
+  },
+  "headlinePaused": {
+    "message": "EN PAUSA."
+  },
+  "headlineNoAccess": {
+    "message": "SIN ACCESO."
+  },
+  "subReject": {
+    "message": "CADA BANNER RESPONDIDO CON UN NO. ANTES DE QUE LO VEAS."
+  },
+  "subAccept": {
+    "message": "CADA BANNER RESPONDIDO CON UN SÍ. ANTES DE QUE LO VEAS."
+  },
+  "subPaused": {
+    "message": "ESTE SITIO RECUPERA SUS BANNERS."
+  },
+  "subNoAccess": {
+    "message": "EL NAVEGADOR NO LE DEJA FUNCIONAR EN ESTE SITIO."
+  },
+  "modeLabel": {
+    "message": "Responder a cada banner de cookies con"
+  },
+  "modeReject": {
+    "message": "RECHAZAR"
+  },
+  "modeAccept": {
+    "message": "ACEPTAR"
+  },
+  "systemPage": {
+    "message": "PÁGINA DEL SISTEMA"
+  },
+  "detailNone": {
+    "message": "NO HAY BANNER EN ESTA PÁGINA."
+  },
+  "detailPaused": {
+    "message": "AQUÍ LOS BANNERS SE MUESTRAN CON NORMALIDAD."
+  },
+  "detailOffLimits": {
+    "message": "LAS PÁGINAS DEL NAVEGADOR ESTÁN FUERA DE ALCANCE."
+  },
+  "detailNoAccessManual": {
+    "message": "PERMÍTELO EN LOS AJUSTES DE EXTENSIONES DEL NAVEGADOR."
+  },
+  "verbReject": {
+    "message": "RECHAZADO"
+  },
+  "verbAccept": {
+    "message": "ACEPTADO"
+  },
+  "verbHide": {
+    "message": "OCULTO"
+  },
+  "verbOther": {
+    "message": "GESTIONADO"
+  },
+  "pauseSite": {
+    "message": "PAUSAR EN ESTE SITIO"
+  },
+  "resumeSite": {
+    "message": "REANUDAR EN ESTE SITIO"
+  },
+  "allowAccess": {
+    "message": "PERMITIR EN TODOS LOS SITIOS"
+  },
+  "statusReload": {
+    "message": "○ SIN EJECUTAR"
+  },
+  "headlineReload": {
+    "message": "RECARGA."
+  },
+  "subReload": {
+    "message": "ESTA PÁGINA SE CARGÓ ANTES DE QUE PUDIERA FUNCIONAR."
+  },
+  "reloadPage": {
+    "message": "RECARGAR LA PÁGINA"
+  },
+  "tallyOne": {
+    "message": "{n} BANNER NUNCA VISTO"
+  },
+  "tallyOther": {
+    "message": "{n} BANNERS NUNCA VISTOS"
+  },
+  "report": {
+    "message": "INFORMAR"
+  },
+  "reportLabel": {
+    "message": "Informar de un problema en este sitio (abre GitHub)"
+  },
+  "donate": {
+    "message": "DONAR"
+  },
+  "donateLabel": {
+    "message": "Donar para que siga siendo gratis (abre GitHub)"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "tr"
+  },
+  "extDescription": {
+    "message": "Her çerez bildirimini siz görmeden reddeder. Ya da hepsini kabul eder. Her iki durumda da bir daha hiçbirini görmezsiniz."
+  },
+  "statusArmed": {
+    "message": "● ETKİN"
+  },
+  "statusPaused": {
+    "message": "○ DURAKLATILDI"
+  },
+  "statusIdle": {
+    "message": "— BOŞTA"
+  },
+  "statusNoAccess": {
+    "message": "○ ERİŞİM YOK"
+  },
+  "headlineReject": {
+    "message": "HEPSİ REDDEDİLDİ."
+  },
+  "headlineAccept": {
+    "message": "HEPSİ KABUL EDİLDİ."
+  },
+  "headlinePaused": {
+    "message": "DURAKLATILDI."
+  },
+  "headlineNoAccess": {
+    "message": "ERİŞİM YOK."
+  },
+  "subReject": {
+    "message": "HER BİLDİRİME HAYIR DENDİ. SİZ GÖRMEDEN."
+  },
+  "subAccept": {
+    "message": "HER BİLDİRİME EVET DENDİ. SİZ GÖRMEDEN."
+  },
+  "subPaused": {
+    "message": "BU SİTE BİLDİRİMLERİNİ GERİ ALIR."
+  },
+  "subNoAccess": {
+    "message": "TARAYICI BU SİTEDE ÇALIŞMASINA İZİN VERMİYOR."
+  },
+  "modeLabel": {
+    "message": "Her çerez bildirimine verilecek yanıt"
+  },
+  "modeReject": {
+    "message": "REDDET"
+  },
+  "modeAccept": {
+    "message": "KABUL ET"
+  },
+  "systemPage": {
+    "message": "SİSTEM SAYFASI"
+  },
+  "detailNone": {
+    "message": "BU SAYFADA BİLDİRİM YOK."
+  },
+  "detailPaused": {
+    "message": "BİLDİRİMLER BURADA NORMAL GÖRÜNÜR."
+  },
+  "detailOffLimits": {
+    "message": "TARAYICI SAYFALARINA ERİŞİLEMEZ."
+  },
+  "detailNoAccessManual": {
+    "message": "TARAYICININ UZANTI AYARLARINDAN İZİN VERİN."
+  },
+  "verbReject": {
+    "message": "REDDEDİLDİ"
+  },
+  "verbAccept": {
+    "message": "KABUL EDİLDİ"
+  },
+  "verbHide": {
+    "message": "GİZLENDİ"
+  },
+  "verbOther": {
+    "message": "İŞLENDİ"
+  },
+  "pauseSite": {
+    "message": "BU SİTEDE DURAKLAT"
+  },
+  "resumeSite": {
+    "message": "BU SİTEDE SÜRDÜR"
+  },
+  "allowAccess": {
+    "message": "TÜM SİTELERDE İZİN VER"
+  },
+  "statusReload": {
+    "message": "○ ÇALIŞMIYOR"
+  },
+  "headlineReload": {
+    "message": "YENİDEN YÜKLEYİN."
+  },
+  "subReload": {
+    "message": "BU SAYFA, O ÇALIŞMAYA BAŞLAMADAN ÖNCE YÜKLENDİ."
+  },
+  "reloadPage": {
+    "message": "SAYFAYI YENİDEN YÜKLE"
+  },
+  "tallyOther": {
+    "message": "{n} BİLDİRİM HİÇ GÖRÜLMEDİ"
+  },
+  "report": {
+    "message": "BİLDİR"
+  },
+  "reportLabel": {
+    "message": "Bu sitedeki bir sorunu bildirin (GitHub'ı açar)"
+  },
+  "donate": {
+    "message": "BAĞIŞ YAP"
+  },
+  "donateLabel": {
+    "message": "Ücretsiz kalması için bağış yapın (GitHub'ı açar)"
+  }
+}

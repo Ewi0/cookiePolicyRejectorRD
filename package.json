@@ -1,6 +1,6 @@
 {
   "name": "cookie-policy-rejector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Refuses (or approves) every cookie banner before you see it. Chrome, Edge, Brave, Arc, Firefox, Safari on macOS and iOS, Firefox for Android.",
@@ -11,6 +11,7 @@
     "icons": "node scripts/make-icons.mjs",
     "prehide": "node scripts/gen-prehide.mjs",
     "serve": "node scripts/serve.mjs 4173",
+    "store-assets": "node scripts/store-assets.mjs",
     "test": "npm run test:unit && npm run test:chrome",
     "test:unit": "node --test test/unit/*.test.mjs",
     "test:chrome": "node scripts/e2e.mjs",

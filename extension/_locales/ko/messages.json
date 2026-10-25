@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "ko"
+  },
+  "extDescription": {
+    "message": "쿠키 배너가 보이기 전에 모두 거부합니다. 또는 모두 수락합니다. 어느 쪽이든 다시는 배너를 볼 일이 없습니다."
+  },
+  "statusArmed": {
+    "message": "● 작동 중"
+  },
+  "statusPaused": {
+    "message": "○ 일시 중지됨"
+  },
+  "statusIdle": {
+    "message": "— 대기"
+  },
+  "statusNoAccess": {
+    "message": "○ 접근 불가"
+  },
+  "headlineReject": {
+    "message": "모두 거부했습니다."
+  },
+  "headlineAccept": {
+    "message": "모두 수락했습니다."
+  },
+  "headlinePaused": {
+    "message": "일시 중지됨."
+  },
+  "headlineNoAccess": {
+    "message": "접근할 수 없습니다."
+  },
+  "subReject": {
+    "message": "모든 배너에 '아니요'로 응답. 보이기 전에."
+  },
+  "subAccept": {
+    "message": "모든 배너에 '예'로 응답. 보이기 전에."
+  },
+  "subPaused": {
+    "message": "이 사이트에서는 배너가 다시 표시됩니다."
+  },
+  "subNoAccess": {
+    "message": "브라우저가 이 사이트에서 실행을 허용하지 않았습니다."
+  },
+  "modeLabel": {
+    "message": "모든 쿠키 배너에 대한 응답"
+  },
+  "modeReject": {
+    "message": "거부"
+  },
+  "modeAccept": {
+    "message": "수락"
+  },
+  "systemPage": {
+    "message": "시스템 페이지"
+  },
+  "detailNone": {
+    "message": "이 페이지에는 배너가 없습니다."
+  },
+  "detailPaused": {
+    "message": "여기서는 배너가 평소처럼 표시됩니다."
+  },
+  "detailOffLimits": {
+    "message": "브라우저 페이지에서는 작동하지 않습니다."
+  },
+  "detailNoAccessManual": {
+    "message": "브라우저의 확장 프로그램 설정에서 허용하세요."
+  },
+  "verbReject": {
+    "message": "거부됨"
+  },
+  "verbAccept": {
+    "message": "수락됨"
+  },
+  "verbHide": {
+    "message": "숨김"
+  },
+  "verbOther": {
+    "message": "처리됨"
+  },
+  "pauseSite": {
+    "message": "이 사이트에서 일시 중지"
+  },
+  "resumeSite": {
+    "message": "이 사이트에서 다시 시작"
+  },
+  "allowAccess": {
+    "message": "모든 사이트에서 허용"
+  },
+  "statusReload": {
+    "message": "○ 실행 안 됨"
+  },
+  "headlineReload": {
+    "message": "새로고침하세요."
+  },
+  "subReload": {
+    "message": "이 페이지는 확장 프로그램이 실행되기 전에 열렸습니다."
+  },
+  "reloadPage": {
+    "message": "페이지 새로고침"
+  },
+  "tallyOther": {
+    "message": "보지 않고 넘긴 배너 {n}개"
+  },
+  "report": {
+    "message": "신고"
+  },
+  "reportLabel": {
+    "message": "이 사이트의 문제 신고 (GitHub 열림)"
+  },
+  "donate": {
+    "message": "후원"
+  },
+  "donateLabel": {
+    "message": "무료로 유지되도록 후원하기 (GitHub 열림)"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "sl"
+  },
+  "extDescription": {
+    "message": "Zavrne vsako pasico za piškotke, preden jo vidite. Ali pa jih vse sprejme. Tako ali drugače ne boste nobene več videli."
+  },
+  "statusArmed": {
+    "message": "● AKTIVNO"
+  },
+  "statusPaused": {
+    "message": "○ ZAUSTAVLJENO"
+  },
+  "statusIdle": {
+    "message": "— NEDEJAVNO"
+  },
+  "statusNoAccess": {
+    "message": "○ BREZ DOSTOPA"
+  },
+  "headlineReject": {
+    "message": "VSE ZAVRNJENO."
+  },
+  "headlineAccept": {
+    "message": "VSE SPREJETO."
+  },
+  "headlinePaused": {
+    "message": "ZAUSTAVLJENO."
+  },
+  "headlineNoAccess": {
+    "message": "BREZ DOSTOPA."
+  },
+  "subReject": {
+    "message": "VSAKA PASICA JE DOBILA NE. PREDEN STE JO VIDELI."
+  },
+  "subAccept": {
+    "message": "VSAKA PASICA JE DOBILA DA. PREDEN STE JO VIDELI."
+  },
+  "subPaused": {
+    "message": "TA STRAN DOBI SVOJE PASICE NAZAJ."
+  },
+  "subNoAccess": {
+    "message": "BRSKALNIK MU NA TEJ STRANI NE DOVOLI DELOVATI."
+  },
+  "modeLabel": {
+    "message": "Odgovor na vsako pasico za piškotke"
+  },
+  "modeReject": {
+    "message": "ZAVRNI"
+  },
+  "modeAccept": {
+    "message": "SPREJMI"
+  },
+  "systemPage": {
+    "message": "SISTEMSKA STRAN"
+  },
+  "detailNone": {
+    "message": "NA TEJ STRANI NI PASICE."
+  },
+  "detailPaused": {
+    "message": "PASICE SE TU PRIKAZUJEJO NORMALNO."
+  },
+  "detailOffLimits": {
+    "message": "STRANI BRSKALNIKA SO NEDOSEGLJIVE."
+  },
+  "detailNoAccessManual": {
+    "message": "DOVOLITE GA V NASTAVITVAH RAZŠIRITEV BRSKALNIKA."
+  },
+  "verbReject": {
+    "message": "ZAVRNJENO"
+  },
+  "verbAccept": {
+    "message": "SPREJETO"
+  },
+  "verbHide": {
+    "message": "SKRITO"
+  },
+  "verbOther": {
+    "message": "OBDELANO"
+  },
+  "pauseSite": {
+    "message": "ZAUSTAVI NA TEJ STRANI"
+  },
+  "resumeSite": {
+    "message": "NADALJUJ NA TEJ STRANI"
+  },
+  "allowAccess": {
+    "message": "DOVOLI NA VSEH STRANEH"
+  },
+  "statusReload": {
+    "message": "○ NE DELUJE"
+  },
+  "headlineReload": {
+    "message": "ZNOVA NALOŽITE."
+  },
+  "subReload": {
+    "message": "STRAN SE JE NALOŽILA, PREDEN JE LAHKO ZAČELO DELOVATI."
+  },
+  "reloadPage": {
+    "message": "ZNOVA NALOŽI STRAN"
+  },
+  "tallyOther": {
+    "message": "NEVIDENE PASICE: {n}"
+  },
+  "report": {
+    "message": "PRIJAVI"
+  },
+  "reportLabel": {
+    "message": "Prijavite težavo s to stranjo (odpre GitHub)"
+  },
+  "donate": {
+    "message": "DONIRAJ"
+  },
+  "donateLabel": {
+    "message": "Donirajte, da ostane brezplačno (odpre GitHub)"
+  }
+}

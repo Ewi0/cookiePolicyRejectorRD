@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "hu"
+  },
+  "extDescription": {
+    "message": "Minden sütibannert elutasít, mielőtt meglátnád. Vagy mindet elfogadja. Így vagy úgy, többé egyet sem látsz."
+  },
+  "statusArmed": {
+    "message": "● AKTÍV"
+  },
+  "statusPaused": {
+    "message": "○ SZÜNETEL"
+  },
+  "statusIdle": {
+    "message": "— TÉTLEN"
+  },
+  "statusNoAccess": {
+    "message": "○ NINCS HOZZÁFÉRÉS"
+  },
+  "headlineReject": {
+    "message": "MINDEN ELUTASÍTVA."
+  },
+  "headlineAccept": {
+    "message": "MINDEN ELFOGADVA."
+  },
+  "headlinePaused": {
+    "message": "SZÜNETEL."
+  },
+  "headlineNoAccess": {
+    "message": "NINCS HOZZÁFÉRÉS."
+  },
+  "subReject": {
+    "message": "MINDEN BANNER NEMET KAPOTT. MÉG MIELŐTT LÁTTAD VOLNA."
+  },
+  "subAccept": {
+    "message": "MINDEN BANNER IGENT KAPOTT. MÉG MIELŐTT LÁTTAD VOLNA."
+  },
+  "subPaused": {
+    "message": "EZ AZ OLDAL VISSZAKAPJA A BANNEREIT."
+  },
+  "subNoAccess": {
+    "message": "A BÖNGÉSZŐ NEM ENGEDI MŰKÖDNI EZEN AZ OLDALON."
+  },
+  "modeLabel": {
+    "message": "Válasz minden sütibannerre"
+  },
+  "modeReject": {
+    "message": "ELUTASÍT"
+  },
+  "modeAccept": {
+    "message": "ELFOGAD"
+  },
+  "systemPage": {
+    "message": "RENDSZEROLDAL"
+  },
+  "detailNone": {
+    "message": "NINCS BANNER EZEN AZ OLDALON."
+  },
+  "detailPaused": {
+    "message": "A BANNEREK ITT A SZOKÁSOS MÓDON MEGJELENNEK."
+  },
+  "detailOffLimits": {
+    "message": "A BÖNGÉSZŐ SAJÁT OLDALAI ELÉRHETETLENEK."
+  },
+  "detailNoAccessManual": {
+    "message": "ENGEDÉLYEZD A BÖNGÉSZŐ BŐVÍTMÉNYBEÁLLÍTÁSAIBAN."
+  },
+  "verbReject": {
+    "message": "ELUTASÍTVA"
+  },
+  "verbAccept": {
+    "message": "ELFOGADVA"
+  },
+  "verbHide": {
+    "message": "ELREJTVE"
+  },
+  "verbOther": {
+    "message": "KEZELVE"
+  },
+  "pauseSite": {
+    "message": "SZÜNETELTETÉS EZEN AZ OLDALON"
+  },
+  "resumeSite": {
+    "message": "FOLYTATÁS EZEN AZ OLDALON"
+  },
+  "allowAccess": {
+    "message": "ENGEDÉLYEZÉS MINDEN OLDALON"
+  },
+  "statusReload": {
+    "message": "○ NEM FUT"
+  },
+  "headlineReload": {
+    "message": "TÖLTSD ÚJRA."
+  },
+  "subReload": {
+    "message": "AZ OLDAL MÉG AZELŐTT BETÖLTŐDÖTT, HOGY ELINDULHATOTT VOLNA."
+  },
+  "reloadPage": {
+    "message": "OLDAL ÚJRATÖLTÉSE"
+  },
+  "tallyOther": {
+    "message": "{n} SOHA NEM LÁTOTT BANNER"
+  },
+  "report": {
+    "message": "JELENTÉS"
+  },
+  "reportLabel": {
+    "message": "Probléma jelentése ezzel az oldallal (megnyitja a GitHubot)"
+  },
+  "donate": {
+    "message": "ADOMÁNY"
+  },
+  "donateLabel": {
+    "message": "Adományozz, hogy ingyenes maradjon (megnyitja a GitHubot)"
+  }
+}

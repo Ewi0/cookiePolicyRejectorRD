@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "sv"
+  },
+  "extDescription": {
+    "message": "Avvisar varje cookiebanner innan du ser den. Eller godkänner alla. Hur som helst ser du aldrig en igen."
+  },
+  "statusArmed": {
+    "message": "● AKTIV"
+  },
+  "statusPaused": {
+    "message": "○ PAUSAD"
+  },
+  "statusIdle": {
+    "message": "— INAKTIV"
+  },
+  "statusNoAccess": {
+    "message": "○ ÅTKOMST SAKNAS"
+  },
+  "headlineReject": {
+    "message": "ALLT AVVISAT."
+  },
+  "headlineAccept": {
+    "message": "ALLT GODKÄNT."
+  },
+  "headlinePaused": {
+    "message": "PAUSAD."
+  },
+  "headlineNoAccess": {
+    "message": "ÅTKOMST SAKNAS."
+  },
+  "subReject": {
+    "message": "VARJE BANNER FICK ETT NEJ. INNAN DU SÅG DEN."
+  },
+  "subAccept": {
+    "message": "VARJE BANNER FICK ETT JA. INNAN DU SÅG DEN."
+  },
+  "subPaused": {
+    "message": "DEN HÄR WEBBPLATSEN FÅR TILLBAKA SINA BANNERS."
+  },
+  "subNoAccess": {
+    "message": "WEBBLÄSAREN LÅTER DEN INTE KÖRAS PÅ DEN HÄR WEBBPLATSEN."
+  },
+  "modeLabel": {
+    "message": "Svara på varje cookiebanner med"
+  },
+  "modeReject": {
+    "message": "AVVISA"
+  },
+  "modeAccept": {
+    "message": "GODKÄNN"
+  },
+  "systemPage": {
+    "message": "SYSTEMSIDA"
+  },
+  "detailNone": {
+    "message": "INGEN BANNER PÅ DEN HÄR SIDAN."
+  },
+  "detailPaused": {
+    "message": "BANNERS VISAS SOM VANLIGT HÄR."
+  },
+  "detailOffLimits": {
+    "message": "WEBBLÄSARENS SIDOR ÄR OÅTKOMLIGA."
+  },
+  "detailNoAccessManual": {
+    "message": "TILLÅT DEN I WEBBLÄSARENS TILLÄGGSINSTÄLLNINGAR."
+  },
+  "verbReject": {
+    "message": "AVVISAD"
+  },
+  "verbAccept": {
+    "message": "GODKÄND"
+  },
+  "verbHide": {
+    "message": "DOLD"
+  },
+  "verbOther": {
+    "message": "HANTERAD"
+  },
+  "pauseSite": {
+    "message": "PAUSA PÅ DEN HÄR WEBBPLATSEN"
+  },
+  "resumeSite": {
+    "message": "ÅTERUPPTA PÅ DEN HÄR WEBBPLATSEN"
+  },
+  "allowAccess": {
+    "message": "TILLÅT PÅ ALLA WEBBPLATSER"
+  },
+  "statusReload": {
+    "message": "○ KÖRS INTE"
+  },
+  "headlineReload": {
+    "message": "LADDA OM."
+  },
+  "subReload": {
+    "message": "SIDAN LADDADES INNAN DEN KUNDE KÖRAS."
+  },
+  "reloadPage": {
+    "message": "LADDA OM SIDAN"
+  },
+  "tallyOne": {
+    "message": "{n} BANNER ALDRIG SEDD"
+  },
+  "tallyOther": {
+    "message": "{n} BANNERS ALDRIG SEDDA"
+  },
+  "report": {
+    "message": "RAPPORTERA"
+  },
+  "reportLabel": {
+    "message": "Rapportera ett problem på den här webbplatsen (öppnar GitHub)"
+  },
+  "donate": {
+    "message": "DONERA"
+  },
+  "donateLabel": {
+    "message": "Donera så att den förblir gratis (öppnar GitHub)"
+  }
+}

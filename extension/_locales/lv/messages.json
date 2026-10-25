@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "lv"
+  },
+  "extDescription": {
+    "message": "Noraida katru sīkdatņu paziņojumu, pirms jūs to redzat. Vai pieņem visus. Jebkurā gadījumā jūs vairs neredzēsiet nevienu."
+  },
+  "statusArmed": {
+    "message": "● AKTĪVS"
+  },
+  "statusPaused": {
+    "message": "○ APTURĒTS"
+  },
+  "statusIdle": {
+    "message": "— NEAKTĪVS"
+  },
+  "statusNoAccess": {
+    "message": "○ NAV PIEKĻUVES"
+  },
+  "headlineReject": {
+    "message": "VISS NORAIDĪTS."
+  },
+  "headlineAccept": {
+    "message": "VISS PIEŅEMTS."
+  },
+  "headlinePaused": {
+    "message": "APTURĒTS."
+  },
+  "headlineNoAccess": {
+    "message": "NAV PIEKĻUVES."
+  },
+  "subReject": {
+    "message": "KATRS PAZIŅOJUMS SAŅĒMA NĒ. PIRMS JŪS TO IERAUDZĪJĀT."
+  },
+  "subAccept": {
+    "message": "KATRS PAZIŅOJUMS SAŅĒMA JĀ. PIRMS JŪS TO IERAUDZĪJĀT."
+  },
+  "subPaused": {
+    "message": "ŠAJĀ VIETNĒ PAZIŅOJUMI ATKAL TIEK RĀDĪTI."
+  },
+  "subNoAccess": {
+    "message": "PĀRLŪKS NEĻAUJ TAM DARBOTIES ŠAJĀ VIETNĒ."
+  },
+  "modeLabel": {
+    "message": "Atbilde uz katru sīkdatņu paziņojumu"
+  },
+  "modeReject": {
+    "message": "NORAIDĪT"
+  },
+  "modeAccept": {
+    "message": "PIEŅEMT"
+  },
+  "systemPage": {
+    "message": "SISTĒMAS LAPA"
+  },
+  "detailNone": {
+    "message": "ŠAJĀ LAPĀ NAV PAZIŅOJUMA."
+  },
+  "detailPaused": {
+    "message": "ŠEIT PAZIŅOJUMI TIEK RĀDĪTI KĀ PARASTI."
+  },
+  "detailOffLimits": {
+    "message": "PĀRLŪKA LAPAS NAV PIEEJAMAS."
+  },
+  "detailNoAccessManual": {
+    "message": "ATĻAUJIET TO PĀRLŪKA PAPLAŠINĀJUMU IESTATĪJUMOS."
+  },
+  "verbReject": {
+    "message": "NORAIDĪTS"
+  },
+  "verbAccept": {
+    "message": "PIEŅEMTS"
+  },
+  "verbHide": {
+    "message": "PASLĒPTS"
+  },
+  "verbOther": {
+    "message": "APSTRĀDĀTS"
+  },
+  "pauseSite": {
+    "message": "APTURĒT ŠAJĀ VIETNĒ"
+  },
+  "resumeSite": {
+    "message": "ATSĀKT ŠAJĀ VIETNĒ"
+  },
+  "allowAccess": {
+    "message": "ATĻAUT VISĀS VIETNĒS"
+  },
+  "statusReload": {
+    "message": "○ NEDARBOJAS"
+  },
+  "headlineReload": {
+    "message": "PĀRLĀDĒJIET."
+  },
+  "subReload": {
+    "message": "LAPA IELĀDĒJĀS, PIRMS TAS VARĒJA SĀKT DARBU."
+  },
+  "reloadPage": {
+    "message": "PĀRLĀDĒT LAPU"
+  },
+  "tallyOther": {
+    "message": "NEREDZĒTI PAZIŅOJUMI: {n}"
+  },
+  "report": {
+    "message": "ZIŅOT"
+  },
+  "reportLabel": {
+    "message": "Ziņot par problēmu šajā vietnē (atver GitHub)"
+  },
+  "donate": {
+    "message": "ZIEDOT"
+  },
+  "donateLabel": {
+    "message": "Ziedot, lai tas paliktu bezmaksas (atver GitHub)"
+  }
+}

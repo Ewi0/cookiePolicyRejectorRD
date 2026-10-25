@@ -60,10 +60,28 @@ function bumpStats(action) {
   }).catch(() => {});
 }
 
-ext.runtime.onInstalled.addListener(async () => {
+/** Chrome does not run content scripts in tabs that were already open when the extension was
+ *  installed, so their banners would stay until a reload. Start the engine there now. Where the
+ *  browser injected it already (Firefox), the engine sees itself and stays out. After an update the
+ *  previous engine keeps running in open pages, so this is for fresh installs only. */
+async function injectOpenTabs() {
+  const [cs] = ext.runtime.getManifest().content_scripts || [];
+  if (!cs || !ext.scripting?.executeScript) return;
+  const tabs = await ext.tabs.query({ url: ['http://*/*', 'https://*/*'] }).catch(() => []);
+  for (const tab of tabs) {
+    if (tab.discarded) continue;
+    const target = { tabId: tab.id, allFrames: true };
+    ext.scripting.executeScript({ target, files: cs.js })
+      .then(() => ext.scripting.insertCSS({ target, files: cs.css }))
+      .catch(() => {}); // pages the browser keeps extensions out of
+  }
+}
+
+ext.runtime.onInstalled.addListener(async ({ reason }) => {
   const current = await ext.storage.local.get(null);
   await ext.storage.local.set({ ...DEFAULTS, ...current });
   paintIcon();
+  if (reason === 'install') injectOpenTabs();
 });
 
 ext.runtime.onStartup?.addListener(paintIcon);

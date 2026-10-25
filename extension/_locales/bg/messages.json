@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "bg"
+  },
+  "extDescription": {
+    "message": "Отказва всеки банер за бисквитки, преди да го видите. Или приема всички. Така или иначе, повече няма да видите нито един."
+  },
+  "statusArmed": {
+    "message": "● АКТИВНО"
+  },
+  "statusPaused": {
+    "message": "○ НА ПАУЗА"
+  },
+  "statusIdle": {
+    "message": "— НЕАКТИВНО"
+  },
+  "statusNoAccess": {
+    "message": "○ НЯМА ДОСТЪП"
+  },
+  "headlineReject": {
+    "message": "ВСИЧКО ОТКАЗАНО."
+  },
+  "headlineAccept": {
+    "message": "ВСИЧКО ПРИЕТО."
+  },
+  "headlinePaused": {
+    "message": "НА ПАУЗА."
+  },
+  "headlineNoAccess": {
+    "message": "НЯМА ДОСТЪП."
+  },
+  "subReject": {
+    "message": "ВСЕКИ БАНЕР ПОЛУЧИ „НЕ“. ПРЕДИ ДА ГО ВИДИТЕ."
+  },
+  "subAccept": {
+    "message": "ВСЕКИ БАНЕР ПОЛУЧИ „ДА“. ПРЕДИ ДА ГО ВИДИТЕ."
+  },
+  "subPaused": {
+    "message": "ТОЗИ САЙТ СИ ВРЪЩА БАНЕРИТЕ."
+  },
+  "subNoAccess": {
+    "message": "БРАУЗЪРЪТ НЕ МУ ПОЗВОЛЯВА ДА РАБОТИ НА ТОЗИ САЙТ."
+  },
+  "modeLabel": {
+    "message": "Отговор на всеки банер за бисквитки"
+  },
+  "modeReject": {
+    "message": "ОТКАЖИ"
+  },
+  "modeAccept": {
+    "message": "ПРИЕМИ"
+  },
+  "systemPage": {
+    "message": "СИСТЕМНА СТРАНИЦА"
+  },
+  "detailNone": {
+    "message": "НЯМА БАНЕР НА ТАЗИ СТРАНИЦА."
+  },
+  "detailPaused": {
+    "message": "ТУК БАНЕРИТЕ СЕ ПОКАЗВАТ НОРМАЛНО."
+  },
+  "detailOffLimits": {
+    "message": "СТРАНИЦИТЕ НА БРАУЗЪРА СА НЕДОСТЪПНИ."
+  },
+  "detailNoAccessManual": {
+    "message": "РАЗРЕШЕТЕ ГО В НАСТРОЙКИТЕ ЗА РАЗШИРЕНИЯ НА БРАУЗЪРА."
+  },
+  "verbReject": {
+    "message": "ОТКАЗАН"
+  },
+  "verbAccept": {
+    "message": "ПРИЕТ"
+  },
+  "verbHide": {
+    "message": "СКРИТ"
+  },
+  "verbOther": {
+    "message": "ОБРАБОТЕН"
+  },
+  "pauseSite": {
+    "message": "ПАУЗА НА ТОЗИ САЙТ"
+  },
+  "resumeSite": {
+    "message": "ПОДНОВЯВАНЕ НА ТОЗИ САЙТ"
+  },
+  "allowAccess": {
+    "message": "РАЗРЕШИ НА ВСИЧКИ САЙТОВЕ"
+  },
+  "statusReload": {
+    "message": "○ НЕ РАБОТИ"
+  },
+  "headlineReload": {
+    "message": "ПРЕЗАРЕДЕТЕ."
+  },
+  "subReload": {
+    "message": "СТРАНИЦАТА СЕ ЗАРЕДИ, ПРЕДИ ТО ДА ЗАПОЧНЕ."
+  },
+  "reloadPage": {
+    "message": "ПРЕЗАРЕДИ СТРАНИЦАТА"
+  },
+  "tallyOther": {
+    "message": "НЕВИДЕНИ БАНЕРИ: {n}"
+  },
+  "report": {
+    "message": "ДОКЛАДВАЙ"
+  },
+  "reportLabel": {
+    "message": "Докладвай проблем с този сайт (отваря GitHub)"
+  },
+  "donate": {
+    "message": "ДАРИ"
+  },
+  "donateLabel": {
+    "message": "Дари, за да остане безплатно (отваря GitHub)"
+  }
+}

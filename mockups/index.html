@@ -123,8 +123,11 @@
   .phone-cap { width: 426px; }
 
   /* ---------- States + icons ---------- */
-  .states { display: flex; gap: 28px; width: 1524px; }
+  .states { display: grid; grid-template-columns: repeat(3, 360px); gap: 44px 28px; width: 1136px; }
   .states figure { width: 360px; }
+  .langs { display: flex; gap: 28px; width: 1524px; }
+  .langs figure { width: 360px; }
+  .langs iframe { width: 360px; height: 560px; box-shadow: 0 0 0 2px var(--ink); }
   .states iframe { width: 360px; height: 560px; box-shadow: 0 0 0 2px var(--ink); }
   .icons { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
   .tile { border: 2px solid var(--ink); padding: 22px; display: grid; gap: 16px; background: #fff; }
@@ -230,18 +233,32 @@
 
 <section>
   <div class="label"><b>03</b><h2>Every state</h2><span>THE SAME 360 × 560 PANEL ON EVERY DESKTOP BROWSER</span></div>
-  <div class="fit"><div class="stage" data-w="1524" data-h="610">
+  <div class="fit"><div class="stage" data-w="1136" data-h="1264">
     <div class="states">
       <figure><iframe title="Refuse" src="../extension/popup/popup.html?host=nytimes.com&cmp=OneTrust&total=2481"></iframe><figcaption class="cap">REFUSE · DEFAULT</figcaption></figure>
       <figure><iframe title="Approve" src="../extension/popup/popup.html?mode=accept&host=bbc.co.uk&cmp=Generic&total=2481"></iframe><figcaption class="cap">APPROVE · ALL BANNERS SAY YES</figcaption></figure>
       <figure><iframe title="Paused" src="../extension/popup/popup.html?paused&host=mybank.example&total=2481"></iframe><figcaption class="cap">PAUSED ON ONE SITE</figcaption></figure>
       <figure><iframe title="System page" src="../extension/popup/popup.html?host=&total=2481"></iframe><figcaption class="cap">BROWSER PAGE · IDLE</figcaption></figure>
+      <figure><iframe title="No site access" src="../extension/popup/popup.html?noaccess&host=news.example&total=2481"></iframe><figcaption class="cap">NO SITE ACCESS · ONE TAP TO ALLOW</figcaption></figure>
+      <figure><iframe title="Page older than the extension" src="../extension/popup/popup.html?reload&host=news.example&total=2481"></iframe><figcaption class="cap">OPENED BEFORE INSTALL · ONE TAP TO RELOAD</figcaption></figure>
     </div>
   </div></div>
 </section>
 
 <section>
-  <div class="label"><b>04</b><h2>Icons</h2><span>TOOLBAR SWAPS X ↔ CHECK WITH THE MODE · BADGE = BANNERS ON THIS TAB</span></div>
+  <div class="label"><b>04</b><h2>Every language</h2><span>31 TRANSLATIONS · POPUP AND STORE LISTING · ?lang= IN DEMO MODE</span></div>
+  <div class="fit"><div class="stage" data-w="1524" data-h="610">
+    <div class="langs">
+      <figure><iframe title="German" src="../extension/popup/popup.html?lang=de&host=spiegel.de&cmp=Sourcepoint&action=hide&total=1204"></iframe><figcaption class="cap">DEUTSCH</figcaption></figure>
+      <figure><iframe title="French" src="../extension/popup/popup.html?lang=fr&host=lemonde.fr&cmp=Didomi&total=318"></iframe><figcaption class="cap">FRANÇAIS</figcaption></figure>
+      <figure><iframe title="Polish" src="../extension/popup/popup.html?lang=pl&mode=accept&host=onet.pl&cmp=Generic&total=2481"></iframe><figcaption class="cap">POLSKI · APPROVE</figcaption></figure>
+      <figure><iframe title="Japanese" src="../extension/popup/popup.html?lang=ja&host=yahoo.co.jp&cmp=Generic&total=77"></iframe><figcaption class="cap">日本語</figcaption></figure>
+    </div>
+  </div></div>
+</section>
+
+<section>
+  <div class="label"><b>05</b><h2>Icons</h2><span>TOOLBAR SWAPS X ↔ CHECK WITH THE MODE · BADGE = BANNERS ON THIS TAB</span></div>
   <div class="icons">
     <div class="tile"><h4>TOOLBAR · REFUSE</h4>
       <div class="tb light"><img src="../extension/icons/x-16.png" width="16" height="16" alt=""><img src="../extension/icons/x-32.png" width="32" height="32" alt=""><img src="../extension/icons/x-48.png" width="48" height="48" alt=""></div>

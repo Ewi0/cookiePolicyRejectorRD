@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "nl"
+  },
+  "extDescription": {
+    "message": "Weigert elke cookiebanner voordat je hem ziet. Of accepteert ze allemaal. Hoe dan ook, je ziet er nooit meer een."
+  },
+  "statusArmed": {
+    "message": "● ACTIEF"
+  },
+  "statusPaused": {
+    "message": "○ GEPAUZEERD"
+  },
+  "statusIdle": {
+    "message": "— INACTIEF"
+  },
+  "statusNoAccess": {
+    "message": "○ GEEN TOEGANG"
+  },
+  "headlineReject": {
+    "message": "ALLES GEWEIGERD."
+  },
+  "headlineAccept": {
+    "message": "ALLES GEACCEPTEERD."
+  },
+  "headlinePaused": {
+    "message": "GEPAUZEERD."
+  },
+  "headlineNoAccess": {
+    "message": "GEEN TOEGANG."
+  },
+  "subReject": {
+    "message": "ELKE BANNER KREEG NEE. VOORDAT JE HEM ZAG."
+  },
+  "subAccept": {
+    "message": "ELKE BANNER KREEG JA. VOORDAT JE HEM ZAG."
+  },
+  "subPaused": {
+    "message": "DEZE SITE KRIJGT ZIJN BANNERS TERUG."
+  },
+  "subNoAccess": {
+    "message": "DE BROWSER LAAT HET OP DEZE SITE NIET WERKEN."
+  },
+  "modeLabel": {
+    "message": "Elke cookiebanner beantwoorden met"
+  },
+  "modeReject": {
+    "message": "WEIGEREN"
+  },
+  "modeAccept": {
+    "message": "ACCEPTEREN"
+  },
+  "systemPage": {
+    "message": "SYSTEEMPAGINA"
+  },
+  "detailNone": {
+    "message": "GEEN BANNER OP DEZE PAGINA."
+  },
+  "detailPaused": {
+    "message": "BANNERS VERSCHIJNEN HIER GEWOON."
+  },
+  "detailOffLimits": {
+    "message": "BROWSERPAGINA'S ZIJN VERBODEN TERREIN."
+  },
+  "detailNoAccessManual": {
+    "message": "STA HET TOE IN DE EXTENSIE-INSTELLINGEN VAN DE BROWSER."
+  },
+  "verbReject": {
+    "message": "GEWEIGERD"
+  },
+  "verbAccept": {
+    "message": "GEACCEPTEERD"
+  },
+  "verbHide": {
+    "message": "VERBORGEN"
+  },
+  "verbOther": {
+    "message": "AFGEHANDELD"
+  },
+  "pauseSite": {
+    "message": "PAUZEREN OP DEZE SITE"
+  },
+  "resumeSite": {
+    "message": "HERVATTEN OP DEZE SITE"
+  },
+  "allowAccess": {
+    "message": "TOESTAAN OP ALLE SITES"
+  },
+  "statusReload": {
+    "message": "○ DRAAIT NIET"
+  },
+  "headlineReload": {
+    "message": "HERLAAD."
+  },
+  "subReload": {
+    "message": "DEZE PAGINA LAADDE VOORDAT HET KON STARTEN."
+  },
+  "reloadPage": {
+    "message": "PAGINA HERLADEN"
+  },
+  "tallyOne": {
+    "message": "{n} BANNER NOOIT GEZIEN"
+  },
+  "tallyOther": {
+    "message": "{n} BANNERS NOOIT GEZIEN"
+  },
+  "report": {
+    "message": "MELDEN"
+  },
+  "reportLabel": {
+    "message": "Een probleem op deze site melden (opent GitHub)"
+  },
+  "donate": {
+    "message": "DONEREN"
+  },
+  "donateLabel": {
+    "message": "Doneren zodat het gratis blijft (opent GitHub)"
+  }
+}

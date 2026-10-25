@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "ru"
+  },
+  "extDescription": {
+    "message": "Отклоняет каждый баннер cookie ещё до того, как вы его увидите. Или принимает все. Так или иначе, вы больше их не увидите."
+  },
+  "statusArmed": {
+    "message": "● ВКЛЮЧЕНО"
+  },
+  "statusPaused": {
+    "message": "○ НА ПАУЗЕ"
+  },
+  "statusIdle": {
+    "message": "— НЕ АКТИВНО"
+  },
+  "statusNoAccess": {
+    "message": "○ НЕТ ДОСТУПА"
+  },
+  "headlineReject": {
+    "message": "ВСЁ ОТКЛОНЕНО."
+  },
+  "headlineAccept": {
+    "message": "ВСЁ ПРИНЯТО."
+  },
+  "headlinePaused": {
+    "message": "НА ПАУЗЕ."
+  },
+  "headlineNoAccess": {
+    "message": "НЕТ ДОСТУПА."
+  },
+  "subReject": {
+    "message": "КАЖДЫЙ БАННЕР ПОЛУЧИЛ «НЕТ». ЕЩЁ ДО ТОГО, КАК ВЫ ЕГО УВИДЕЛИ."
+  },
+  "subAccept": {
+    "message": "КАЖДЫЙ БАННЕР ПОЛУЧИЛ «ДА». ЕЩЁ ДО ТОГО, КАК ВЫ ЕГО УВИДЕЛИ."
+  },
+  "subPaused": {
+    "message": "НА ЭТОМ САЙТЕ БАННЕРЫ СНОВА ПОКАЗЫВАЮТСЯ."
+  },
+  "subNoAccess": {
+    "message": "БРАУЗЕР НЕ РАЗРЕШАЕТ ЕМУ РАБОТАТЬ НА ЭТОМ САЙТЕ."
+  },
+  "modeLabel": {
+    "message": "Ответ на каждый баннер cookie"
+  },
+  "modeReject": {
+    "message": "ОТКЛОНЯТЬ"
+  },
+  "modeAccept": {
+    "message": "ПРИНИМАТЬ"
+  },
+  "systemPage": {
+    "message": "СИСТЕМНАЯ СТРАНИЦА"
+  },
+  "detailNone": {
+    "message": "НА ЭТОЙ СТРАНИЦЕ НЕТ БАННЕРА."
+  },
+  "detailPaused": {
+    "message": "ЗДЕСЬ БАННЕРЫ ПОКАЗЫВАЮТСЯ КАК ОБЫЧНО."
+  },
+  "detailOffLimits": {
+    "message": "СТРАНИЦЫ БРАУЗЕРА НЕДОСТУПНЫ."
+  },
+  "detailNoAccessManual": {
+    "message": "РАЗРЕШИТЕ ЕГО В НАСТРОЙКАХ РАСШИРЕНИЙ БРАУЗЕРА."
+  },
+  "verbReject": {
+    "message": "ОТКЛОНЁН"
+  },
+  "verbAccept": {
+    "message": "ПРИНЯТ"
+  },
+  "verbHide": {
+    "message": "СКРЫТ"
+  },
+  "verbOther": {
+    "message": "ОБРАБОТАН"
+  },
+  "pauseSite": {
+    "message": "ПАУЗА НА ЭТОМ САЙТЕ"
+  },
+  "resumeSite": {
+    "message": "ВОЗОБНОВИТЬ НА ЭТОМ САЙТЕ"
+  },
+  "allowAccess": {
+    "message": "РАЗРЕШИТЬ НА ВСЕХ САЙТАХ"
+  },
+  "statusReload": {
+    "message": "○ НЕ ЗАПУЩЕНО"
+  },
+  "headlineReload": {
+    "message": "ОБНОВИТЕ."
+  },
+  "subReload": {
+    "message": "СТРАНИЦА ЗАГРУЗИЛАСЬ РАНЬШЕ, ЧЕМ ОНО УСПЕЛО ЗАПУСТИТЬСЯ."
+  },
+  "reloadPage": {
+    "message": "ОБНОВИТЬ СТРАНИЦУ"
+  },
+  "tallyOther": {
+    "message": "НЕ УВИДЕНО БАННЕРОВ: {n}"
+  },
+  "report": {
+    "message": "СООБЩИТЬ"
+  },
+  "reportLabel": {
+    "message": "Сообщить о проблеме на этом сайте (откроется GitHub)"
+  },
+  "donate": {
+    "message": "ПОДДЕРЖАТЬ"
+  },
+  "donateLabel": {
+    "message": "Поддержать пожертвованием, чтобы он остался бесплатным (откроется GitHub)"
+  }
+}

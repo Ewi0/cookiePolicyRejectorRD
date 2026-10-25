@@ -1,0 +1,54 @@
+name: A site's cookie banner
+description: The banner still shows, flashes, or the wrong button was pressed.
+title: "Banner: "
+labels: [site]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Nothing about you or the page was sent with this form: share only what you are comfortable with.
+  - type: input
+    id: site
+    attributes:
+      label: Site address
+      placeholder: https://www.example.com/
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode
+      options:
+        - Refuse (default)
+        - Approve
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Edge
+        - Brave
+        - Opera
+        - Vivaldi
+        - Firefox
+        - Firefox for Android
+        - Safari on Mac
+        - Safari on iPhone or iPad
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Did the banner stay, flash, or did it press the wrong button? A screenshot helps.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      description: Filled in when you open this form from the popup.

@@ -9,7 +9,8 @@ const CHROME = process.env.CHROME_PATH || {
   darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
   win32: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
 }[process.platform] || 'google-chrome';
-export const EXT = fileURLToPath(new URL('../extension', import.meta.url));
+// CPR_EXTENSION: test another copy, such as the unzipped store package, instead of extension/.
+export const EXT = process.env.CPR_EXTENSION || fileURLToPath(new URL('../extension', import.meta.url));
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 class Pipe {
@@ -41,8 +42,9 @@ class Pipe {
   }
 }
 
-/** Starts Chrome, loads the extension, returns helpers. Call close() when done. */
-export async function launch() {
+/** Starts Chrome, loads the extension (unless { extension: false }; then call loadExtension() later),
+ *  returns helpers. Call close() when done. */
+export async function launch({ extension = true } = {}) {
   const profile = mkdtempSync(join(tmpdir(), 'cpr-chrome-'));
   const proc = spawn(CHROME, [
     '--headless', '--remote-debugging-pipe', '--enable-unsafe-extension-debugging',
@@ -62,13 +64,17 @@ export async function launch() {
       logs.push({ sessionId: m.sessionId, text: m.params.args.slice(1).map((a) => a.value ?? a.description ?? '').join(' ') });
     }
   });
-  const { id } = await cdp.send('Extensions.loadUnpacked', { path: EXT });
+  let id = null;
+  const loadExtension = async () => ({ id } = await cdp.send('Extensions.loadUnpacked', { path: EXT })).id;
+  if (extension) await loadExtension();
 
-  async function open(url, { width = 1280, height = 800 } = {}) {
+  /** Opens url in a new tab. init: script that runs before the page's own (to stub APIs in tests). */
+  async function open(url, { width = 1280, height = 800, init } = {}) {
     const { targetId } = await cdp.send('Target.createTarget', { url: 'about:blank' });
     const { sessionId } = await cdp.send('Target.attachToTarget', { targetId, flatten: true });
     await cdp.send('Runtime.enable', {}, sessionId);
     await cdp.send('Page.enable', {}, sessionId);
+    if (init) await cdp.send('Page.addScriptToEvaluateOnNewDocument', { source: init }, sessionId);
     await cdp.send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false }, sessionId);
     await cdp.send('Page.navigate', { url }, sessionId);
     return {
@@ -87,5 +93,5 @@ export async function launch() {
     try { rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 }); } catch { /* left in tmp */ }
   }
 
-  return { id, cdp, open, close, errors, logs };
+  return { get id() { return id; }, cdp, open, close, errors, logs, loadExtension };
 }

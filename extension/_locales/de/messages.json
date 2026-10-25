@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "de"
+  },
+  "extDescription": {
+    "message": "Lehnt jedes Cookie-Banner ab, bevor du es siehst. Oder stimmt allen zu. So oder so siehst du nie wieder eins."
+  },
+  "statusArmed": {
+    "message": "● AKTIV"
+  },
+  "statusPaused": {
+    "message": "○ PAUSIERT"
+  },
+  "statusIdle": {
+    "message": "— INAKTIV"
+  },
+  "statusNoAccess": {
+    "message": "○ KEIN ZUGRIFF"
+  },
+  "headlineReject": {
+    "message": "ALLES ABGELEHNT."
+  },
+  "headlineAccept": {
+    "message": "ALLEM ZUGESTIMMT."
+  },
+  "headlinePaused": {
+    "message": "PAUSIERT."
+  },
+  "headlineNoAccess": {
+    "message": "KEIN ZUGRIFF."
+  },
+  "subReject": {
+    "message": "JEDES BANNER MIT NEIN BEANTWORTET. BEVOR DU ES SIEHST."
+  },
+  "subAccept": {
+    "message": "JEDES BANNER MIT JA BEANTWORTET. BEVOR DU ES SIEHST."
+  },
+  "subPaused": {
+    "message": "DIESE SEITE BEKOMMT IHRE BANNER ZURÜCK."
+  },
+  "subNoAccess": {
+    "message": "DER BROWSER LÄSST ES AUF DIESER SEITE NICHT LAUFEN."
+  },
+  "modeLabel": {
+    "message": "Jedes Cookie-Banner beantworten mit"
+  },
+  "modeReject": {
+    "message": "ABLEHNEN"
+  },
+  "modeAccept": {
+    "message": "ZUSTIMMEN"
+  },
+  "systemPage": {
+    "message": "SYSTEMSEITE"
+  },
+  "detailNone": {
+    "message": "KEIN BANNER AUF DIESER SEITE."
+  },
+  "detailPaused": {
+    "message": "BANNER ERSCHEINEN HIER NORMAL."
+  },
+  "detailOffLimits": {
+    "message": "BROWSERSEITEN SIND TABU."
+  },
+  "detailNoAccessManual": {
+    "message": "ERLAUBE ES IN DEN ERWEITERUNGSEINSTELLUNGEN DES BROWSERS."
+  },
+  "verbReject": {
+    "message": "ABGELEHNT"
+  },
+  "verbAccept": {
+    "message": "ZUGESTIMMT"
+  },
+  "verbHide": {
+    "message": "AUSGEBLENDET"
+  },
+  "verbOther": {
+    "message": "ERLEDIGT"
+  },
+  "pauseSite": {
+    "message": "AUF DIESER SEITE PAUSIEREN"
+  },
+  "resumeSite": {
+    "message": "AUF DIESER SEITE FORTSETZEN"
+  },
+  "allowAccess": {
+    "message": "AUF ALLEN SEITEN ERLAUBEN"
+  },
+  "statusReload": {
+    "message": "○ LÄUFT NICHT"
+  },
+  "headlineReload": {
+    "message": "NEU LADEN."
+  },
+  "subReload": {
+    "message": "DIESE SEITE WURDE GELADEN, BEVOR ES LAUFEN KONNTE."
+  },
+  "reloadPage": {
+    "message": "SEITE NEU LADEN"
+  },
+  "tallyOther": {
+    "message": "{n} BANNER NIE GESEHEN"
+  },
+  "report": {
+    "message": "MELDEN"
+  },
+  "reportLabel": {
+    "message": "Problem mit dieser Seite melden (öffnet GitHub)"
+  },
+  "donate": {
+    "message": "SPENDEN"
+  },
+  "donateLabel": {
+    "message": "Spenden, damit es kostenlos bleibt (öffnet GitHub)"
+  }
+}

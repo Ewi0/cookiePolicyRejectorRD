@@ -16,10 +16,11 @@ export const CASES = [
   { page: 'pay-or-consent.html', reject: [], accept: ['accept'], unlocked: true },
   { page: 'late.html', reject: ['rechazar'], accept: ['aceptar'], wait: 7000 },
   { page: 'login-modal.html', reject: [], accept: [], visible: true },
+  { page: 'devsite.html', reject: [], accept: ['ok'], wait: 6000 },
 ];
 
 // Every answered banner must reach the lifetime tally (both modes, plus the paused run).
-export const TALLY = { reject: 10, accept: 12, hide: 2 };
+export const TALLY = { reject: 10, accept: 13, hide: 3 };
 
 const RULES = readFileSync(new URL('../extension/content/rules.js', import.meta.url), 'utf8');
 

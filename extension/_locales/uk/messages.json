@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "uk"
+  },
+  "extDescription": {
+    "message": "Відхиляє кожен банер cookie ще до того, як ви його побачите. Або приймає всі. Так чи інакше, ви більше їх не побачите."
+  },
+  "statusArmed": {
+    "message": "● УВІМКНЕНО"
+  },
+  "statusPaused": {
+    "message": "○ НА ПАУЗІ"
+  },
+  "statusIdle": {
+    "message": "— НЕАКТИВНО"
+  },
+  "statusNoAccess": {
+    "message": "○ НЕМАЄ ДОСТУПУ"
+  },
+  "headlineReject": {
+    "message": "УСЕ ВІДХИЛЕНО."
+  },
+  "headlineAccept": {
+    "message": "УСЕ ПРИЙНЯТО."
+  },
+  "headlinePaused": {
+    "message": "НА ПАУЗІ."
+  },
+  "headlineNoAccess": {
+    "message": "НЕМАЄ ДОСТУПУ."
+  },
+  "subReject": {
+    "message": "КОЖЕН БАНЕР ОТРИМАВ «НІ». ЩЕ ДО ТОГО, ЯК ВИ ЙОГО ПОБАЧИЛИ."
+  },
+  "subAccept": {
+    "message": "КОЖЕН БАНЕР ОТРИМАВ «ТАК». ЩЕ ДО ТОГО, ЯК ВИ ЙОГО ПОБАЧИЛИ."
+  },
+  "subPaused": {
+    "message": "НА ЦЬОМУ САЙТІ БАНЕРИ ЗНОВУ ПОКАЗУЮТЬСЯ."
+  },
+  "subNoAccess": {
+    "message": "БРАУЗЕР НЕ ДОЗВОЛЯЄ ЙОМУ ПРАЦЮВАТИ НА ЦЬОМУ САЙТІ."
+  },
+  "modeLabel": {
+    "message": "Відповідь на кожен банер cookie"
+  },
+  "modeReject": {
+    "message": "ВІДХИЛЯТИ"
+  },
+  "modeAccept": {
+    "message": "ПРИЙМАТИ"
+  },
+  "systemPage": {
+    "message": "СИСТЕМНА СТОРІНКА"
+  },
+  "detailNone": {
+    "message": "НА ЦІЙ СТОРІНЦІ НЕМАЄ БАНЕРА."
+  },
+  "detailPaused": {
+    "message": "ТУТ БАНЕРИ ПОКАЗУЮТЬСЯ ЯК ЗАЗВИЧАЙ."
+  },
+  "detailOffLimits": {
+    "message": "СТОРІНКИ БРАУЗЕРА НЕДОСТУПНІ."
+  },
+  "detailNoAccessManual": {
+    "message": "ДОЗВОЛЬТЕ ЙОГО В НАЛАШТУВАННЯХ РОЗШИРЕНЬ БРАУЗЕРА."
+  },
+  "verbReject": {
+    "message": "ВІДХИЛЕНО"
+  },
+  "verbAccept": {
+    "message": "ПРИЙНЯТО"
+  },
+  "verbHide": {
+    "message": "ПРИХОВАНО"
+  },
+  "verbOther": {
+    "message": "ОБРОБЛЕНО"
+  },
+  "pauseSite": {
+    "message": "ПАУЗА НА ЦЬОМУ САЙТІ"
+  },
+  "resumeSite": {
+    "message": "ВІДНОВИТИ НА ЦЬОМУ САЙТІ"
+  },
+  "allowAccess": {
+    "message": "ДОЗВОЛИТИ НА ВСІХ САЙТАХ"
+  },
+  "statusReload": {
+    "message": "○ НЕ ЗАПУЩЕНО"
+  },
+  "headlineReload": {
+    "message": "ОНОВІТЬ."
+  },
+  "subReload": {
+    "message": "СТОРІНКА ЗАВАНТАЖИЛАСЯ РАНІШЕ, НІЖ ВОНО ВСТИГЛО ЗАПУСТИТИСЯ."
+  },
+  "reloadPage": {
+    "message": "ОНОВИТИ СТОРІНКУ"
+  },
+  "tallyOther": {
+    "message": "НЕ ПОБАЧЕНО БАНЕРІВ: {n}"
+  },
+  "report": {
+    "message": "ПОВІДОМИТИ"
+  },
+  "reportLabel": {
+    "message": "Повідомити про проблему на цьому сайті (відкриває GitHub)"
+  },
+  "donate": {
+    "message": "ПІДТРИМАТИ"
+  },
+  "donateLabel": {
+    "message": "Підтримати донатом, щоб він лишався безкоштовним (відкриває GitHub)"
+  }
+}

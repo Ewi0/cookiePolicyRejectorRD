@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "ro"
+  },
+  "extDescription": {
+    "message": "Refuză orice banner de cookie-uri înainte să-l vezi. Sau le acceptă pe toate. Oricum ar fi, nu mai vezi niciunul."
+  },
+  "statusArmed": {
+    "message": "● ACTIV"
+  },
+  "statusPaused": {
+    "message": "○ ÎN PAUZĂ"
+  },
+  "statusIdle": {
+    "message": "— INACTIV"
+  },
+  "statusNoAccess": {
+    "message": "○ FĂRĂ ACCES"
+  },
+  "headlineReject": {
+    "message": "TOTUL REFUZAT."
+  },
+  "headlineAccept": {
+    "message": "TOTUL ACCEPTAT."
+  },
+  "headlinePaused": {
+    "message": "ÎN PAUZĂ."
+  },
+  "headlineNoAccess": {
+    "message": "FĂRĂ ACCES."
+  },
+  "subReject": {
+    "message": "FIECARE BANNER A PRIMIT UN NU. ÎNAINTE SĂ-L VEZI."
+  },
+  "subAccept": {
+    "message": "FIECARE BANNER A PRIMIT UN DA. ÎNAINTE SĂ-L VEZI."
+  },
+  "subPaused": {
+    "message": "ACEST SITE ÎȘI PRIMEȘTE ÎNAPOI BANNERELE."
+  },
+  "subNoAccess": {
+    "message": "BROWSERUL NU ÎL LASĂ SĂ RULEZE PE ACEST SITE."
+  },
+  "modeLabel": {
+    "message": "Răspunsul la fiecare banner de cookie-uri"
+  },
+  "modeReject": {
+    "message": "REFUZĂ"
+  },
+  "modeAccept": {
+    "message": "ACCEPTĂ"
+  },
+  "systemPage": {
+    "message": "PAGINĂ DE SISTEM"
+  },
+  "detailNone": {
+    "message": "NICIUN BANNER PE ACEASTĂ PAGINĂ."
+  },
+  "detailPaused": {
+    "message": "AICI BANNERELE APAR NORMAL."
+  },
+  "detailOffLimits": {
+    "message": "PAGINILE BROWSERULUI SUNT INACCESIBILE."
+  },
+  "detailNoAccessManual": {
+    "message": "PERMITE-L DIN SETĂRILE DE EXTENSII ALE BROWSERULUI."
+  },
+  "verbReject": {
+    "message": "REFUZAT"
+  },
+  "verbAccept": {
+    "message": "ACCEPTAT"
+  },
+  "verbHide": {
+    "message": "ASCUNS"
+  },
+  "verbOther": {
+    "message": "GESTIONAT"
+  },
+  "pauseSite": {
+    "message": "PAUZĂ PE ACEST SITE"
+  },
+  "resumeSite": {
+    "message": "RELUARE PE ACEST SITE"
+  },
+  "allowAccess": {
+    "message": "PERMITE PE TOATE SITE-URILE"
+  },
+  "statusReload": {
+    "message": "○ NU RULEAZĂ"
+  },
+  "headlineReload": {
+    "message": "REÎNCARCĂ."
+  },
+  "subReload": {
+    "message": "PAGINA S-A ÎNCĂRCAT ÎNAINTE CA EL SĂ POATĂ RULA."
+  },
+  "reloadPage": {
+    "message": "REÎNCARCĂ PAGINA"
+  },
+  "tallyOther": {
+    "message": "BANNERE NEVĂZUTE: {n}"
+  },
+  "report": {
+    "message": "RAPORTEAZĂ"
+  },
+  "reportLabel": {
+    "message": "Raportează o problemă pe acest site (deschide GitHub)"
+  },
+  "donate": {
+    "message": "DONEAZĂ"
+  },
+  "donateLabel": {
+    "message": "Donează ca să rămână gratuit (deschide GitHub)"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "da"
+  },
+  "extDescription": {
+    "message": "Afviser hvert cookiebanner, før du ser det. Eller accepterer dem alle. Uanset hvad ser du aldrig et igen."
+  },
+  "statusArmed": {
+    "message": "● AKTIV"
+  },
+  "statusPaused": {
+    "message": "○ PÅ PAUSE"
+  },
+  "statusIdle": {
+    "message": "— INAKTIV"
+  },
+  "statusNoAccess": {
+    "message": "○ INGEN ADGANG"
+  },
+  "headlineReject": {
+    "message": "ALT AFVIST."
+  },
+  "headlineAccept": {
+    "message": "ALT ACCEPTERET."
+  },
+  "headlinePaused": {
+    "message": "PÅ PAUSE."
+  },
+  "headlineNoAccess": {
+    "message": "INGEN ADGANG."
+  },
+  "subReject": {
+    "message": "HVERT BANNER FIK ET NEJ. FØR DU SÅ DET."
+  },
+  "subAccept": {
+    "message": "HVERT BANNER FIK ET JA. FØR DU SÅ DET."
+  },
+  "subPaused": {
+    "message": "DETTE WEBSTED FÅR SINE BANNERE TILBAGE."
+  },
+  "subNoAccess": {
+    "message": "BROWSEREN LADER DEN IKKE KØRE PÅ DETTE WEBSTED."
+  },
+  "modeLabel": {
+    "message": "Besvar hvert cookiebanner med"
+  },
+  "modeReject": {
+    "message": "AFVIS"
+  },
+  "modeAccept": {
+    "message": "ACCEPTÉR"
+  },
+  "systemPage": {
+    "message": "SYSTEMSIDE"
+  },
+  "detailNone": {
+    "message": "INTET BANNER PÅ DENNE SIDE."
+  },
+  "detailPaused": {
+    "message": "BANNERE VISES NORMALT HER."
+  },
+  "detailOffLimits": {
+    "message": "BROWSERENS SIDER ER UDEN FOR RÆKKEVIDDE."
+  },
+  "detailNoAccessManual": {
+    "message": "TILLAD DEN I BROWSERENS INDSTILLINGER FOR UDVIDELSER."
+  },
+  "verbReject": {
+    "message": "AFVIST"
+  },
+  "verbAccept": {
+    "message": "ACCEPTERET"
+  },
+  "verbHide": {
+    "message": "SKJULT"
+  },
+  "verbOther": {
+    "message": "HÅNDTERET"
+  },
+  "pauseSite": {
+    "message": "SÆT PÅ PAUSE PÅ DETTE WEBSTED"
+  },
+  "resumeSite": {
+    "message": "GENOPTAG PÅ DETTE WEBSTED"
+  },
+  "allowAccess": {
+    "message": "TILLAD PÅ ALLE WEBSTEDER"
+  },
+  "statusReload": {
+    "message": "○ KØRER IKKE"
+  },
+  "headlineReload": {
+    "message": "GENINDLÆS."
+  },
+  "subReload": {
+    "message": "SIDEN BLEV INDLÆST, FØR DEN KUNNE KØRE."
+  },
+  "reloadPage": {
+    "message": "GENINDLÆS SIDEN"
+  },
+  "tallyOne": {
+    "message": "{n} BANNER ALDRIG SET"
+  },
+  "tallyOther": {
+    "message": "{n} BANNERE ALDRIG SET"
+  },
+  "report": {
+    "message": "RAPPORTÉR"
+  },
+  "reportLabel": {
+    "message": "Rapportér et problem på dette websted (åbner GitHub)"
+  },
+  "donate": {
+    "message": "DONÉR"
+  },
+  "donateLabel": {
+    "message": "Donér, så den forbliver gratis (åbner GitHub)"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "et"
+  },
+  "extDescription": {
+    "message": "Keeldub igast küpsiste bännerist enne, kui sa seda näed. Või nõustub kõigiga. Igal juhul ei näe sa enam ühtegi."
+  },
+  "statusArmed": {
+    "message": "● AKTIIVNE"
+  },
+  "statusPaused": {
+    "message": "○ PEATATUD"
+  },
+  "statusIdle": {
+    "message": "— JÕUDE"
+  },
+  "statusNoAccess": {
+    "message": "○ JUURDEPÄÄS PUUDUB"
+  },
+  "headlineReject": {
+    "message": "KÕIK KEELDUTUD."
+  },
+  "headlineAccept": {
+    "message": "KÕIK NÕUSTUTUD."
+  },
+  "headlinePaused": {
+    "message": "PEATATUD."
+  },
+  "headlineNoAccess": {
+    "message": "JUURDEPÄÄS PUUDUB."
+  },
+  "subReject": {
+    "message": "IGA BÄNNER SAI VASTUSEKS EI. ENNE KUI SA SEDA NÄGID."
+  },
+  "subAccept": {
+    "message": "IGA BÄNNER SAI VASTUSEKS JAH. ENNE KUI SA SEDA NÄGID."
+  },
+  "subPaused": {
+    "message": "SELLES SAIDIS KUVATAKSE BÄNNEREID JÄLLE."
+  },
+  "subNoAccess": {
+    "message": "BRAUSER EI LASE SELLEL SELLES SAIDIS TÖÖTADA."
+  },
+  "modeLabel": {
+    "message": "Vastus igale küpsiste bännerile"
+  },
+  "modeReject": {
+    "message": "KEELDU"
+  },
+  "modeAccept": {
+    "message": "NÕUSTU"
+  },
+  "systemPage": {
+    "message": "SÜSTEEMILEHT"
+  },
+  "detailNone": {
+    "message": "SELLEL LEHEL POLE BÄNNERIT."
+  },
+  "detailPaused": {
+    "message": "BÄNNERID KUVATAKSE SIIN TAVALISELT."
+  },
+  "detailOffLimits": {
+    "message": "BRAUSERI LEHTEDELE LAIENDUS EI ULATU."
+  },
+  "detailNoAccessManual": {
+    "message": "LUBA SEE BRAUSERI LAIENDUSTE SEADETES."
+  },
+  "verbReject": {
+    "message": "KEELDUTUD"
+  },
+  "verbAccept": {
+    "message": "NÕUSTUTUD"
+  },
+  "verbHide": {
+    "message": "PEIDETUD"
+  },
+  "verbOther": {
+    "message": "KÄSITLETUD"
+  },
+  "pauseSite": {
+    "message": "PEATA SELLES SAIDIS"
+  },
+  "resumeSite": {
+    "message": "JÄTKA SELLES SAIDIS"
+  },
+  "allowAccess": {
+    "message": "LUBA KÕIGIS SAITIDES"
+  },
+  "statusReload": {
+    "message": "○ EI TÖÖTA"
+  },
+  "headlineReload": {
+    "message": "LAADI UUESTI."
+  },
+  "subReload": {
+    "message": "LEHT LAADITI ENNE, KUI SEE SAI KÄIVITUDA."
+  },
+  "reloadPage": {
+    "message": "LAADI LEHT UUESTI"
+  },
+  "tallyOne": {
+    "message": "{n} NÄGEMATA BÄNNER"
+  },
+  "tallyOther": {
+    "message": "{n} NÄGEMATA BÄNNERIT"
+  },
+  "report": {
+    "message": "TEATA"
+  },
+  "reportLabel": {
+    "message": "Teata probleemist selles saidis (avab GitHubi)"
+  },
+  "donate": {
+    "message": "ANNETA"
+  },
+  "donateLabel": {
+    "message": "Anneta, et see jääks tasuta (avab GitHubi)"
+  }
+}

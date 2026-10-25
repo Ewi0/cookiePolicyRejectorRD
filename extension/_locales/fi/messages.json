@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "fi"
+  },
+  "extDescription": {
+    "message": "Hylkää jokaisen evästebannerin ennen kuin näet sen. Tai hyväksyy kaikki. Kummin päin tahansa et näe niitä enää."
+  },
+  "statusArmed": {
+    "message": "● KÄYTÖSSÄ"
+  },
+  "statusPaused": {
+    "message": "○ TAUOLLA"
+  },
+  "statusIdle": {
+    "message": "— EI KÄYTÖSSÄ"
+  },
+  "statusNoAccess": {
+    "message": "○ EI PÄÄSYÄ"
+  },
+  "headlineReject": {
+    "message": "KAIKKI HYLÄTTY."
+  },
+  "headlineAccept": {
+    "message": "KAIKKI HYVÄKSYTTY."
+  },
+  "headlinePaused": {
+    "message": "TAUOLLA."
+  },
+  "headlineNoAccess": {
+    "message": "EI PÄÄSYÄ."
+  },
+  "subReject": {
+    "message": "JOKAINEN BANNERI SAI EI-VASTAUKSEN. ENNEN KUIN NÄIT SEN."
+  },
+  "subAccept": {
+    "message": "JOKAINEN BANNERI SAI KYLLÄ-VASTAUKSEN. ENNEN KUIN NÄIT SEN."
+  },
+  "subPaused": {
+    "message": "TÄMÄ SIVUSTO SAA BANNERINSA TAKAISIN."
+  },
+  "subNoAccess": {
+    "message": "SELAIN EI ANNA SEN TOIMIA TÄLLÄ SIVUSTOLLA."
+  },
+  "modeLabel": {
+    "message": "Vastaus jokaiseen evästebanneriin"
+  },
+  "modeReject": {
+    "message": "HYLKÄÄ"
+  },
+  "modeAccept": {
+    "message": "HYVÄKSY"
+  },
+  "systemPage": {
+    "message": "JÄRJESTELMÄSIVU"
+  },
+  "detailNone": {
+    "message": "EI BANNERIA TÄLLÄ SIVULLA."
+  },
+  "detailPaused": {
+    "message": "BANNERIT NÄKYVÄT TÄÄLLÄ NORMAALISTI."
+  },
+  "detailOffLimits": {
+    "message": "SELAIMEN OMAT SIVUT OVAT ULOTTUMATTOMISSA."
+  },
+  "detailNoAccessManual": {
+    "message": "SALLI SE SELAIMEN LAAJENNUSASETUKSISSA."
+  },
+  "verbReject": {
+    "message": "HYLÄTTY"
+  },
+  "verbAccept": {
+    "message": "HYVÄKSYTTY"
+  },
+  "verbHide": {
+    "message": "PIILOTETTU"
+  },
+  "verbOther": {
+    "message": "KÄSITELTY"
+  },
+  "pauseSite": {
+    "message": "KESKEYTÄ TÄLLÄ SIVUSTOLLA"
+  },
+  "resumeSite": {
+    "message": "JATKA TÄLLÄ SIVUSTOLLA"
+  },
+  "allowAccess": {
+    "message": "SALLI KAIKILLA SIVUSTOILLA"
+  },
+  "statusReload": {
+    "message": "○ EI KÄYNNISSÄ"
+  },
+  "headlineReload": {
+    "message": "LATAA UUDELLEEN."
+  },
+  "subReload": {
+    "message": "SIVU LATAUTUI ENNEN KUIN SE EHTI KÄYNNISTYÄ."
+  },
+  "reloadPage": {
+    "message": "LATAA SIVU UUDELLEEN"
+  },
+  "tallyOne": {
+    "message": "{n} BANNERI JÄI NÄKEMÄTTÄ"
+  },
+  "tallyOther": {
+    "message": "{n} BANNERIA JÄI NÄKEMÄTTÄ"
+  },
+  "report": {
+    "message": "ILMOITA"
+  },
+  "reportLabel": {
+    "message": "Ilmoita ongelmasta tällä sivustolla (avaa GitHubin)"
+  },
+  "donate": {
+    "message": "LAHJOITA"
+  },
+  "donateLabel": {
+    "message": "Lahjoita, jotta se pysyy ilmaisena (avaa GitHubin)"
+  }
+}

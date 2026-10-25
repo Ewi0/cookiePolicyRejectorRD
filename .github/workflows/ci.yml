@@ -30,8 +30,10 @@ jobs:
       - name: Build store packages
         run: npm run build
 
-      - name: Chrome end-to-end
-        run: npm run test:chrome
+      - name: Chrome end-to-end, on the store ZIP itself
+        run: |
+          unzip -q dist/cookie-policy-rejector-chrome-*.zip -d "$RUNNER_TEMP/chrome-zip"
+          CPR_EXTENSION="$RUNNER_TEMP/chrome-zip" npm run test:chrome
 
       - name: Firefox end-to-end
         run: node scripts/firefox-e2e.mjs

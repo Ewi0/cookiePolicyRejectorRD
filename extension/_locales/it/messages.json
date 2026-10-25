@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "it"
+  },
+  "extDescription": {
+    "message": "Rifiuta ogni banner dei cookie prima che tu lo veda. Oppure li accetta tutti. In ogni caso, non ne vedrai più nessuno."
+  },
+  "statusArmed": {
+    "message": "● ATTIVO"
+  },
+  "statusPaused": {
+    "message": "○ IN PAUSA"
+  },
+  "statusIdle": {
+    "message": "— INATTIVO"
+  },
+  "statusNoAccess": {
+    "message": "○ NESSUN ACCESSO"
+  },
+  "headlineReject": {
+    "message": "TUTTO RIFIUTATO."
+  },
+  "headlineAccept": {
+    "message": "TUTTO ACCETTATO."
+  },
+  "headlinePaused": {
+    "message": "IN PAUSA."
+  },
+  "headlineNoAccess": {
+    "message": "NESSUN ACCESSO."
+  },
+  "subReject": {
+    "message": "OGNI BANNER HA RICEVUTO UN NO. PRIMA CHE TU LO VEDA."
+  },
+  "subAccept": {
+    "message": "OGNI BANNER HA RICEVUTO UN SÌ. PRIMA CHE TU LO VEDA."
+  },
+  "subPaused": {
+    "message": "QUESTO SITO RIAVRÀ I SUOI BANNER."
+  },
+  "subNoAccess": {
+    "message": "IL BROWSER NON LO LASCIA FUNZIONARE SU QUESTO SITO."
+  },
+  "modeLabel": {
+    "message": "Rispondi a ogni banner dei cookie con"
+  },
+  "modeReject": {
+    "message": "RIFIUTA"
+  },
+  "modeAccept": {
+    "message": "ACCETTA"
+  },
+  "systemPage": {
+    "message": "PAGINA DI SISTEMA"
+  },
+  "detailNone": {
+    "message": "NESSUN BANNER IN QUESTA PAGINA."
+  },
+  "detailPaused": {
+    "message": "QUI I BANNER APPAIONO NORMALMENTE."
+  },
+  "detailOffLimits": {
+    "message": "LE PAGINE DEL BROWSER SONO OFF-LIMITS."
+  },
+  "detailNoAccessManual": {
+    "message": "CONSENTILO NELLE IMPOSTAZIONI DELLE ESTENSIONI DEL BROWSER."
+  },
+  "verbReject": {
+    "message": "RIFIUTATO"
+  },
+  "verbAccept": {
+    "message": "ACCETTATO"
+  },
+  "verbHide": {
+    "message": "NASCOSTO"
+  },
+  "verbOther": {
+    "message": "GESTITO"
+  },
+  "pauseSite": {
+    "message": "METTI IN PAUSA SU QUESTO SITO"
+  },
+  "resumeSite": {
+    "message": "RIPRENDI SU QUESTO SITO"
+  },
+  "allowAccess": {
+    "message": "CONSENTI SU TUTTI I SITI"
+  },
+  "statusReload": {
+    "message": "○ NON IN ESECUZIONE"
+  },
+  "headlineReload": {
+    "message": "RICARICA."
+  },
+  "subReload": {
+    "message": "QUESTA PAGINA SI È CARICATA PRIMA CHE POTESSE FUNZIONARE."
+  },
+  "reloadPage": {
+    "message": "RICARICA LA PAGINA"
+  },
+  "tallyOne": {
+    "message": "{n} BANNER MAI VISTO"
+  },
+  "tallyOther": {
+    "message": "{n} BANNER MAI VISTI"
+  },
+  "report": {
+    "message": "SEGNALA"
+  },
+  "reportLabel": {
+    "message": "Segnala un problema su questo sito (apre GitHub)"
+  },
+  "donate": {
+    "message": "DONA"
+  },
+  "donateLabel": {
+    "message": "Dona per mantenerlo gratuito (apre GitHub)"
+  }
+}

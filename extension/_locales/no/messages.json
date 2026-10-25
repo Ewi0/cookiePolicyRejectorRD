@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "nb"
+  },
+  "extDescription": {
+    "message": "Avviser hvert cookiebanner før du ser det. Eller godtar alle. Uansett ser du aldri et igjen."
+  },
+  "statusArmed": {
+    "message": "● AKTIV"
+  },
+  "statusPaused": {
+    "message": "○ PÅ PAUSE"
+  },
+  "statusIdle": {
+    "message": "— INAKTIV"
+  },
+  "statusNoAccess": {
+    "message": "○ INGEN TILGANG"
+  },
+  "headlineReject": {
+    "message": "ALT AVVIST."
+  },
+  "headlineAccept": {
+    "message": "ALT GODTATT."
+  },
+  "headlinePaused": {
+    "message": "PÅ PAUSE."
+  },
+  "headlineNoAccess": {
+    "message": "INGEN TILGANG."
+  },
+  "subReject": {
+    "message": "HVERT BANNER FIKK ET NEI. FØR DU SÅ DET."
+  },
+  "subAccept": {
+    "message": "HVERT BANNER FIKK ET JA. FØR DU SÅ DET."
+  },
+  "subPaused": {
+    "message": "DETTE NETTSTEDET FÅR BANNERNE SINE TILBAKE."
+  },
+  "subNoAccess": {
+    "message": "NETTLESEREN LAR DEN IKKE KJØRE PÅ DETTE NETTSTEDET."
+  },
+  "modeLabel": {
+    "message": "Svar på hvert cookiebanner med"
+  },
+  "modeReject": {
+    "message": "AVVIS"
+  },
+  "modeAccept": {
+    "message": "GODTA"
+  },
+  "systemPage": {
+    "message": "SYSTEMSIDE"
+  },
+  "detailNone": {
+    "message": "INGEN BANNER PÅ DENNE SIDEN."
+  },
+  "detailPaused": {
+    "message": "BANNERE VISES SOM VANLIG HER."
+  },
+  "detailOffLimits": {
+    "message": "NETTLESERENS SIDER ER UTILGJENGELIGE."
+  },
+  "detailNoAccessManual": {
+    "message": "TILLAT DEN I NETTLESERENS INNSTILLINGER FOR UTVIDELSER."
+  },
+  "verbReject": {
+    "message": "AVVIST"
+  },
+  "verbAccept": {
+    "message": "GODTATT"
+  },
+  "verbHide": {
+    "message": "SKJULT"
+  },
+  "verbOther": {
+    "message": "HÅNDTERT"
+  },
+  "pauseSite": {
+    "message": "PAUSE PÅ DETTE NETTSTEDET"
+  },
+  "resumeSite": {
+    "message": "GJENOPPTA PÅ DETTE NETTSTEDET"
+  },
+  "allowAccess": {
+    "message": "TILLAT PÅ ALLE NETTSTEDER"
+  },
+  "statusReload": {
+    "message": "○ KJØRER IKKE"
+  },
+  "headlineReload": {
+    "message": "LAST INN PÅ NYTT."
+  },
+  "subReload": {
+    "message": "SIDEN BLE LASTET FØR DEN KUNNE KJØRE."
+  },
+  "reloadPage": {
+    "message": "LAST INN SIDEN PÅ NYTT"
+  },
+  "tallyOne": {
+    "message": "{n} BANNER ALDRI SETT"
+  },
+  "tallyOther": {
+    "message": "{n} BANNERE ALDRI SETT"
+  },
+  "report": {
+    "message": "RAPPORTER"
+  },
+  "reportLabel": {
+    "message": "Rapporter et problem på dette nettstedet (åpner GitHub)"
+  },
+  "donate": {
+    "message": "DONER"
+  },
+  "donateLabel": {
+    "message": "Doner så den forblir gratis (åpner GitHub)"
+  }
+}

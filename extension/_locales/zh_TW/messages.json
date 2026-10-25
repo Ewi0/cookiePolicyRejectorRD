@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "zh-TW"
+  },
+  "extDescription": {
+    "message": "在你看到之前拒絕每一個 Cookie 橫幅。也可以全部同意。無論哪種方式，你都不會再看到它們。"
+  },
+  "statusArmed": {
+    "message": "● 已啟用"
+  },
+  "statusPaused": {
+    "message": "○ 已暫停"
+  },
+  "statusIdle": {
+    "message": "— 閒置"
+  },
+  "statusNoAccess": {
+    "message": "○ 無法存取"
+  },
+  "headlineReject": {
+    "message": "已全部拒絕。"
+  },
+  "headlineAccept": {
+    "message": "已全部同意。"
+  },
+  "headlinePaused": {
+    "message": "已暫停。"
+  },
+  "headlineNoAccess": {
+    "message": "無法存取。"
+  },
+  "subReject": {
+    "message": "每個橫幅都回答了「否」。在你看到之前。"
+  },
+  "subAccept": {
+    "message": "每個橫幅都回答了「是」。在你看到之前。"
+  },
+  "subPaused": {
+    "message": "此網站的橫幅會正常顯示。"
+  },
+  "subNoAccess": {
+    "message": "瀏覽器不允許它在此網站上執行。"
+  },
+  "modeLabel": {
+    "message": "對每個 Cookie 橫幅的回答"
+  },
+  "modeReject": {
+    "message": "拒絕"
+  },
+  "modeAccept": {
+    "message": "同意"
+  },
+  "systemPage": {
+    "message": "系統頁面"
+  },
+  "detailNone": {
+    "message": "此頁面沒有橫幅。"
+  },
+  "detailPaused": {
+    "message": "這裡的橫幅會正常顯示。"
+  },
+  "detailOffLimits": {
+    "message": "無法在瀏覽器頁面上執行。"
+  },
+  "detailNoAccessManual": {
+    "message": "請在瀏覽器的擴充功能設定中允許它。"
+  },
+  "verbReject": {
+    "message": "已拒絕"
+  },
+  "verbAccept": {
+    "message": "已同意"
+  },
+  "verbHide": {
+    "message": "已隱藏"
+  },
+  "verbOther": {
+    "message": "已處理"
+  },
+  "pauseSite": {
+    "message": "在此網站暫停"
+  },
+  "resumeSite": {
+    "message": "在此網站繼續"
+  },
+  "allowAccess": {
+    "message": "允許在所有網站上執行"
+  },
+  "statusReload": {
+    "message": "○ 未執行"
+  },
+  "headlineReload": {
+    "message": "請重新整理。"
+  },
+  "subReload": {
+    "message": "此頁面在它執行之前就已載入。"
+  },
+  "reloadPage": {
+    "message": "重新整理頁面"
+  },
+  "tallyOther": {
+    "message": "已為你擋下 {n} 個橫幅"
+  },
+  "report": {
+    "message": "回報"
+  },
+  "reportLabel": {
+    "message": "回報此網站的問題（開啟 GitHub）"
+  },
+  "donate": {
+    "message": "贊助"
+  },
+  "donateLabel": {
+    "message": "贊助以維持免費（開啟 GitHub）"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "lang": {
+    "message": "fr"
+  },
+  "extDescription": {
+    "message": "Refuse chaque bannière de cookies avant que vous ne la voyiez. Ou les accepte toutes. Dans tous les cas, vous n'en verrez plus."
+  },
+  "statusArmed": {
+    "message": "● ACTIF"
+  },
+  "statusPaused": {
+    "message": "○ EN PAUSE"
+  },
+  "statusIdle": {
+    "message": "— INACTIF"
+  },
+  "statusNoAccess": {
+    "message": "○ SANS ACCÈS"
+  },
+  "headlineReject": {
+    "message": "TOUT REFUSÉ."
+  },
+  "headlineAccept": {
+    "message": "TOUT ACCEPTÉ."
+  },
+  "headlinePaused": {
+    "message": "EN PAUSE."
+  },
+  "headlineNoAccess": {
+    "message": "SANS ACCÈS."
+  },
+  "subReject": {
+    "message": "CHAQUE BANNIÈRE A REÇU UN NON. AVANT MÊME QUE VOUS LA VOYIEZ."
+  },
+  "subAccept": {
+    "message": "CHAQUE BANNIÈRE A REÇU UN OUI. AVANT MÊME QUE VOUS LA VOYIEZ."
+  },
+  "subPaused": {
+    "message": "CE SITE RETROUVE SES BANNIÈRES."
+  },
+  "subNoAccess": {
+    "message": "LE NAVIGATEUR NE LE LAISSE PAS FONCTIONNER SUR CE SITE."
+  },
+  "modeLabel": {
+    "message": "Répondre à chaque bannière de cookies par"
+  },
+  "modeReject": {
+    "message": "REFUSER"
+  },
+  "modeAccept": {
+    "message": "ACCEPTER"
+  },
+  "systemPage": {
+    "message": "PAGE SYSTÈME"
+  },
+  "detailNone": {
+    "message": "AUCUNE BANNIÈRE SUR CETTE PAGE."
+  },
+  "detailPaused": {
+    "message": "LES BANNIÈRES S'AFFICHENT NORMALEMENT ICI."
+  },
+  "detailOffLimits": {
+    "message": "LES PAGES DU NAVIGATEUR SONT HORS D'ATTEINTE."
+  },
+  "detailNoAccessManual": {
+    "message": "AUTORISEZ-LE DANS LES PARAMÈTRES D'EXTENSIONS DU NAVIGATEUR."
+  },
+  "verbReject": {
+    "message": "REFUSÉ"
+  },
+  "verbAccept": {
+    "message": "ACCEPTÉ"
+  },
+  "verbHide": {
+    "message": "MASQUÉ"
+  },
+  "verbOther": {
+    "message": "TRAITÉ"
+  },
+  "pauseSite": {
+    "message": "METTRE EN PAUSE SUR CE SITE"
+  },
+  "resumeSite": {
+    "message": "REPRENDRE SUR CE SITE"
+  },
+  "allowAccess": {
+    "message": "AUTORISER SUR TOUS LES SITES"
+  },
+  "statusReload": {
+    "message": "○ NON DÉMARRÉ"
+  },
+  "headlineReload": {
+    "message": "RECHARGEZ."
+  },
+  "subReload": {
+    "message": "CETTE PAGE S'EST CHARGÉE AVANT QU'IL PUISSE DÉMARRER."
+  },
+  "reloadPage": {
+    "message": "RECHARGER LA PAGE"
+  },
+  "tallyOne": {
+    "message": "{n} BANNIÈRE JAMAIS VUE"
+  },
+  "tallyOther": {
+    "message": "{n} BANNIÈRES JAMAIS VUES"
+  },
+  "report": {
+    "message": "SIGNALER"
+  },
+  "reportLabel": {
+    "message": "Signaler un problème sur ce site (ouvre GitHub)"
+  },
+  "donate": {
+    "message": "FAIRE UN DON"
+  },
+  "donateLabel": {
+    "message": "Faire un don pour qu'il reste gratuit (ouvre GitHub)"
+  }
+}

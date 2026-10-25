@@ -12,57 +12,97 @@ Four store listings put Cookie Policy Rejector on every device whose browser can
 
 Start with Firefox Add-ons and the Chrome Web Store. Between them they cover every desktop browser except Safari, and Android.
 
-## What every store asks for
+## Before the first upload (account owner)
 
-- **Privacy policy URL:** `https://github.com/Ewi0/cookiePolicyRejectorRD/blob/main/PRIVACY.md`
-- **Website:** `https://github.com/Ewi0/cookiePolicyRejectorRD`
-- **Support URL:** `https://github.com/Ewi0/cookiePolicyRejectorRD/issues`
-- **Icon:** `extension/icons/x-128.png`. The App Store takes its icon from the Xcode build.
-- **Screenshots:** each store lists the sizes it accepts (the Chrome Web Store wants 1280×800 or 640×400). The popup is in `assets/screenshots/`. For full scenes, run `npm run serve` and capture panels from <http://127.0.0.1:4173/mockups/>. For the App Store, use the iOS Simulator (**File → Save Screen**) and the Mac app.
-- **Category:** Privacy & Security. On the App Store: Utilities.
+- Chrome Web Store developer account: the US$5 fee is paid and **2-Step Verification** is on (without it you can neither publish nor update).
+- Publisher profile: publisher name and a verified contact email. A physical address is only needed for paid features; this extension has none.
+- Trader / non-trader declaration filled in. Publishing for a company makes you a trader; its legal name, address and phone number are then shown on the listing.
+- A new publisher can have at most 2 published items.
 
-## Listing text
+## Package
 
-**Name:** Cookie Policy Rejector
+1. Bump `version` in `extension/manifest.json` and `package.json`. Every upload needs a higher version than the last one.
+2. Push a tag (`git tag v1.0.1 && git push origin v1.0.1`) and take `cookie-policy-rejector-chrome-<v>.zip` from the GitHub release, or run `npm run build`.
+3. Upload the ZIP exactly as built: `manifest.json` sits at its root. CI runs the Chrome tests against this very ZIP, unzipped; to do the same locally, unzip it and run `CPR_EXTENSION=<folder> npm run test:chrome`.
 
-**Summary** (the Chrome Web Store allows 132 characters):
+## Store listing
 
-> Refuses every cookie banner before you see it. Or approves them all. Either way, you never see one again.
+**Name and summary** come from the package (`_locales/*/messages.json`), in 31 languages; the summary stays under 132 characters in each.
 
-**Description:**
+**Description** (paste as is; it avoids brand names and repeated keywords, which reviewers count as keyword spam):
 
-> Cookie Policy Rejector answers every cookie banner before it appears.
+> Cookie Policy Rejector answers consent pop-ups before they appear on screen.
 >
-> REFUSE (the default) presses "Reject all", "Only necessary", "Ablehnen", "Tout refuser" and their equivalents in about 25 languages. If a banner has no reject button, it opens the banner's settings and switches everything off. If a site gives no way to refuse, it hides the banner without answering, so no consent is given.
+> REFUSE (the default) presses “Reject all”, “Only necessary” and their equivalents in about 25 languages. If there is no reject button, it opens the settings and switches everything off. If a site offers no way to refuse, it hides the notice without answering, so no consent is given.
 >
-> APPROVE presses "Accept all" instead, for people who just want the banners gone.
+> APPROVE presses “Accept all” instead, for people who just want them gone.
 >
-> • Knows OneTrust, Cookiebot, Didomi, Usercentrics, Sourcepoint, TrustArc, Quantcast, Google, Osano, CookieYes, iubenda and dozens more, and finds unknown banners by their wording
-> • Never presses "Subscribe", "Log in" or policy links, and leaves sign-in and newsletter forms alone
+> • Recognises the major consent platforms, and finds unknown notices by their wording
+> • Never presses “Subscribe”, “Log in” or policy links, and leaves sign-in and newsletter forms alone
 > • Pause it on any site with one click
+> • Tells you when a page needs a reload or site access, and fixes it in one click
+> • In 31 languages
 > • Collects no data, makes no network requests, shows no ads, needs no account
 > • Free and open source (MIT)
 
-## Chrome Web Store
+**Category:** Privacy & Security. **Language:** English.
 
-1. Register in the developer console (US$5, once) and verify your email address.
-2. **New item** → upload the Chrome zip.
-3. **Store listing:** paste the text above and add the icon, screenshots and category.
-4. **Privacy practices:**
-   - **Single purpose:** *Answers cookie consent banners (refuse or accept, as the user chooses) and hides them before they appear.*
-   - **`storage`:** *Saves the user's choice of refuse or approve, the sites where they paused the extension, and a count of banners handled. Everything stays on the device.*
-   - **Host permission (`<all_urls>`):** *Cookie banners appear on any website. The extension has to run on every page while it loads to find the banner and press its reject or accept button before the banner is shown. Page content is only checked on the device and is never stored or sent anywhere.*
-   - **Remote code:** *No, I am not using remote code.*
-   - **Data usage:** tick none of the data types, then tick the three certifications.
-5. Submit for review.
+**Images:** run `npm run store-assets`. It renders them from the real popup into `dist/store/`:
 
-Brave, Vivaldi, Opera, Arc, Orion and Android browsers that take Chrome extensions all install from this one listing.
+| File | Field | Required |
+| --- | --- | --- |
+| `icon-128.png` | Store icon: 96 px of artwork inside 16 px of transparent padding | Yes |
+| `screenshot-1-refuse.png` … `screenshot-4-languages.png` | Screenshots, 1280×800, no alpha | At least 1 |
+| `promo-small-440x280.png` | Small promo tile | No, but without it the listing ranks lower |
+| `promo-marquee-1400x560.png` | Marquee promo tile | No (needed to be featured) |
+
+**Website:** `https://github.com/Ewi0/cookiePolicyRejectorRD`. **Support:** `https://github.com/Ewi0/cookiePolicyRejectorRD/issues`.
+
+## Privacy tab
+
+| Field | Paste |
+| --- | --- |
+| Single purpose | Answers cookie consent banners on websites (refuse or accept, as the user chooses) and hides them before they appear. |
+| `storage` | Saves the user's choice of refuse or approve, the sites where they paused the extension, and a count of banners handled. Stored on the device only; nothing is transmitted. |
+| `scripting` | Right after installation, injects the extension's own bundled content script into tabs that were already open, so cookie banners there are handled without a reload. No remote code: only files inside the package. |
+| Host permission (`<all_urls>`) | Cookie banners appear on any website. The content script must run on every page while it loads to find the banner and press its reject or accept button before it is shown. Page content is checked on the device only and is never stored or transmitted. |
+| Remote code | No, I am not using remote code. |
+| Data usage | Tick none of the data types, then tick the three certifications. |
+| Privacy policy URL | `https://github.com/Ewi0/cookiePolicyRejectorRD/blob/main/PRIVACY.md` |
+
+The privacy policy link must work when you submit, so `PRIVACY.md` has to be on the `main` branch first.
+
+## Distribution
+
+Public, all regions.
+
+## Test instructions (for the reviewer)
+
+> No account or login is needed.
+> 1. Open https://www.cookiebot.com/en/ or https://www.didomi.io/ . Both show a cookie banner to visitors in the EU. With the extension it never appears: it was refused before it was drawn.
+> 2. Click the toolbar icon. The popup shows the site, which consent platform was answered and how (for example "COOKIEBOT — REFUSED"), and the lifetime counter.
+> 3. Switch to APPROVE, open a third site with a banner (https://www.onetrust.com/): the extension accepts instead.
+> 4. Click "PAUSE ON THIS SITE" and reload: the banner shows normally.
+> Banners depend on the visitor's region; sites usually show them to EU visitors.
+
+## If the review comes back
+
+| Code | Means | In this project |
+| --- | --- | --- |
+| Purple Potassium | Permissions not needed | Each permission above is used; quote its justification. |
+| Blue Argon | Remote code | None: everything runs from the package, and the CSP allows only `'self'`. |
+| Yellow Magnesium | Doesn't work as described | Banners depend on region: point the reviewer to the test instructions. |
+| Yellow Argon | Keyword spam | Use the description above unchanged. |
+| Yellow Zinc | Missing icon, screenshots or description | Re-run `npm run store-assets`. |
+| Purple Lithium | Privacy policy missing or broken | Check that `PRIVACY.md` is on `main` and the URL opens. |
+
+Fix, raise the version, upload the new ZIP and submit again. To disagree with a decision, use **Appeal** on the item's page in the dashboard.
 
 ## Microsoft Edge Add-ons
 
 1. Register in Partner Center (free).
 2. **Create new extension** → upload the Chrome zip.
-3. Reuse the listing text, privacy policy URL and permission explanations above.
+3. Reuse the description, images, privacy policy URL and permission justifications above.
 4. Submit.
 
 Edge for Android only offers extensions that Microsoft selects, so this listing covers Edge on computers.
@@ -74,7 +114,7 @@ Edge for Android only offers extensions that Microsoft selects, so this listing 
 3. Tick both **Firefox** and **Firefox for Android**. The manifest already declares Android support.
 4. **Source code:** answer no. The package is the readable source, with no bundler or minifier. If a reviewer asks about `content/prehide.css`, it is generated from `content/rules.js` by `npm run prehide`.
 5. The manifest already declares that the add-on collects no data, which Firefox Add-ons asks every new add-on to state.
-6. Paste the listing text and privacy policy URL, then submit.
+6. Paste the description and the privacy policy URL, then submit.
 
 ## App Store (iPhone, iPad and Mac)
 

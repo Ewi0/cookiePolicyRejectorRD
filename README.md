@@ -1,5 +1,7 @@
 # Cookie Policy Rejector
 
+[![CI](https://github.com/Ewi0/cookiePolicyRejectorRD/actions/workflows/ci.yml/badge.svg)](https://github.com/Ewi0/cookiePolicyRejectorRD/actions/workflows/ci.yml)
+
 **REFUSED EVERYTHING.** A browser extension that answers every cookie banner before it paints. It refuses by default; switch it to **APPROVE** and it accepts everything instead. Either way, you never see a banner.
 
 Matte black, one massive white X, nothing rounded. Approve mode morphs the X into a check.
@@ -16,7 +18,10 @@ Full interface board (MacBook, iPhone, the iOS companion app, Firefox on Android
 - **Approve mode:** presses "Accept all" / "Allow all" / "Alle akzeptieren" and so on.
 - **Never seen:** known consent platforms are hidden by a stylesheet injected at `document_start`, so they never paint. Unknown banners are found as soon as they are inserted and hidden before the next frame.
 - **Never presses the wrong thing:** policy links, "Learn more", vendor lists, and paywall exits ("Reject all and subscribe", "Subscribe now", "Log in") are on a never-press list. Sign-in or newsletter dialogs that mention cookies are left alone.
+- **Never misses a page:** a full scan starts at the end of the page, where banners are appended, so long pages (documentation, code) don't hide them. Boxes that are revealed rather than inserted are caught the moment they show. Consent tools that load late (on first scroll, after a delay) are still answered. Right after installation it also starts in tabs that were already open.
+- **An honest popup:** if a page loaded before the extension, or the browser hasn't given it access to the site, the popup says so and fixes it with one tap.
 - **Pause per site**, a toolbar badge (banners answered on this tab, or `OFF`), and a lifetime "banners never seen" tally.
+- **31 languages** for the popup and the store listing, with each language's plural rules and number format.
 - **Private by design:** no network requests, no analytics, no accounts. Settings live in `storage.local` and nothing leaves the browser. What it reads, what it stores and why it asks for access to every site: [PRIVACY.md](PRIVACY.md).
 
 Coverage: 48 rules for known platforms (OneTrust, Cookiebot, Didomi, Usercentrics, Sourcepoint, InMobi/Quantcast, TrustArc, Google Funding Choices, Osano, CookieYes, Complianz, iubenda, Klaro, Axeptio, Borlabs, consentmanager, Termly, Shopify, HubSpot, Wix, Squarespace, Amazon, Microsoft, LinkedIn, YouTube/Google consent pages and more). A generic detector handles everything else in about 25 languages, including open and closed shadow DOM and consent iframes.
@@ -86,13 +91,16 @@ extension/                  the WebExtension (Manifest V3). Load this folder unp
   content/engine.js         runs in every frame at document_start: rules first, then the generic detector
   content/prehide.css       GENERATED from rules.js (npm run prehide). Do not edit.
   popup/                    the brutalist popup (desktop 360×560, touch layout on phones)
+  _locales/                 31 translations of the popup and the store name and description
   icons/                    GENERATED (npm run icons)
 safari/                     Xcode project for macOS + iOS (from safari-web-extension-converter).
                             References extension/ directly, so there is no second copy to keep in sync.
 mockups/index.html          interface board; every popup is the real UI in an iframe
+test/unit/                  fast tests without a browser: vocabulary, rules, translations
 test/fixtures/              banner look-alikes: OneTrust, Cookiebot, Didomi-style walls, shadow DOM,
-                            Sourcepoint iframe, ReactDesk, pay-or-consent, login-modal decoy …
-scripts/                    build, icons, prehide, static server, Chrome + Firefox e2e, live smoke test
+                            Sourcepoint iframe, ReactDesk, pay-or-consent, login-modal decoy, a 60,000-node docs page …
+scripts/                    build, icons, prehide, store images, static server, Chrome + Firefox e2e, live smoke test
+store/assets.html           the store images, composed around the real popup
 assets/                     app icon and screenshots
 docs/PUBLISHING.md          how to list it in every store
 .github/                    CI on every push, a GitHub release for every version tag, the Sponsor button
@@ -105,7 +113,13 @@ Requires Node 22 or newer. There are no npm dependencies. `npm run build` also n
 ```bash
 npm test
 ```
-This loads `extension/` into real headless Chrome and runs 13 fixtures in both modes, plus paused mode and the lifetime tally. It also writes a screenshot of the real popup to `test/output/`.
+This runs the unit tests first (`npm run test:unit`, under a second: button labels in about 25 languages, every rule's shape, all 31 translations). Then it loads `extension/` into real headless Chrome (`npm run test:chrome`) and checks:
+- that all 244 rule selectors parse;
+- 14 fixtures in both modes, paused mode and the lifetime tally;
+- the popup's states, including what each button does, and its layout in every language;
+- a tab that was open before the extension was installed.
+
+It also writes a screenshot of the real popup to `test/output/`. To test a store package instead of `extension/`, unzip it and set `CPR_EXTENSION` to that folder.
 
 ```bash
 npm run test:firefox
@@ -122,6 +136,7 @@ This visits a dozen real sites in refuse mode with a throwaway profile and write
 Other commands:
 
 - `npm run build`: writes `dist/chrome`, `dist/firefox` and the store zips.
+- `npm run store-assets`: renders the store screenshots, promo tiles and icon into `dist/store/`, and refreshes the README images.
 - `npm run icons`: regenerates all PNG icons, including the Xcode app icons.
 - `npm run serve`: serves the repo at <http://127.0.0.1:4173/> for the mockups and fixtures.
 
@@ -139,13 +154,13 @@ git tag v1.0.1 && git push origin v1.0.1
 
 GitHub Actions checks that the tag matches both files, runs both test suites, builds the store packages and publishes them, with checksums, as a GitHub release. [docs/PUBLISHING.md](docs/PUBLISHING.md) walks through every store, with the listing text and privacy answers ready to paste.
 
-- **Chrome Web Store / Edge Add-ons:** upload `dist/cookie-policy-rejector-chrome-<v>.zip`. Justification for `<all_urls>`: banners appear on any site, and the extension must read and click them there. It collects no data.
+- **Chrome Web Store / Edge Add-ons:** upload `dist/cookie-policy-rejector-chrome-<v>.zip`. The description, images and a justification for every permission are in [docs/PUBLISHING.md](docs/PUBLISHING.md). It collects no data.
 - **Firefox (AMO):** upload the Firefox zip. The add-on id is `cookie-policy-rejector@cookiepolicyrejector` (override with `GECKO_ID=… npm run build`). The data collection declaration is `none`.
 - **App Store (macOS + iOS):** change the bundle id `app.cookiepolicyrejector.CookiePolicyRejector` to yours, set your team, then Archive. Picking a team writes `DEVELOPMENT_TEAM = …` into `project.pbxproj`; leave that line out of your commits so your Apple account stays out of the public repo.
 
 ## Known limits
 
-- A banner that first appears more than about 30 seconds after load (or 15 seconds after `load`) is not watched for.
+- After the first 30 seconds (or 15 seconds after `load`), only banners added near the top of the page are watched for, which is where consent tools put them. A banner that is merely revealed later than that is missed.
 - Pay-or-consent walls (Spiegel, the Guardian, Le Monde …) cannot be refused. Refuse mode hides them unanswered, and approve mode accepts.
 - Selectors for known platforms drift over time. The generic detector is the safety net, and `npm run test:live` is the early warning.
 

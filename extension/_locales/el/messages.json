@@ -1,0 +1,116 @@
+{
+  "lang": {
+    "message": "el"
+  },
+  "extDescription": {
+    "message": "Απορρίπτει κάθε banner για cookies πριν το δεις. Ή τα αποδέχεται όλα. Όπως και να έχει, δεν θα ξαναδείς κανένα."
+  },
+  "statusArmed": {
+    "message": "● ΕΝΕΡΓΟ"
+  },
+  "statusPaused": {
+    "message": "○ ΣΕ ΠΑΥΣΗ"
+  },
+  "statusIdle": {
+    "message": "— ΑΝΕΝΕΡΓΟ"
+  },
+  "statusNoAccess": {
+    "message": "○ ΧΩΡΙΣ ΠΡΟΣΒΑΣΗ"
+  },
+  "headlineReject": {
+    "message": "ΟΛΑ ΑΠΟΡΡΙΦΘΗΚΑΝ."
+  },
+  "headlineAccept": {
+    "message": "ΟΛΑ ΕΓΙΝΑΝ ΑΠΟΔΕΚΤΑ."
+  },
+  "headlinePaused": {
+    "message": "ΣΕ ΠΑΥΣΗ."
+  },
+  "headlineNoAccess": {
+    "message": "ΧΩΡΙΣ ΠΡΟΣΒΑΣΗ."
+  },
+  "subReject": {
+    "message": "ΚΑΘΕ BANNER ΠΗΡΕ ΟΧΙ. ΠΡΙΝ ΤΟ ΔΕΙΣ."
+  },
+  "subAccept": {
+    "message": "ΚΑΘΕ BANNER ΠΗΡΕ ΝΑΙ. ΠΡΙΝ ΤΟ ΔΕΙΣ."
+  },
+  "subPaused": {
+    "message": "ΑΥΤΟΣ Ο ΙΣΤΟΤΟΠΟΣ ΠΑΙΡΝΕΙ ΠΙΣΩ ΤΑ BANNER ΤΟΥ."
+  },
+  "subNoAccess": {
+    "message": "ΤΟ ΠΡΟΓΡΑΜΜΑ ΠΕΡΙΗΓΗΣΗΣ ΔΕΝ ΤΟ ΑΦΗΝΕΙ ΝΑ ΛΕΙΤΟΥΡΓΕΙ ΕΔΩ."
+  },
+  "modeLabel": {
+    "message": "Απάντηση σε κάθε banner για cookies"
+  },
+  "modeReject": {
+    "message": "ΑΠΟΡΡΙΨΗ"
+  },
+  "modeAccept": {
+    "message": "ΑΠΟΔΟΧΗ"
+  },
+  "systemPage": {
+    "message": "ΣΕΛΙΔΑ ΣΥΣΤΗΜΑΤΟΣ"
+  },
+  "detailNone": {
+    "message": "ΚΑΝΕΝΑ BANNER ΣΕ ΑΥΤΗ ΤΗ ΣΕΛΙΔΑ."
+  },
+  "detailPaused": {
+    "message": "ΕΔΩ ΤΑ BANNER ΕΜΦΑΝΙΖΟΝΤΑΙ ΚΑΝΟΝΙΚΑ."
+  },
+  "detailOffLimits": {
+    "message": "ΟΙ ΣΕΛΙΔΕΣ ΤΟΥ ΠΡΟΓΡΑΜΜΑΤΟΣ ΠΕΡΙΗΓΗΣΗΣ ΕΙΝΑΙ ΕΚΤΟΣ ΟΡΙΩΝ."
+  },
+  "detailNoAccessManual": {
+    "message": "ΕΠΙΤΡΕΨΕ ΤΟ ΣΤΙΣ ΡΥΘΜΙΣΕΙΣ ΕΠΕΚΤΑΣΕΩΝ."
+  },
+  "verbReject": {
+    "message": "ΑΠΟΡΡΙΦΘΗΚΕ"
+  },
+  "verbAccept": {
+    "message": "ΕΓΙΝΕ ΑΠΟΔΕΚΤΟ"
+  },
+  "verbHide": {
+    "message": "ΚΡΥΦΤΗΚΕ"
+  },
+  "verbOther": {
+    "message": "ΔΙΕΚΠΕΡΑΙΩΘΗΚΕ"
+  },
+  "pauseSite": {
+    "message": "ΠΑΥΣΗ ΣΕ ΑΥΤΟΝ ΤΟΝ ΙΣΤΟΤΟΠΟ"
+  },
+  "resumeSite": {
+    "message": "ΣΥΝΕΧΕΙΑ ΣΕ ΑΥΤΟΝ ΤΟΝ ΙΣΤΟΤΟΠΟ"
+  },
+  "allowAccess": {
+    "message": "ΝΑ ΕΠΙΤΡΕΠΕΤΑΙ ΠΑΝΤΟΥ"
+  },
+  "statusReload": {
+    "message": "○ ΔΕΝ ΤΡΕΧΕΙ"
+  },
+  "headlineReload": {
+    "message": "ΑΝΑΝΕΩΣΕ."
+  },
+  "subReload": {
+    "message": "Η ΣΕΛΙΔΑ ΦΟΡΤΩΘΗΚΕ ΠΡΙΝ ΜΠΟΡΕΣΕΙ ΝΑ ΞΕΚΙΝΗΣΕΙ."
+  },
+  "reloadPage": {
+    "message": "ΑΝΑΝΕΩΣΗ ΣΕΛΙΔΑΣ"
+  },
+  "tallyOther": {
+    "message": "{n} BANNER ΠΟΥ ΔΕΝ ΕΙΔΕΣ ΠΟΤΕ"
+  },
+  "report": {
+    "message": "ΑΝΑΦΟΡΑ"
+  },
+  "reportLabel": {
+    "message": "Αναφορά προβλήματος σε αυτόν τον ιστότοπο (ανοίγει το GitHub)"
+  },
+  "donate": {
+    "message": "ΔΩΡΕΑ"
+  },
+  "donateLabel": {
+    "message": "Κάνε μια δωρεά για να μείνει δωρεάν (ανοίγει το GitHub)"
+  }
+}
