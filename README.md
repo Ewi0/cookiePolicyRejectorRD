@@ -106,7 +106,7 @@ mockups/index.html          interface board; every popup is the real UI in an if
 test/unit/                  fast tests without a browser: vocabulary, rules, translations
 test/fixtures/              banner look-alikes: OneTrust, Cookiebot, Didomi-style walls, shadow DOM,
                             Sourcepoint iframe, ReactDesk, pay-or-consent, login-modal decoy, a 60,000-node docs page …
-                            cmps.js: 39 more, built from the markup of real consent platforms and sites (cmp.html?cmp=<id>);
+                            cmps.js: 40 more, built from the markup of real consent platforms and sites (cmp.html?cmp=<id>);
                             trackers.html and stale.html for the cookies themselves
 scripts/                    build, icons, prehide, store images, static server, Chrome + Firefox e2e, live smoke test
 store/                      the store images (images/), composed around the real popup (assets.html)
@@ -124,7 +124,7 @@ npm test
 ```
 This runs the unit tests first (`npm run test:unit`, under a second: button labels in about 25 languages, every rule's shape, all 31 translations, tracking-cookie names, TCF consent strings). Then it loads `extension/` into real headless Chrome (`npm run test:chrome`) and checks:
 - that every rule selector parses;
-- 58 fixtures in both modes (116 runs), paused mode and the lifetime tally: 14 hand-made pages plus look-alikes of 33 real consent-platform setups and 6 more generic banners (Polish, Russian, Japanese, Italian, Dutch, Swedish), with second layers, shadow DOM and banners revealed by a class change;
+- 59 fixtures in both modes (118 runs), paused mode and the lifetime tally: 14 hand-made pages plus look-alikes of 34 real consent-platform setups and 6 more generic banners (Polish, Russian, Japanese, Italian, Dutch, Swedish), with second layers, shadow DOM, and banners revealed by a class change, one of them 36 seconds after load;
 - that the popup never says REFUSED unless the site was really told "no" (each look-alike records the answer it received);
 - that tracking cookies are gone in refuse mode while the site's own cookies stay, and that an earlier stored "yes" is withdrawn so the banner returns and is refused, while an earlier "no" is left alone;
 - the popup's states, including what each button does, and its layout in every language;

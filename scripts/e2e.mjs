@@ -1,6 +1,7 @@
 // End-to-end test: loads extension/ into a real headless Chrome and checks what it
 // does to every fixture in test/fixtures, in both modes.
 //   node scripts/e2e.mjs            CHROME_PATH=/path/to/chrome to override
+//   CPR_ONLY=stale node scripts/e2e.mjs    only the fixtures whose address contains "stale" (no tally check)
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -56,9 +57,11 @@ async function main() {
       console.log(`${problems.length ? 'FAIL' : 'pass'}  ${mode.padEnd(6)} ${c.page.padEnd(30)} ${problems.join('; ')}`);
     };
 
+    const only = process.env.CPR_ONLY;
+    const cases = only ? CASES.filter((c) => c.page.includes(only)) : CASES;
     for (const mode of ['reject', 'accept']) {
       await setStore({ mode, paused: {} });
-      for (const c of CASES) await run(c, mode, c[mode]);
+      for (const c of cases) await run(c, mode, c[mode]);
     }
 
     // Paused on this site: nothing pressed, banner shows.
@@ -72,7 +75,7 @@ async function main() {
     await sleep(700);
     const stats = await shot.eval('chrome.storage.local.get("stats").then((s) => s.stats)');
     writeFileSync(join(OUT, 'popup-chrome.png'), await shot.screenshot());
-    const tallyOk = Object.entries(TALLY).every(([k, v]) => stats?.[k] === v);
+    const tallyOk = Boolean(only) || Object.entries(TALLY).every(([k, v]) => stats?.[k] === v);
     if (!tallyOk) failed++;
     console.log(`\n${tallyOk ? 'pass' : 'FAIL'}  tally ${JSON.stringify(stats)}${tallyOk ? '' : `, expected ${JSON.stringify(TALLY)}`}`);
     console.log('popup screenshot: test/output/popup-chrome.png');

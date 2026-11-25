@@ -20,6 +20,8 @@
   const TEXT_INPUTS = 'input:not([type]), input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="tel"], input[type="number"], textarea';
   const RULES = CPR.rules.filter(ruleApplies);
   const KNOWN = RULES.filter((r) => r.conceal !== false).flatMap((r) => [r.detect, ...(r.hide || [])]).join(', ');
+  // One query that tells whether any known platform is in the page at all (shadow ones by their host).
+  const ANY_KNOWN = RULES.map((r) => (r.shadow ? r.root || '*' : r.detect)).join(', ');
 
   let mode = 'reject';
   let paused = false;
@@ -574,7 +576,13 @@
       // Known tools often reveal a banner that is already in the page by flipping a class, which adds
       // no nodes. Look for that every few seconds for the next few minutes (one selector check per rule).
       const until = Date.now() + 5 * 60000;
-      const poll = () => { if (running && Date.now() < until) { scanKnown(); timers.push(setTimeout(poll, 2000)); } };
+      const poll = () => {
+        if (!running || Date.now() > until) return;
+        let any = true;
+        try { any = Boolean(document.querySelector(ANY_KNOWN)); } catch { /* scan rule by rule */ }
+        if (any) scanKnown();
+        timers.push(setTimeout(poll, 2000));
+      };
       timers.push(setTimeout(poll, 2000));
     } else stop();
     release();

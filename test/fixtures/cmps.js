@@ -119,6 +119,15 @@ window.CMPS = {
     reveal: { sel: '.osano-cm-dialog', cls: 'osano-cm-dialog--hidden' },
     hiddenCls: 'osano-cm-dialog--hidden',
   },
+  // Already in the page, revealed by a class change well after the first 30-second watch.
+  'osano-late': {
+    html: `<style>.osano-cm-dialog--hidden{display:none}</style><div class="osano-cm-window"><div class="osano-cm-dialog osano-cm-dialog--type_bar osano-cm-dialog--hidden" data-test="banner" style="${BAR}">
+      <span class="osano-cm-message">${TXT}</span>
+      <button class="osano-cm-accept-all osano-cm-button osano-cm-button--type_accept" data-out="accept">Accept All</button>
+      <button class="osano-cm-denyAll osano-cm-button osano-cm-button--type_denyAll" data-out="reject">Deny</button></div></div>`,
+    reveal: { sel: '.osano-cm-dialog', cls: 'osano-cm-dialog--hidden', at: 36000 },
+    hiddenCls: 'osano-cm-dialog--hidden',
+  },
   cookieyes: {
     html: `<style>.cky-hide{display:none}</style><div class="cky-consent-container cky-banner-bottom cky-hide" data-test="banner" style="${BAR}"><div class="cky-consent-bar">
       <p class="cky-notice-des">${TXT}</p>

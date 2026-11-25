@@ -35,10 +35,13 @@ Start with Firefox Add-ons and the Chrome Web Store. Between them they cover eve
 >
 > REFUSE (the default) presses “Reject all”, “Only necessary” and their equivalents in about 25 languages. If there is no reject button, it opens the settings and switches everything off. If a site offers no way to refuse, it hides the notice without answering, so no consent is given.
 >
+> Your refusal also holds: in REFUSE mode it deletes well-known analytics and advertising cookies that a site sets anyway, and withdraws an “accept all” that a site still remembers from before, so the notice comes back and is refused. Sign-in, shopping-cart and language cookies are never touched.
+>
 > APPROVE presses “Accept all” instead, for people who just want them gone.
 >
 > • Recognises the major consent platforms, and finds unknown notices by their wording
 > • Never presses “Subscribe”, “Log in” or policy links, and leaves sign-in and newsletter forms alone
+> • Says “refused” only when the site really received a refusal, and “hidden” otherwise
 > • Pause it on any site with one click
 > • Tells you when a page needs a reload or site access, and fixes it in one click
 > • In 31 languages
@@ -63,9 +66,9 @@ Start with Firefox Add-ons and the Chrome Web Store. Between them they cover eve
 | Field | Paste |
 | --- | --- |
 | Single purpose | Answers cookie consent banners on websites (refuse or accept, as the user chooses) and hides them before they appear. |
-| `storage` | Saves the user's choice of refuse or approve, the sites where they paused the extension, and a count of banners handled. Stored on the device only; nothing is transmitted. |
+| `storage` | Saves the user's choice of refuse or approve, the sites where they paused the extension, a count of banners handled, and when refuse mode last withdrew an earlier consent on a site (so it does that at most once every 12 hours). Stored on the device only; nothing is transmitted. |
 | `scripting` | Right after installation, injects the extension's own bundled content script into tabs that were already open, so cookie banners there are handled without a reload. No remote code: only files inside the package. |
-| Host permission (`<all_urls>`) | Cookie banners appear on any website, as the page loads. The content script has to run on every page from the start (document_start) to find the banner and press its reject or accept button before it is drawn. activeTab cannot do this: it only grants access after the user clicks the extension icon on each page, when the banner is already showing. A list of specific sites cannot cover the millions of sites that show cookie banners. Page content is checked on the device only and is never stored or transmitted. |
+| Host permission (`<all_urls>`) | Cookie banners appear on any website, as the page loads. The content script has to run on every page from the start (document_start) to find the banner and press its reject or accept button before it is drawn, and, in refuse mode, to delete well-known tracking cookies from that page's own cookies and an earlier stored consent before the site's consent script reads it. activeTab cannot do this: it only grants access after the user clicks the extension icon on each page, when the banner is already showing. A list of specific sites cannot cover the millions of sites that show cookie banners. Page content and cookies are checked on the device only and are never stored or transmitted. |
 | Remote code | No, I am not using remote code. |
 | Data usage | Tick none of the data types, then tick the three certifications. |
 | Privacy policy URL | `https://github.com/Ewi0/cookiePolicyRejectorRD/blob/main/PRIVACY.md` |
@@ -83,6 +86,7 @@ Public, all regions.
 > 2. Click the toolbar icon. The popup shows the site, which consent platform was answered and how (for example "COOKIEBOT — REFUSED"), and the lifetime counter.
 > 3. Switch to APPROVE, open a third site with a banner (https://www.onetrust.com/): the extension accepts instead.
 > 4. Click "PAUSE ON THIS SITE" and reload: the banner shows normally.
+> 5. Back in REFUSE mode on any site that uses Google Analytics: Developer tools → Application → Cookies shows no `_ga` / `_gid` cookies; in APPROVE mode they are there.
 > Banners depend on the visitor's region; sites usually show them to EU visitors.
 
 ## If the review comes back

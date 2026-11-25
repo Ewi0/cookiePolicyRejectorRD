@@ -29,6 +29,8 @@ export const CASES = [
   ...['didomi-two-layer', 'inmobi-two-layer', 'funding-choices-manage', 'cookieconsent-v2-settings', 'onetrust-toggles',
     'generic-it-two-layer', 'generic-nl-toggles',
   ].map((id) => ({ page: `cmp.html?cmp=${id}`, reject: ['settings', 'reject'], accept: ['accept'], wait: 9000 })),
+  // A known banner revealed by a class change long after the first watch (slow: about 40 s per mode).
+  { page: 'cmp.html?cmp=osano-late', reject: ['reject'], accept: ['accept'], wait: 42000 },
   // Tracking cookies the site sets anyway: gone in refuse mode, the cookies the site needs stay.
   {
     page: 'trackers.html', reject: ['reject'], accept: ['accept'], wait: 3500,
@@ -44,7 +46,7 @@ export const CASES = [
 ];
 
 // Every answered banner must reach the lifetime tally (both modes, plus the paused run).
-export const TALLY = { reject: 53, accept: 53, hide: 3 };
+export const TALLY = { reject: 54, accept: 54, hide: 3 };
 
 const RULES = readFileSync(new URL('../extension/content/rules.js', import.meta.url), 'utf8');
 

@@ -61,12 +61,12 @@ var CPR = globalThis.CPR || (globalThis.CPR = {});
     for (let i = 0; i < parts.length - 1; i++) out.push(parts.slice(i).join('.'));
     return out;
   }
+  /** The page's path and every parent, with and without a trailing slash (a script's default cookie path). */
   function paths() {
     const out = new Set(['/']);
-    let p = location.pathname;
-    while (p && p !== '/') {
+    for (let p = location.pathname; p.length > 1;) {
       out.add(p);
-      p = p.replace(/\/[^/]*\/?$/, '') || '/';
+      p = p.endsWith('/') ? p.slice(0, -1) : p.slice(0, p.lastIndexOf('/')) || '/';
     }
     return [...out];
   }
@@ -83,8 +83,8 @@ var CPR = globalThis.CPR || (globalThis.CPR = {});
     return !jar().has(name);
   }
   function dropStorage(keys) {
-    for (const store of [globalThis.localStorage, globalThis.sessionStorage]) {
-      for (const k of keys) { try { store?.removeItem(k); } catch { /* storage blocked */ } }
+    for (const area of ['localStorage', 'sessionStorage']) {
+      for (const k of keys) { try { globalThis[area]?.removeItem(k); } catch { /* storage blocked here */ } }
     }
   }
   const stored = (key) => { try { return globalThis.localStorage?.getItem(key) ?? null; } catch { return null; } };
@@ -209,7 +209,11 @@ var CPR = globalThis.CPR || (globalThis.CPR = {});
     const store = globalThis.cookieStore;
     if (onChange) { try { store?.removeEventListener('change', onChange); } catch { /* gone */ } onChange = null; }
     if (!on) return;
-    const run = () => { const r = sweep(); if (r.length) report(r); };
+    const run = () => {
+      let r = [];
+      try { r = sweep(); } catch { /* a sandboxed document has no cookies */ }
+      if (r.length) report(r);
+    };
     run();
     if (store?.addEventListener) {
       onChange = (e) => { if (e.changed?.some((x) => TRACKERS.test(x.name))) run(); };
