@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "Rejector",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "__MSG_extDescription__",
   "default_locale": "en",
   "homepage_url": "https://github.com/Ewi0/cookiePolicyRejectorRD",
@@ -31,7 +31,7 @@
       "all_frames": true,
       "run_at": "document_start",
       "css": ["content/prehide.css"],
-      "js": ["content/patterns.js", "content/rules.js", "content/engine.js"]
+      "js": ["content/patterns.js", "content/rules.js", "content/cookies.js", "content/engine.js"]
     }
   ],
   "content_security_policy": {

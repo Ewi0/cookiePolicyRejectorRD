@@ -11,6 +11,7 @@
  *              { text: kind, in: sel }     press a button whose label means reject/accept/save/settings
  *              { uncheck: sel }            switch off every enabled toggle inside sel
  *              optional: true              a failing step does not fail the plan
+ *   layers   second layers (a preference centre): the banner counts as answered only once these are gone
  *   unlock   classes the CMP puts on <html>/<body> to block scrolling
  *   shadow   search inside shadow roots
  *   frame    true: only inside iframes ('any': top and iframes); default top frame only
@@ -23,11 +24,13 @@ CPR.rules = [
     name: 'OneTrust',
     detect: '#onetrust-banner-sdk',
     hide: ['#onetrust-consent-sdk', '#onetrust-banner-sdk', '.onetrust-pc-dark-filter'],
+    layers: ['#onetrust-pc-sdk'],
+    // The preference-centre plans open it only if it is not open yet (a failed plan may have opened it).
     reject: [
       '#onetrust-reject-all-handler',
-      [{ click: '#onetrust-pc-btn-handler' }, { click: '#onetrust-pc-sdk .ot-pc-refuse-all-handler' }],
-      [{ click: '#onetrust-pc-btn-handler' }, { uncheck: '#onetrust-pc-sdk' }, { click: '#onetrust-pc-sdk .save-preference-btn-handler' }],
       [{ text: 'reject', in: '#onetrust-banner-sdk' }],
+      [{ click: '#onetrust-pc-btn-handler', optional: true }, { click: '#onetrust-pc-sdk .ot-pc-refuse-all-handler' }],
+      [{ click: '#onetrust-pc-btn-handler', optional: true }, { uncheck: '#onetrust-pc-sdk' }, { click: '#onetrust-pc-sdk .save-preference-btn-handler' }],
     ],
     accept: ['#onetrust-accept-btn-handler', [{ text: 'accept', in: '#onetrust-banner-sdk' }]],
   },
@@ -55,11 +58,12 @@ CPR.rules = [
     name: 'Didomi',
     detect: '#didomi-notice, #didomi-popup .didomi-popup-container',
     hide: ['#didomi-host', '#didomi-notice', '#didomi-popup', '.didomi-popup-backdrop'],
+    layers: ['#didomi-popup .didomi-popup-container'],
     reject: [
       '#didomi-notice-disagree-button',
       '.didomi-continue-without-agreeing',
-      [{ click: '#didomi-notice-learn-more-button' }, { text: 'reject', in: '#didomi-popup, #didomi-consent-popup' }, { text: 'save', in: '#didomi-popup', optional: true }],
-      [{ text: 'reject', in: '#didomi-host' }],
+      [{ text: 'reject', in: '#didomi-notice' }],
+      [{ click: '#didomi-notice-learn-more-button', optional: true }, { text: 'reject', in: '#didomi-popup, #didomi-consent-popup' }, { text: 'save', in: '#didomi-popup', optional: true }],
     ],
     accept: ['#didomi-notice-agree-button', [{ text: 'accept', in: '#didomi-host' }]],
     unlock: ['didomi-popup-open'],
@@ -242,8 +246,8 @@ CPR.rules = [
     name: 'Cookie Control',
     detect: '#ccc-notify, #ccc-module',
     hide: ['#ccc-notify', '#ccc-module', '#ccc-overlay'],
-    reject: ['#ccc-notify-reject', '#ccc-reject-settings', [{ text: 'reject', in: '#ccc' }]],
-    accept: ['#ccc-notify-accept', '#ccc-recommended-settings', [{ text: 'accept', in: '#ccc' }]],
+    reject: ['#ccc-notify-reject', '#ccc .ccc-reject-button', '#ccc-reject-settings', [{ text: 'reject', in: '#ccc' }]],
+    accept: ['#ccc-notify-accept', '#ccc .ccc-accept-button', '#ccc-recommended-settings', [{ text: 'accept', in: '#ccc' }]],
   },
   {
     name: 'consentmanager',
@@ -356,8 +360,13 @@ CPR.rules = [
   {
     name: 'CookieConsent',
     detect: '#cc_div #cm',
-    hide: ['#cc_div #cm', '#cc_div #cm-ov'],
-    reject: ['#c-s-bn', [{ text: 'reject', in: '#cc_div #cm' }]],
+    hide: ['#cc_div #cm', '#cc_div #cm-ov', '#cc_div #s-cnt'],
+    layers: ['#cc_div #s-cnt #s-inr'],
+    // #c-s-bn is "Reject all" on some sites and "Settings" on others: go by its label, never its id.
+    reject: [
+      [{ text: 'reject', in: '#cc_div #cm' }],
+      [{ text: 'settings', in: '#cc_div #cm', optional: true }, { click: '#cc_div #s-rall-bn' }],
+    ],
     accept: ['#c-p-bn', [{ text: 'accept', in: '#cc_div #cm' }]],
     unlock: ['force--consent'],
   },

@@ -1,5 +1,6 @@
 // Fixture expectations shared by the Chrome (e2e.mjs) and Firefox (firefox-e2e.mjs) runners.
-// clicked: controls the page saw pressed, in order. visible: banner still on screen.
+// clicked: controls the page saw pressed, in order. visible: banner (or a second layer) still on screen.
+// cookies: per mode, cookie names that must be gone or kept afterwards.
 import { readFileSync } from 'node:fs';
 
 export const CASES = [
@@ -17,10 +18,33 @@ export const CASES = [
   { page: 'late.html', reject: ['rechazar'], accept: ['aceptar'], wait: 7000 },
   { page: 'login-modal.html', reject: [], accept: [], visible: true },
   { page: 'devsite.html', reject: [], accept: ['ok'], wait: 6000 },
+  // Look-alikes of real consent platforms (test/fixtures/cmps.js). What the site was told is what counts.
+  ...[
+    'cookiebot', 'cookiebot-selection', 'didomi', 'inmobi', 'trustarc', 'usercentrics-v2', 'usercentrics-v3', 'funding-choices',
+    'osano', 'cookieyes', 'complianz', 'iubenda', 'klaro', 'borlabs-v2', 'consentmanager', 'cookie-control', 'cookieconsent-v3',
+    'shopify', 'hubspot', 'cookie-notice', 'termly', 'amazon', 'stack-exchange', 'wix', 'cookie-script', 'moove', 'tarteaucitron',
+    'axeptio', 'generic-pl', 'generic-ru', 'generic-ja', 'generic-sv-shadow',
+  ].map((id) => ({ page: `cmp.html?cmp=${id}`, reject: ['reject'], accept: ['accept'] })),
+  // Second layers: refuse in the settings, or switch everything off and save.
+  ...['didomi-two-layer', 'inmobi-two-layer', 'funding-choices-manage', 'cookieconsent-v2-settings', 'onetrust-toggles',
+    'generic-it-two-layer', 'generic-nl-toggles',
+  ].map((id) => ({ page: `cmp.html?cmp=${id}`, reject: ['settings', 'reject'], accept: ['accept'], wait: 9000 })),
+  // Tracking cookies the site sets anyway: gone in refuse mode, the cookies the site needs stay.
+  {
+    page: 'trackers.html', reject: ['reject'], accept: ['accept'], wait: 3500,
+    cookies: {
+      reject: { gone: ['_ga', '_gid', '_fbp', '_ga_TEST123'], kept: ['session_id', 'lang'] },
+      accept: { kept: ['_ga', '_gid', '_fbp', 'session_id', 'lang'] },
+    },
+  },
+  // An earlier "yes" stored by the platform: withdrawn in refuse mode, so the banner returns and is refused.
+  ...['onetrust', 'cookiebot', 'tcf'].map((cmp) => ({ page: `stale.html?cmp=${cmp}`, reject: ['reject'], accept: [], wait: 6000 })),
+  // An earlier "no" stays: nothing to do.
+  { page: 'stale.html?cmp=onetrust-refused', reject: [], accept: [], wait: 3000 },
 ];
 
 // Every answered banner must reach the lifetime tally (both modes, plus the paused run).
-export const TALLY = { reject: 10, accept: 13, hide: 3 };
+export const TALLY = { reject: 53, accept: 53, hide: 3 };
 
 const RULES = readFileSync(new URL('../extension/content/rules.js', import.meta.url), 'utf8');
 
@@ -31,7 +55,7 @@ export const SELECTOR_PROBE = `(() => {
   new Function('globalThis', ${JSON.stringify(RULES)})(g);
   const all = [];
   for (const r of g.CPR.rules) {
-    all.push(r.detect, r.root, ...(r.hide || []));
+    all.push(r.detect, r.root, ...(r.hide || []), ...(r.layers || []));
     for (const plan of [...(r.reject || []), ...(r.accept || [])]) {
       for (const step of typeof plan === 'string' ? [{ click: plan }] : plan) all.push(step.click, step.in, step.uncheck);
     }
@@ -58,8 +82,10 @@ export const PROBE = `(() => {
   };
   const host = document.querySelector('[data-test="banner"]');
   const banner = host?.shadowRoot?.querySelector('[data-test="banner-inner"]') || host;
+  const layers = [...document.querySelectorAll('[data-test="layer"]')];
   const locked = [document.documentElement, document.body].some((e) => /hidden|clip/.test(getComputedStyle(e).overflowY));
-  return JSON.stringify({ clicked: (window.__cpr && window.__cpr.clicked) || [], visible: seen(banner), locked });
+  const cookies = document.cookie.split(';').map((c) => c.trim()).map((c) => c.split('=')[0]).filter(Boolean);
+  return JSON.stringify({ clicked: (window.__cpr && window.__cpr.clicked) || [], visible: seen(banner) || layers.some(seen), locked, cookies });
 })()`;
 
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -74,11 +100,19 @@ export async function check(probe, c, expected, sleep) {
     const settled = got && same(got.clicked, expected) && got.visible === Boolean(c.visible);
     if ((settled && expected.length) || Date.now() > deadline) break;
   }
-  await sleep(400); // catch late extra clicks
+  await sleep(c.cookies ? 2500 : 400); // catch late extra clicks, and cookies a page sets again later
   got = (await probe().catch(() => null)) || got;
   const problems = [];
   if (!same(got?.clicked, expected)) problems.push(`pressed ${JSON.stringify(got?.clicked)}, expected ${JSON.stringify(expected)}`);
   if (got?.visible !== Boolean(c.visible)) problems.push(got?.visible ? 'banner still visible' : 'banner was hidden');
   if (c.unlocked && got?.locked) problems.push('page scroll still locked');
+  const jar = c.cookies?.[c.mode];
+  if (jar) {
+    const have = new Set(got?.cookies || []);
+    const stayed = (jar.gone || []).filter((n) => have.has(n));
+    const lost = (jar.kept || []).filter((n) => !have.has(n));
+    if (stayed.length) problems.push(`tracking cookies left: ${stayed.join(', ')}`);
+    if (lost.length) problems.push(`cookies wrongly deleted: ${lost.join(', ')}`);
+  }
   return problems;
 }

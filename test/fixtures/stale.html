@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Stored consent fixture</title><script src="harness.js"></script>
+<script>
+  // stale.html?cmp=<onetrust|cookiebot|tcf|onetrust-refused>: the site already holds an answer from an
+  // earlier visit, stored the way that platform stores it. The first load writes it and reloads.
+  const cmp = new URLSearchParams(location.search).get('cmp');
+  const tc = (purposes) => {
+    const bits = new Array(232).fill(0);
+    bits[4] = 1; // version 2
+    bits[88] = 1; // a CMP id
+    for (const p of purposes) bits[151 + p] = 1;
+    let s = '';
+    for (let i = 0; i < bits.length; i += 8) s += String.fromCharCode(parseInt(bits.slice(i, i + 8).join(''), 2));
+    return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  };
+  const SEED = {
+    onetrust: { OptanonAlertBoxClosed: '2025-01-01T00:00:00.000Z', OptanonConsent: encodeURIComponent('isGpcEnabled=0&datestamp=Mon+Jan+01+2025&version=202401.1.0&groups=C0001:1,C0002:1,C0003:1,C0004:1&AwaitingReconsent=false') },
+    'onetrust-refused': { OptanonAlertBoxClosed: '2025-01-01T00:00:00.000Z', OptanonConsent: encodeURIComponent('isGpcEnabled=0&version=202401.1.0&groups=C0001:1,C0002:0,C0003:0,C0004:0') },
+    cookiebot: { CookieConsent: encodeURIComponent("{stamp:'abc',necessary:true,preferences:true,statistics:true,marketing:true,method:'explicit',ver:1}") },
+    tcf: { 'euconsent-v2': tc([1, 2, 3, 4, 7, 9, 10]) },
+  };
+  const KEY = { onetrust: 'OptanonAlertBoxClosed', 'onetrust-refused': 'OptanonAlertBoxClosed', cookiebot: 'CookieConsent', tcf: 'euconsent-v2' }[cmp];
+  if (!sessionStorage.getItem('seeded')) {
+    sessionStorage.setItem('seeded', '1');
+    for (const [k, v] of Object.entries(SEED[cmp])) document.cookie = `${k}=${v}; path=/; max-age=86400`;
+    location.reload();
+  }
+</script>
+</head>
+<body>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  // Like the real scripts: loaded a moment later, the banner only shows if no answer is stored.
+  later(400, () => {
+    if (document.cookie.split(/;\s*/).some((c) => c.startsWith(`${KEY}=`))) return;
+    document.body.insertAdjacentHTML('beforeend', `
+      <div id="CybotCookiebotDialog" data-test="banner" style="position:fixed;left:0;right:0;bottom:0;padding:20px;background:#fff;font:15px system-ui">
+        <p>We use cookies to personalise ads and measure traffic.</p>
+        <button id="CybotCookiebotDialogBodyButtonDecline">Deny</button>
+        <button id="CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll">Allow all</button>
+      </div>`);
+    const bar = document.querySelector('[data-test="banner"]');
+    const answer = (yes) => {
+      record(yes ? 'accept' : 'reject');
+      bar.remove();
+      const store = { ...SEED[cmp] };
+      if (!yes) {
+        store.OptanonConsent &&= encodeURIComponent('groups=C0001:1,C0002:0,C0003:0,C0004:0');
+        store.CookieConsent &&= encodeURIComponent("{necessary:true,preferences:false,statistics:false,marketing:false}");
+        if (store['euconsent-v2']) store['euconsent-v2'] = tc([]);
+      }
+      for (const [k, v] of Object.entries(store)) document.cookie = `${k}=${v}; path=/; max-age=86400`;
+    };
+    on('#CybotCookiebotDialogBodyButtonDecline', () => answer(false));
+    on('#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll', () => answer(true));
+  });
+</script>
+</body>
+</html>

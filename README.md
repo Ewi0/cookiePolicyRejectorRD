@@ -1,6 +1,10 @@
 # Cookie Policy Rejector
 
 [![CI](https://github.com/Ewi0/cookiePolicyRejectorRD/actions/workflows/ci.yml/badge.svg)](https://github.com/Ewi0/cookiePolicyRejectorRD/actions/workflows/ci.yml)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/lflnndjeicnjhnocjpjdfekfpmpjohke?label=Chrome%20Web%20Store&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/cookie-policy-rejector/lflnndjeicnjhnocjpjdfekfpmpjohke)
+[![Users](https://img.shields.io/chrome-web-store/users/lflnndjeicnjhnocjpjdfekfpmpjohke?label=users)](https://chromewebstore.google.com/detail/cookie-policy-rejector/lflnndjeicnjhnocjpjdfekfpmpjohke)
+
+**[⬇ Install from the Chrome Web Store](https://chromewebstore.google.com/detail/cookie-policy-rejector/lflnndjeicnjhnocjpjdfekfpmpjohke)** · works in Chrome, Edge, Brave, Opera, Vivaldi and Arc
 
 **REFUSED EVERYTHING.** A browser extension that answers every cookie banner before it paints. It refuses by default; switch it to **APPROVE** and it accepts everything instead. Either way, you never see a banner.
 
@@ -16,10 +20,12 @@ Full interface board (MacBook, iPhone, the iOS companion app, Firefox on Android
 
 - **Refuse mode (default):** presses "Reject all" / "Only necessary" / "Ablehnen" / "Tout refuser" and so on. If the first layer has no reject button, it opens the settings layer and rejects or unticks everything there. If there is no way to refuse (an info-only notice or a pay-or-consent wall), it **hides the banner without answering**: no consent is given and the page is usable.
 - **Approve mode:** presses "Accept all" / "Allow all" / "Alle akzeptieren" and so on.
+- **A refusal that holds:** in refuse mode it also deletes well-known tracking cookies (Google Analytics, Google Ads, Meta Pixel, Microsoft Ads and Clarity, Hotjar, TikTok, HubSpot, Segment, Mixpanel, Adobe and more) that a site sets anyway, and keeps deleting them while the page is open. Sign-in, cart, language and consent cookies are never touched.
+- **Takes back an earlier yes:** if a site still holds an "Accept all" from before (given before you installed it, or in approve mode), refuse mode deletes that stored answer before the consent tool reads it, so the banner comes back and is refused. Works for OneTrust, Cookiebot, CookieYes, Complianz, Borlabs, iubenda, Didomi, Google Funding Choices and every IAB TCF platform.
 - **Never seen:** known consent platforms are hidden by a stylesheet injected at `document_start`, so they never paint. Unknown banners are found as soon as they are inserted and hidden before the next frame.
 - **Never presses the wrong thing:** policy links, "Learn more", vendor lists, and paywall exits ("Reject all and subscribe", "Subscribe now", "Log in") are on a never-press list. Sign-in or newsletter dialogs that mention cookies are left alone.
 - **Never misses a page:** a full scan starts at the end of the page, where banners are appended, so long pages (documentation, code) don't hide them. Boxes that are revealed rather than inserted are caught the moment they show. Consent tools that load late (on first scroll, after a delay) are still answered. Right after installation it also starts in tabs that were already open.
-- **An honest popup:** if a page loaded before the extension, or the browser hasn't given it access to the site, the popup says so and fixes it with one tap.
+- **An honest popup:** it reports **REFUSED** only when the site really received a refusal. A banner that could not be refused (no reject button, a pay-or-consent wall) or that closed by itself is reported as **HIDDEN**. If a page loaded before the extension, or the browser hasn't given it access to the site, the popup says so and fixes it with one tap.
 - **Pause per site**, a toolbar badge (banners answered on this tab, or `OFF`), and a lifetime "banners never seen" tally.
 - **31 languages** for the popup and the store listing, with each language's plural rules and number format.
 - **Private by design:** no network requests, no analytics, no accounts. Settings live in `storage.local` and nothing leaves the browser. What it reads, what it stores and why it asks for access to every site: [PRIVACY.md](PRIVACY.md).
@@ -32,16 +38,16 @@ Free, and the same on every device whose browser can run extensions.
 
 | Device | Browser | Get it from |
 | --- | --- | --- |
-| Windows, Mac, Linux, Chromebook | Chrome, Brave, Vivaldi, Opera, Arc | Chrome Web Store |
-| Windows, Mac, Linux | Microsoft Edge | Edge Add-ons |
+| Windows, Mac, Linux, Chromebook | Chrome, Brave, Vivaldi, Opera, Arc | [Chrome Web Store](https://chromewebstore.google.com/detail/cookie-policy-rejector/lflnndjeicnjhnocjpjdfekfpmpjohke) |
+| Windows, Mac, Linux | Microsoft Edge | [Chrome Web Store](https://chromewebstore.google.com/detail/cookie-policy-rejector/lflnndjeicnjhnocjpjdfekfpmpjohke) (Edge installs Chrome extensions; Edge Add-ons listing coming) |
 | Windows, Mac, Linux | Firefox, LibreWolf, Zen, Waterfox, Floorp | Firefox Add-ons |
 | Mac | Safari | Mac App Store |
 | iPhone, iPad | Safari | App Store |
-| iPhone, iPad, Mac | Orion (extensions on iPhone and iPad are in beta) | Chrome Web Store or Firefox Add-ons |
+| iPhone, iPad, Mac | Orion (extensions on iPhone and iPad are in beta) | [Chrome Web Store](https://chromewebstore.google.com/detail/cookie-policy-rejector/lflnndjeicnjhnocjpjdfekfpmpjohke) |
 | Android phone or tablet | Firefox | Firefox Add-ons |
-| Android phone or tablet | Lemur, Quetta and other browsers that install Chrome extensions | Chrome Web Store |
+| Android phone or tablet | Lemur, Quetta and other browsers that install Chrome extensions | [Chrome Web Store](https://chromewebstore.google.com/detail/cookie-policy-rejector/lflnndjeicnjhnocjpjdfekfpmpjohke) |
 
-Store links appear in this table as each listing goes live. Until then, every [release](https://github.com/Ewi0/cookiePolicyRejectorRD/releases) has ready-made packages you can install by hand, as described below.
+Other store links appear in this table as each listing goes live. Until then, every [release](https://github.com/Ewi0/cookiePolicyRejectorRD/releases) has ready-made packages you can install by hand, as described below.
 
 **Can't run it:** Chrome on Android, iPhone and iPad, Samsung Internet, and most other iPhone browsers don't allow extensions. Edge for Android only offers a short list of extensions that Microsoft picks.
 
@@ -88,6 +94,7 @@ extension/                  the WebExtension (Manifest V3). Load this folder unp
   background.js             tally, per-tab log, badge, toolbar icon (X ↔ check)
   content/patterns.js       multilingual reject / accept / save / settings / never-press vocab
   content/rules.js          known consent platforms: detect, hide, reject plans, accept plans
+  content/cookies.js        refuse mode: deletes tracking cookies and a stored earlier "yes"
   content/engine.js         runs in every frame at document_start: rules first, then the generic detector
   content/prehide.css       GENERATED from rules.js (npm run prehide). Do not edit.
   popup/                    the brutalist popup (desktop 360×560, touch layout on phones)
@@ -99,6 +106,8 @@ mockups/index.html          interface board; every popup is the real UI in an if
 test/unit/                  fast tests without a browser: vocabulary, rules, translations
 test/fixtures/              banner look-alikes: OneTrust, Cookiebot, Didomi-style walls, shadow DOM,
                             Sourcepoint iframe, ReactDesk, pay-or-consent, login-modal decoy, a 60,000-node docs page …
+                            cmps.js: 39 more, built from the markup of real consent platforms and sites (cmp.html?cmp=<id>);
+                            trackers.html and stale.html for the cookies themselves
 scripts/                    build, icons, prehide, store images, static server, Chrome + Firefox e2e, live smoke test
 store/                      the store images (images/), composed around the real popup (assets.html)
 assets/                     app icon and screenshots
@@ -113,9 +122,11 @@ Requires Node 22 or newer. There are no npm dependencies. `npm run build` also n
 ```bash
 npm test
 ```
-This runs the unit tests first (`npm run test:unit`, under a second: button labels in about 25 languages, every rule's shape, all 31 translations). Then it loads `extension/` into real headless Chrome (`npm run test:chrome`) and checks:
-- that all 244 rule selectors parse;
-- 14 fixtures in both modes, paused mode and the lifetime tally;
+This runs the unit tests first (`npm run test:unit`, under a second: button labels in about 25 languages, every rule's shape, all 31 translations, tracking-cookie names, TCF consent strings). Then it loads `extension/` into real headless Chrome (`npm run test:chrome`) and checks:
+- that every rule selector parses;
+- 58 fixtures in both modes (116 runs), paused mode and the lifetime tally: 14 hand-made pages plus look-alikes of 33 real consent-platform setups and 6 more generic banners (Polish, Russian, Japanese, Italian, Dutch, Swedish), with second layers, shadow DOM and banners revealed by a class change;
+- that the popup never says REFUSED unless the site was really told "no" (each look-alike records the answer it received);
+- that tracking cookies are gone in refuse mode while the site's own cookies stay, and that an earlier stored "yes" is withdrawn so the banner returns and is refused, while an earlier "no" is left alone;
 - the popup's states, including what each button does, and its layout in every language;
 - a tab that was open before the extension was installed.
 
@@ -160,7 +171,8 @@ GitHub Actions checks that the tag matches both files, runs both test suites, bu
 
 ## Known limits
 
-- After the first 30 seconds (or 15 seconds after `load`), only banners added near the top of the page are watched for, which is where consent tools put them. A banner that is merely revealed later than that is missed.
+- After the first 30 seconds (or 15 seconds after `load`), only banners added near the top of the page are watched for, which is where consent tools put them. Known platforms that reveal a banner later with a class change are still caught for five minutes; an unknown banner that is merely revealed later than that is missed.
+- Tracking cookies are deleted from the site's own cookie jar only. Cookies that a tracker sets in its own domain (third-party cookies) are out of reach of a page script; block third-party cookies in the browser settings for those.
 - Pay-or-consent walls (Spiegel, the Guardian, Le Monde …) cannot be refused. Refuse mode hides them unanswered, and approve mode accepts.
 - Selectors for known platforms drift over time. The generic detector is the safety net, and `npm run test:live` is the early warning.
 

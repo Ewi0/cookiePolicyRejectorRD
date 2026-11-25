@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Tracking cookies fixture</title><script src="harness.js"></script>
+<script>
+  // A site that sets analytics and ad cookies whatever the visitor answers (it happens), next to the
+  // cookies it needs to work. Refuse mode must leave only the latter.
+  const set = (name, value) => { document.cookie = `${name}=${value}; path=/; max-age=86400`; };
+  const track = () => { set('_ga', 'GA1.1.123456789.1700000000'); set('_gid', 'GA1.1.987654321.1700000000'); set('_fbp', 'fb.1.1700000000.123'); set('_ga_TEST123', 'GS1.1.1700000000'); };
+  set('session_id', 'abc123');
+  set('lang', 'en');
+  track();
+  later(1200, track); // the analytics script runs again after the page settles
+</script>
+</head>
+<body>
+<script>
+  document.body.insertAdjacentHTML('afterbegin', article());
+  mountCookieBar();
+  function mountCookieBar() {
+    later(300, () => {
+      document.body.insertAdjacentHTML('beforeend', `
+        <div class="cookie-banner" data-test="banner" style="position:fixed;left:0;right:0;bottom:0;padding:20px;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,.15);font:15px system-ui">
+          <p>We use cookies for analytics and advertising.</p>
+          <button id="no">Reject all</button> <button id="yes">Accept all</button>
+        </div>`);
+      const bar = document.querySelector('[data-test="banner"]');
+      on('#no', () => { record('reject'); bar.remove(); });
+      on('#yes', () => { record('accept'); bar.remove(); });
+    });
+  }
+</script>
+</body>
+</html>

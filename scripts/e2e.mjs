@@ -29,9 +29,28 @@ async function main() {
     await sleep(500);
     const setStore = (obj) => popup.eval(`chrome.storage.local.set(${JSON.stringify(obj)})`);
 
+    // What the extension says it did on that tab: the popup's list and the toolbar badge.
+    const reported = (url) => popup.eval(`(async () => {
+      const [t] = await chrome.tabs.query({ url: ${JSON.stringify(url.split('#')[0])} });
+      return t ? JSON.stringify((await chrome.runtime.sendMessage({ type: 'cpr:tab', tabId: t.id }))?.log || []) : '[]';
+    })()`).then(JSON.parse).catch(() => []);
+
     const run = async (c, mode, expected) => {
       const tab = await browser.open(BASE + c.page);
-      const problems = await check(async () => JSON.parse(await tab.eval(PROBE)), c, expected, sleep);
+      const problems = await check(async () => JSON.parse(await tab.eval(PROBE)), { ...c, mode }, expected, sleep);
+      // Never claim an answer the site did not get: the look-alikes record exactly what they were told.
+      if (/^(?:cmp|trackers|stale)\.html/.test(c.page) && mode !== 'paused') {
+        const told = JSON.parse(await tab.eval('JSON.stringify(window.__cpr.clicked)'));
+        let said = [];
+        for (let i = 0; i < 20; i++) { // the report can trail the click while the engine confirms the banner is gone
+          said = (await reported(BASE + c.page)).map((e) => e.action);
+          if (said.length || !told.length) break;
+          await sleep(250);
+        }
+        for (const answer of ['reject', 'accept']) {
+          if (said.includes(answer) !== told.includes(answer)) problems.push(`popup says ${JSON.stringify(said)}, site was told ${JSON.stringify(told)}`);
+        }
+      }
       await tab.close();
       if (problems.length) failed++;
       console.log(`${problems.length ? 'FAIL' : 'pass'}  ${mode.padEnd(6)} ${c.page.padEnd(30)} ${problems.join('; ')}`);

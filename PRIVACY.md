@@ -2,7 +2,7 @@
 
 **Cookie Policy Rejector collects no personal data.** No analytics, no crash reports, no logs, no identifiers, no accounts, no ads, no remote configuration. The extension sends nothing to us or to anyone else.
 
-Last updated: 25 October 2026. Covers the extension on Chrome, Edge, Firefox and Safari, and the Safari companion app.
+Last updated: 25 November 2026. Covers the extension on Chrome, Edge, Firefox and Safari, and the Safari companion app.
 
 ## Who we are
 
@@ -16,8 +16,9 @@ Cookie Policy Rejector is open-source software ([MIT licence](LICENSE)) publishe
 | The address of the page (and of the page that embeds a consent iframe) | To apply the rules for known consent platforms, and to check whether you paused the extension on that site | Nowhere |
 | The address of the active tab, when you open the popup | To show the site name and the **Pause on this site** button | Nowhere |
 | Whether the extension runs in the active tab, when you open the popup | To tell you when a page needs a reload or site access | Nowhere |
+| The site's own cookies, in refuse mode only (the same ones the page itself can read) | To delete well-known tracking cookies (Google Analytics, Meta, Microsoft, Hotjar, TikTok and similar) and an earlier "yes" that the site's consent tool stored, so your refusal actually holds | Nowhere. Only the names on a fixed list in [`content/cookies.js`](extension/content/cookies.js) are deleted; sign-in, cart, language and refusal cookies are never touched. |
 
-It never types into any field, never reads or changes cookies, and leaves sign-in forms, search boxes and newsletter dialogs alone.
+It never types into any field, never sets a cookie, and leaves sign-in forms, search boxes and newsletter dialogs alone. In approve mode, and on sites you paused, it does not touch cookies at all.
 
 ## What it stores on your device
 
@@ -29,6 +30,7 @@ Everything lives in the browser's extension storage, is visible only to this ext
 | `paused` | The sites **you** paused, e.g. `{ "example.com": true }` |
 | `stats` | Three counters: banners refused, approved, hidden |
 | `debug` | Off unless you turn it on in the developer console |
+| `revoked` | When refuse mode last withdrew an earlier "yes" on a site, e.g. `{ "example.com OneTrust": 1764028800000 }`, so it does that at most once every 12 hours. Entries older than 12 hours are dropped. |
 | `tab:<number>` (session storage) | For the toolbar badge: up to 20 entries like `{ cmp: "OneTrust", action: "reject" }`. No addresses. Removed when the tab closes or the browser quits. |
 
 There is no history of the sites you visit, and no log of any kind.
@@ -60,7 +62,7 @@ We do not process personal data, so there is nothing for us to give you a copy o
 - **`storage`**: keeps the settings and counters listed above on your device.
 - **`scripting`**: right after you install it, the extension starts its own banner script in tabs that were already open, so those pages are covered without a reload. It runs only the script inside the extension, never code from the internet.
 
-The full source is in [`extension/`](extension/): about 1,500 lines of plain JavaScript, with no dependencies and no minification. To check that it sends nothing, open the extension's service worker (`chrome://extensions` → **Inspect views**) and watch the **Network** tab while you browse. It stays empty.
+The full source is in [`extension/`](extension/): about 1,800 lines of plain JavaScript, with no dependencies and no minification. To check that it sends nothing, open the extension's service worker (`chrome://extensions` → **Inspect views**) and watch the **Network** tab while you browse. It stays empty.
 
 ## Safari app (macOS, iPhone, iPad)
 

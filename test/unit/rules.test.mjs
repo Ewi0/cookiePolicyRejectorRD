@@ -35,7 +35,7 @@ test('every rule is well formed', () => {
     assert.ok(typeof r.name === 'string' && r.name.length > 0 && r.name.length <= 24, `${where}: name fits the popup`);
     assert.ok(isSelector(r.detect), `${where}: detect`);
     if (r.root !== undefined) assert.ok(isSelector(r.root), `${where}: root`);
-    for (const key of ['hide', 'unlock']) {
+    for (const key of ['hide', 'unlock', 'layers']) {
       if (r[key] !== undefined) assert.ok(Array.isArray(r[key]) && r[key].every(isSelector), `${where}: ${key}`);
     }
     assert.ok([undefined, true, 'any'].includes(r.frame), `${where}: frame`);

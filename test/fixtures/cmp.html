@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Consent platform look-alike</title><script src="harness.js"></script><script src="cmps.js"></script></head>
+<body>
+<script>
+  // cmp.html?cmp=<id>: one of the look-alikes in cmps.js on an ordinary article page.
+  document.body.insertAdjacentHTML('afterbegin', article());
+  mountCmp(new URLSearchParams(location.search).get('cmp'));
+</script>
+</body>
+</html>

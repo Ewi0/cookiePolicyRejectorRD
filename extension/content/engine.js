@@ -16,6 +16,7 @@
   const MAX_TEXT = 5000;
   const SKIP_TAGS = new Set(['script', 'style', 'noscript', 'template', 'svg', 'head', 'title', 'textarea', 'select', 'option', 'iframe']);
   const CLICKABLE = 'button, a, [role="button"], [role="link"], input[type="button"], input[type="submit"], [onclick], [tabindex]:not([tabindex="-1"]), [class*="btn" i], [class*="button" i]';
+  const TOGGLES = 'input[type="checkbox"], [role="switch"], [role="checkbox"]';
   const TEXT_INPUTS = 'input:not([type]), input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="tel"], input[type="number"], textarea';
   const RULES = CPR.rules.filter(ruleApplies);
   const KNOWN = RULES.filter((r) => r.conceal !== false).flatMap((r) => [r.detect, ...(r.hide || [])]).join(', ');
@@ -211,7 +212,7 @@
   }
   function uncheckAll(box) {
     const pressed = [];
-    for (const el of deepAll('input[type="checkbox"], [role="switch"], [role="checkbox"]', box)) {
+    for (const el of deepAll(TOGGLES, box)) {
       if (el.disabled || el.getAttribute('aria-disabled') === 'true') continue;
       if (pressed.some((p) => p.contains(el) || el.contains(p))) continue;
       const on = el instanceof HTMLInputElement ? el.checked : el.getAttribute('aria-checked') === 'true';
@@ -224,8 +225,10 @@
     log.push({ cmp, action });
     send({ type: 'cpr:handled', cmp, action });
   }
+  /** Lets prehide.css go once nothing is in progress and the first watch is over. Releasing earlier
+   *  would let a second, later consent tool on the same page flash on screen. */
   function release() {
-    if (!busy.size && !flow) html.setAttribute('data-cpr-done', '');
+    if (!busy.size && !flow && (late || !running)) html.setAttribute('data-cpr-done', '');
   }
   const userOpened = () => Date.now() - userOpenedAt < 5000;
 
@@ -234,6 +237,8 @@
     knownQueued = false;
     for (const rule of RULES) {
       if (done.has(rule) || busy.has(rule)) continue;
+      // Searching every shadow root is costly; only do it where the platform's host element exists.
+      if (rule.shadow && rule.root && !qsa(document, rule.root).length) continue;
       const el = queryAll(rule.detect, rule.shadow).find(isShown);
       if (el) runRule(rule, el);
     }
@@ -248,20 +253,29 @@
     const root = (rule.root && closestDeep(el, rule.root)) || el;
     dbg('rule', rule.name, mode, describe(root));
     if (userOpened()) return finishRule(rule, null);
-    if (rule.conceal !== false && rule.prehide === false) conceal(root);
+    // prehide.css stops covering banners once the first watch is over: hide this one from here.
+    if (rule.conceal !== false && (rule.prehide === false || html.hasAttribute('data-cpr-done'))) conceal(root);
     let action = null;
     if (rule.delegate) {
       unlockScroll(rule.unlock);
       if (!(await waitFor(() => !isShown(el), rule.delegate))) action = 'hide';
     } else {
+      // Only a plan that ran to its last step and made the banner go away counts as an answer. A banner
+      // that closed by itself, or a half-finished plan (settings opened, no refuse button found), is
+      // never reported as refused: it is hidden, and the popup says so.
+      let answered = false;
+      let touched = false;
       for (const plan of rule[mode] || []) {
-        if (!isShown(el)) break;
-        const pressed = await runPlan(rule, plan);
+        if (!touched && !isShown(el)) break;
+        const r = await runPlan(rule, plan);
+        touched ||= r.pressed;
+        if (!r.done) continue;
         // The host page usually tears a consent iframe down the instant it is answered.
-        if (pressed && rule.frame === true) return finishRule(rule, mode);
-        if (pressed && (await waitFor(() => !isShown(el), 2500))) break;
+        if (rule.frame === true) return finishRule(rule, mode);
+        if (await waitFor(() => !isShown(el) && !layersShown(rule), 2500)) { answered = true; break; }
       }
-      action = isShown(el) ? 'hide' : mode;
+      action = answered ? mode : isShown(el) || touched || layersShown(rule) ? 'hide' : null;
+      if (!action) dbg('rule', rule.name, 'closed by itself: nothing to report');
     }
     // Inside an iframe there is nothing useful to hide: the page-level rule hides the container.
     if (action === 'hide' && rule.frame === true) return finishRule(rule, null);
@@ -279,13 +293,24 @@
     if (action) report(rule.name, action);
     release();
   }
+  /** Second layers a rule opens (a preference centre): answered only once these are gone too. */
+  const layersShown = (rule) => (rule.layers || []).some((sel) => queryAll(sel, rule.shadow).some(isShown));
+  const uiShown = (rule) => queryAll(rule.detect, rule.shadow).some(isShown) || layersShown(rule);
+  /** A container counts if it is on screen or holds a control that is: wrappers around fixed-position
+   *  dialogs often have no box of their own. */
+  const present = (box) => isShown(box) || deepAll(`${CLICKABLE}, ${TOGGLES}`, box).some(isShown);
+  /** Runs one plan. done: every required step found its target. pressed: anything was clicked at all. */
   async function runPlan(rule, plan) {
     const steps = typeof plan === 'string' ? [{ click: plan }] : plan;
+    let pressed = false;
     for (let i = 0; i < steps.length; i++) {
+      // An optional last step ("save") is not needed once the answer already closed the platform's UI.
+      if (pressed && steps[i].optional && !uiShown(rule)) break;
       const ok = await runStep(rule, steps[i], i === 0 ? 400 : 3000, i === steps.length - 1);
-      if (!ok && !steps[i].optional) return false;
+      pressed ||= ok;
+      if (!ok && !steps[i].optional) return { done: false, pressed };
     }
-    return true;
+    return { done: true, pressed };
   }
   async function runStep(rule, step, timeout, last) {
     const deep = Boolean(rule.shadow);
@@ -294,7 +319,7 @@
       target = await waitFor(() => queryAll(step.click, deep).find((e) => isShown(e) && !e.disabled), timeout);
     } else if (step.text) {
       target = await waitFor(() => {
-        for (const box of queryAll(step.in, deep).filter(isShown)) {
+        for (const box of queryAll(step.in, deep).filter(present)) {
           const c = classify(box);
           const hit = step.text === 'accept' ? c.accept[0] || c.weak[0] : c[step.text][0];
           if (hit) return hit;
@@ -302,7 +327,7 @@
         return null;
       }, timeout);
     } else if (step.uncheck) {
-      const box = await waitFor(() => queryAll(step.uncheck, deep).find(isShown), timeout);
+      const box = await waitFor(() => queryAll(step.uncheck, deep).find(present), timeout);
       if (box) { uncheckAll(box); await sleep(200); }
       return Boolean(box);
     }
@@ -546,6 +571,11 @@
       late = true;
       timers.forEach(clearTimeout);
       timers = [];
+      // Known tools often reveal a banner that is already in the page by flipping a class, which adds
+      // no nodes. Look for that every few seconds for the next few minutes (one selector check per rule).
+      const until = Date.now() + 5 * 60000;
+      const poll = () => { if (running && Date.now() < until) { scanKnown(); timers.push(setTimeout(poll, 2000)); } };
+      timers.push(setTimeout(poll, 2000));
     } else stop();
     release();
   }
@@ -558,8 +588,13 @@
     clearTimeout(hiddenTimer);
     hiddenTimer = 0;
   }
+  /** Refuse mode in the top frame: keep known tracking cookies out of the site's jar. */
+  function guardCookies() {
+    CPR.cookies?.guard(isTop && mode === 'reject' && !paused, (names) => dbg('deleted tracking cookies', names.join(', ')));
+  }
   function applyPaused(next) {
     paused = next;
+    guardCookies();
     if (paused) {
       stop();
       html.setAttribute('data-cpr-off', '');
@@ -568,6 +603,24 @@
       html.removeAttribute('data-cpr-off');
       start();
     }
+  }
+
+  /** An earlier "yes" stored by the site's consent tool (from before the install, or from approve mode)
+   *  would keep the banner away and the tracking on. Delete it before the consent script reads it, so the
+   *  banner comes back and is refused. At most once per site and platform every 12 hours, so a tool that
+   *  stores a "yes" by itself (an always-on category) cannot make it loop. */
+  function revoke(revoked) {
+    const now = Date.now();
+    const DAY_HALF = 12 * 3600000;
+    const key = (name) => `${site} ${name}`;
+    if (!CPR.cookies || !site) return;
+    let reset = [];
+    try { reset = CPR.cookies.revokeStale((name) => now - (revoked[key(name)] || 0) < DAY_HALF); } catch { /* no cookie access here */ }
+    if (!reset.length) return;
+    dbg('withdrew an earlier yes', reset.join(', '));
+    const keep = Object.fromEntries(Object.entries(revoked).filter(([, t]) => now - t < DAY_HALF));
+    for (const name of reset) keep[key(name)] = now;
+    try { ext.storage.local.set({ revoked: keep })?.catch?.(() => {}); } catch { /* storage unavailable */ }
   }
 
   // The user asked for the consent UI ("Cookie settings" in a footer): stand back.
@@ -593,7 +646,7 @@
   ext?.storage?.onChanged?.addListener((changes, area) => {
     if (area !== 'local') return;
     if (changes.debug) debug = Boolean(changes.debug.newValue);
-    if (changes.mode) mode = changes.mode.newValue === 'accept' ? 'accept' : 'reject';
+    if (changes.mode) { mode = changes.mode.newValue === 'accept' ? 'accept' : 'reject'; guardCookies(); }
     if (changes.paused) {
       const next = Boolean(site && changes.paused.newValue?.[site]);
       if (next !== paused) {
@@ -605,10 +658,11 @@
 
   (async () => {
     let cfg = {};
-    try { cfg = (await ext.storage.local.get({ mode: 'reject', paused: {}, debug: false })) || {}; } catch { /* storage unavailable */ }
+    try { cfg = (await ext.storage.local.get({ mode: 'reject', paused: {}, debug: false, revoked: {} })) || {}; } catch { /* storage unavailable */ }
     mode = cfg.mode === 'accept' ? 'accept' : 'reject';
     debug = Boolean(cfg.debug);
     const isPaused = Boolean(site && cfg.paused?.[site]);
+    if (isTop && mode === 'reject' && !isPaused) revoke(cfg.revoked || {});
     if (isTop) send({ type: 'cpr:page', paused: isPaused });
     applyPaused(isPaused);
   })();

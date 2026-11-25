@@ -107,7 +107,7 @@ async function main() {
 
     const run = async (c, mode, expected) => {
       const tab = await open(BASE + c.page);
-      const problems = await check(async () => JSON.parse(await tab.evaluate(PROBE)), c, expected, sleep);
+      const problems = await check(async () => JSON.parse(await tab.evaluate(PROBE)), { ...c, mode }, expected, sleep);
       await tab.close();
       if (problems.length) failed++;
       console.log(`${problems.length ? 'FAIL' : 'pass'}  ${mode.padEnd(6)} ${c.page.padEnd(30)} ${problems.join('; ')}`);
