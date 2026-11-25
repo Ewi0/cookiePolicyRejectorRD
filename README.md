@@ -163,7 +163,9 @@ Bump `version` in `extension/manifest.json` and `package.json` (and **Version** 
 git tag v1.0.1 && git push origin v1.0.1
 ```
 
-GitHub Actions checks that the tag matches both files, runs both test suites, builds the store packages and publishes them, with checksums, as a GitHub release. [docs/PUBLISHING.md](docs/PUBLISHING.md) walks through every store, with the listing text and privacy answers ready to paste.
+No terminal at hand: open **Actions → Release → Run workflow** on `main` instead. It tags that commit with the version itself.
+
+Either way, GitHub Actions checks that the tag matches both files, runs both test suites, builds the store packages and publishes them, with checksums, as a GitHub release. [docs/PUBLISHING.md](docs/PUBLISHING.md) walks through every store, with the listing text and privacy answers ready to paste.
 
 - **Chrome Web Store / Edge Add-ons:** upload `dist/cookie-policy-rejector-chrome-<v>.zip`. The description, images and a justification for every permission are in [docs/PUBLISHING.md](docs/PUBLISHING.md). It collects no data.
 - **Firefox (AMO):** upload the Firefox zip. The add-on id is `cookie-policy-rejector@cookiepolicyrejector` (override with `GECKO_ID=… npm run build`). The data collection declaration is `none`.

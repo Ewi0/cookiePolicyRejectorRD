@@ -22,7 +22,7 @@ Start with Firefox Add-ons and the Chrome Web Store. Between them they cover eve
 ## Package
 
 1. Bump `version` in `extension/manifest.json` and `package.json`. Every upload needs a higher version than the last one.
-2. Push a tag (`git tag v1.0.1 && git push origin v1.0.1`) and take `cookie-policy-rejector-chrome-<v>.zip` from the GitHub release, or run `npm run build`.
+2. Release it: push a tag (`git tag v1.0.1 && git push origin v1.0.1`), or open **Actions → Release → Run workflow** on `main`, which tags the commit itself. Then take `cookie-policy-rejector-chrome-<v>.zip` from the GitHub release, or run `npm run build`.
 3. Upload the ZIP exactly as built: `manifest.json` sits at its root. CI runs the Chrome tests against this very ZIP, unzipped; to do the same locally, unzip it and run `CPR_EXTENSION=<folder> npm run test:chrome`.
 
 ## Store listing

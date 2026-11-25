@@ -1,10 +1,12 @@
 name: Release
 
-# Push a tag that matches the version in extension/manifest.json and package.json:
-#   git tag v1.0.1 && git push origin v1.0.1
+# Releases the version in extension/manifest.json and package.json, in either of two ways:
+#   - push a matching tag:   git tag v1.0.1 && git push origin v1.0.1
+#   - from the browser:      Actions → Release → Run workflow (on main). It tags that commit itself.
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -13,16 +15,39 @@ jobs:
   version:
     name: Tag matches the version
     runs-on: ubuntu-24.04
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
     steps:
       - uses: actions/checkout@v7
-      - run: |
-          for f in extension/manifest.json package.json; do
-            v=$(node -p "JSON.parse(require('fs').readFileSync('$f', 'utf8')).version")
-            if [ "v$v" != "$GITHUB_REF_NAME" ]; then
-              echo "::error file=$f::version $v does not match tag $GITHUB_REF_NAME"
+      - id: tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          v=$(node -p "require('./extension/manifest.json').version")
+          p=$(node -p "require('./package.json').version")
+          if [ "$v" != "$p" ]; then
+            echo "::error file=package.json::version $p does not match extension/manifest.json ($v)"
+            exit 1
+          fi
+          if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+            tag=$GITHUB_REF_NAME
+            if [ "v$v" != "$tag" ]; then
+              echo "::error file=extension/manifest.json::version $v does not match tag $tag"
               exit 1
             fi
-          done
+          else
+            tag=v$v
+            if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+              echo "::error::run the release on main, not on $GITHUB_REF_NAME"
+              exit 1
+            fi
+            if gh release view "$tag" >/dev/null 2>&1; then
+              echo "::error file=extension/manifest.json::$tag is already released: raise the version in extension/manifest.json and package.json first"
+              exit 1
+            fi
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
   test:
     needs: version
@@ -30,7 +55,7 @@ jobs:
 
   release:
     name: GitHub release
-    needs: test
+    needs: [version, test]
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -45,15 +70,17 @@ jobs:
         working-directory: dist
         run: sha256sum *.zip > SHA256SUMS.txt
 
+      # A pushed tag is used as it is; a release started from the browser creates its tag on this commit.
       - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          TAG: ${{ needs.version.outputs.tag }}
         run: |
-          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/SHA256SUMS.txt store/images/*.png \
-            --title "Cookie Policy Rejector $GITHUB_REF_NAME" \
-            --verify-tag --generate-notes --notes-file - <<'EOF'
-          **Install it from your browser's store:** see [Get it](${{ github.server_url }}/${{ github.repository }}#get-it) for every device.
+          gh release create "$TAG" dist/*.zip dist/SHA256SUMS.txt store/images/*.png \
+            --title "Cookie Policy Rejector $TAG" --target "$GITHUB_SHA" \
+            --generate-notes --notes-file - <<'EOF'
+          **Install it from your browser's store:** [Chrome Web Store](https://chromewebstore.google.com/detail/cookie-policy-rejector/lflnndjeicnjhnocjpjdfekfpmpjohke) for Chrome, Edge, Brave, Opera, Vivaldi and Arc. Every other device: see [Get it](${{ github.server_url }}/${{ github.repository }}#get-it).
 
           Files in this release, for store uploads and manual installs:
 
